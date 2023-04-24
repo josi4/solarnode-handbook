@@ -1,0 +1,4 @@
+nav:
+    - Introduction: index.md
+    - configuration.md
+    - placeholders.md

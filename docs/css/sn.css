@@ -1,0 +1,3 @@
+.props-explicit-col-widths th:nth-child(1) { width: 20%; }
+.props-explicit-col-widths th:nth-child(2) { width: 10%; }
+.props-explicit-col-widths th:nth-child(3) { width: 40%; }
