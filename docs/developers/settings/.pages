@@ -1,0 +1,7 @@
+nav:
+    - Introduction: index.md
+    - provider.md
+    - specifier.md
+    - resource-handler.md
+    - singleton.md
+    - factory.md
