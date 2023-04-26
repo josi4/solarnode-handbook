@@ -68,6 +68,10 @@ nav:
     - Service: services
 ```
 
+This ends up generating the Handbook navigation, that looks like this:
+
+<img alt="Handbook navigation screen shot" src="rsrc/nav-example.png" width="208">
+
 The structure of each navigation item (the lines starting with `  - `) is
 
 ```
