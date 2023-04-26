@@ -1,6 +1,5 @@
 site_name: SolarNode Handbook
 site_url: https://solarnetwork.github.io/solarnode-handbook/
-repo_url: https://github.com/SolarNetwork/solarnode-handbook
 
 theme:
     name: material
@@ -8,8 +7,11 @@ theme:
     features:
         - content.code.annotate
         - content.code.copy
+        - navigation.indexes
         - navigation.instant
+        - navigation.path
         - navigation.tracking
+        - toc.follow
     palette:
         # Palette toggle for light mode
         - media: "(prefers-color-scheme: light)"
