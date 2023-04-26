@@ -1,4 +1,6 @@
 site_name: SolarNode Handbook
+site_url: https://solarnetwork.github.io/solarnode-handbook/
+repo_url: https://github.com/SolarNetwork/solarnode-handbook
 
 theme:
     name: material
