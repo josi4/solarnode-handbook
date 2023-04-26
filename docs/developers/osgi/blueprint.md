@@ -1,7 +1,7 @@
 # Blueprint
 
 SolarNode supports the OSGi Blueprint Container Specification so plugins can declare their service
-dependencies and publish their services by way of an XML file deployed with the plugin. If you are
+dependencies and register their services by way of an XML file deployed with the plugin. If you are
 familiar with the [Spring Framework's XML configuration][spring-xml-config], you will find Blueprint
 very similar. SolarNode uses the [Eclipse Gemini][eclipse-gemini-blueprint] implementation of the
 Blueprint specification, which is directly derived from Spring Framework.
@@ -10,6 +10,91 @@ Blueprint specification, which is directly derived from Spring Framework.
 	This guide will not document the full Blueprint XML syntax. Rather, it will attempt to showcase the
 	most common parts used in SolarNode. Refer to the [Blueprint Container
 	Specification][osgi-blueprint] for full details of the specification.
+
+## Example
+
+Imagine you are working on a plugin and have a `com.example.Greeter` interface you would like to
+register as a service for other plugins to use, and an implementation of that service in
+ `com.example.HelloGreeter` that relies on the [Placeholder
+ Service](../services/placeholder-service.md) provided by SolarNode:
+
+=== "Greeter service"
+
+	```java
+	package com.example;
+	public interface Greeter {
+
+		/**
+		 * Greet something with a given name.
+		 * @param name the name to greet
+		 * @return the greeting
+		 */
+		String greet(String name);
+
+	}
+	```
+
+=== "HelloGreeter implementation"
+
+	```java
+	package com.example;
+	import net.solarnetwork.node.service.PlaceholderService;
+	public class HelloGreeter implements Greeter {
+
+		private final PlaceholderService placeholderService;
+
+		public HelloGreeter(PlaceholderService placeholderService) {
+			super();
+			this.placeholderService = placeholderService;
+		}
+
+		@Override
+		public String greet(String name) {
+			return placeholderService.resolvePlaceholders(
+				String.format("Hello %s, from {myName}.", name),
+				null);
+		}
+	}
+	```
+
+Assuming the `PlaceholderService` will resolve `{name}` to `Office Node`, we would expect the `greet()` method to
+run like this:
+
+```java
+Greeter greeter = resolveGreeterService();
+String result = greeter.greet("Joe");
+// result is "Hello Joe, from Office Node."
+```
+
+In the plugin we then need to:
+
+ 1. Obtain a `net.solarnetwork.node.service.PlaceholderService` to pass to the
+    `HelloGreeter(PlaceholderService)` constructor
+ 2. Register  the `HelloGreeter` comopnent as a `com.example.Greeter` service in the SolarNode
+    platform
+
+Here is an example Blueprint XML document that does both:
+
+```xml title="Blueprint XML example"
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.osgi.org/xmlns/blueprint/v1.0.0
+		https://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
+
+	<!-- Declare a reference (lookup) to the PlaceholderService -->
+	<reference id="placeholderService"
+		interface="net.solarnetwork.node.service.PlaceholderService"/>
+
+	<service interface="com.example.Greeter">
+		<bean class="com.example.HelloGreeter">
+			<argument ref="placeholderService">
+		</bean>
+	</service>
+
+</blueprint>
+```
 
 ## Blueprint XML Resources
 
@@ -28,7 +113,7 @@ A minimal Blueprint XML file is structured like this:
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="
 		http://www.osgi.org/xmlns/blueprint/v1.0.0
-		http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
+		https://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
 
 	<!-- Plugin components configured here -->
 
@@ -37,10 +122,10 @@ A minimal Blueprint XML file is structured like this:
 
 ### Service References
 
-To make use of services published by SolarNode plugins, you declare a _reference_ to that service so
-you may refer to it in your own component. For example, imagine you wanted to use the [Placeholder
-Service](services/placeholder-service.md) in your component. You would obtain a reference to that
-like this:
+To make use of services registered by SolarNode plugins, you declare a _reference_ to that service
+so you may refer to it elsewhere within the Blueprint XML. For example, imagine you wanted to use
+the [Placeholder Service](../services/placeholder-service.md) in your component. You would obtain a
+reference to that like this:
 
 ```xml
 <reference id="placeholderService"
@@ -88,10 +173,11 @@ public class MyComponent {
 }
 ```
 
-Here is how that component could be written in Blueprint:
+Here is how that component could be declared in Blueprint:
 
 ```xml
-<reference id="placeholderService" interface="net.solarnetwork.node.service.PlaceholderService"/>
+<reference id="placeholderService"
+	interface="net.solarnetwork.node.service.PlaceholderService"/>
 
 <bean id="myComponent" class="com.example.MyComponent">
 	<argument ref="placeholderService">
@@ -116,7 +202,10 @@ For example:
 
 #### Property Accessors
 
-You can configure mutable class properties on a component with nested `<property name="">` elements in Blueprint.
+You can configure mutable class properties on a component with nested `<property name="">` elements
+in Blueprint. A _mutable property_ is a Java setter method. For example an `int` property `minimum`
+would be associated with a Java setter method `#!java public void setMinimum(int value)`.
+
 The `<property>` value can be specified as a reference to another component
 using a `ref` attribute whose value is the `id` of that component, or as a literal value using a
 `value` attribute.
@@ -143,15 +232,15 @@ stopped). You simply provide the name of the method you would like Blueprint to 
 	destroy-method="shutdown">
 ```
 
-### Published Services
+### Service Registration
 
-You can make any component available to other plugins by _publishing_ the component with a
-`<service>` element that declares what interface(s) your component provides. Once published, other
+You can make any component available to other plugins by _registering_ the component with a
+`<service>` element that declares what interface(s) your component provides. Once registered, other
 plugins can make use of your component, for example by declaring a `<referenece>` to your component
 class in _their_ Blueprint XML.
 
 !!! note
-	You can only publish Java _interfaces_ as services, not _classes_.
+	You can only register Java _interfaces_ as services, not _classes_.
 
 For example, imagine a `com.example.Startable` interface like this:
 
@@ -180,11 +269,27 @@ public class MyComponent implements Startable {
 }
 ```
 
-We can publish `MyComponent` as a `Startable` service like this in Blueprint:
+We can register `MyComponent` as a `Startable` service using a `<service>` element like this in
+Blueprint:
 
-```xml
-<service ref="myComponent" interface="com.example.Startable"/>
-```
+=== "Direct service component"
+
+	```xml
+	<service interface="com.example.Startable">
+		<!-- The service implementation is nested directly within -->
+		<bean class="com.example.MyComponent"/>
+	</service>
+	```
+
+=== "Indirect service component"
+
+	```xml
+	<!-- The service implementation is referenced indirectly... -->
+	<service ref="myComponent" interface="com.example.Startable"/>
+
+	<!-- ... to a bean with a matching id attribute -->
+	<bean id="myComponent" class="com.example.MyComponent"/>
+	```
 
 #### Multiple Service Interfaces
 

@@ -3,9 +3,26 @@ site_name: SolarNode Handbook
 theme:
     name: material
     features:
-        - content.code.annotate 
+        - content.code.annotate
         - content.code.copy
         - navigation.instant
+        - navigation.tracking
+    palette:
+        # Palette toggle for light mode
+        - media: "(prefers-color-scheme: light)"
+          scheme: default
+          primary: amber
+          toggle:
+            icon: material/brightness-7
+            name: Switch to dark mode
+
+        # Palette toggle for dark mode
+        - media: "(prefers-color-scheme: dark)"
+          scheme: slate
+          primary: amber
+          toggle:
+            icon: material/brightness-4
+            name: Switch to light mode
 
 extra_css:
   - css/sn.css

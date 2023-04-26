@@ -1,4 +1,5 @@
 nav:
     - Introduction: index.md
-    - Blueprint: blueprint.md
+    - Plugins: osgi
+    - Settings: settings
     - Services: services

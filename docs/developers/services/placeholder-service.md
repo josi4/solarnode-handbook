@@ -6,7 +6,7 @@ a datum data source plugin could use the Placeholder Service to support resolvin
 configurable Source ID property.
 
 SolarNode provides a [Placeholder Service implementation][SettingsPlaceholderService] that resolves
-both dynamic placeholders from the [Setting Database](setting-db.md) (using the setting namespace
+both dynamic placeholders from the [Settings Database](settings-db.md) (using the setting namespace
 `placeholder`), and static placeholders from a configurable file or directory location.
 
 ## Use
@@ -46,8 +46,8 @@ public class MyComponent {
 ## Blueprint
 
 To use the Placeholder Service in your component, add either an [Optional Service][OptionalService]
-or explicit reference to your plugin's [Blueprint](../blueprint.md) XML file like this (depending on
-what your plugin requires):
+or explicit reference to your plugin's [Blueprint](../osgi/blueprint.md) XML file like this
+(depending on what your plugin requires):
 
 === "Optional Service"
 
