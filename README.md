@@ -1,6 +1,6 @@
 # SolarNode Handbook Source
 
-This project is the source for the SolarNode Handbook.
+This project is the source for the [SolarNode Handbook](https://solarnetwork.github.io/solarnode-handbook/).
 
 # Contributions welcome!
 
