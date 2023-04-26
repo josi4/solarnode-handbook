@@ -19,6 +19,18 @@ To summarize: _everything_ in SolarNode is a plugin!
 
 Practically speaking a plugin, which is an OSGi bundle, is simply a Java JAR file that includes
 the Java code implementing your plugin and some OSGi metadata in its [Manifest](manifest.md).
+For example, here is the contents of the `net.solarnetwork.common.jdt` plugin JAR:
+
+```
+META-INF/MANIFEST.MF
+net/solarnetwork/common/jdt/Activator.class
+net/solarnetwork/common/jdt/ClassLoaderNameEnvironment.class
+net/solarnetwork/common/jdt/CollectingCompilerRequestor.class
+net/solarnetwork/common/jdt/CompilerUtils.class
+net/solarnetwork/common/jdt/JdtJavaCompiler.class
+net/solarnetwork/common/jdt/MapClassLoader.class
+net/solarnetwork/common/jdt/ResourceCompilationUnit.class
+```
 
 ## Services
 
