@@ -2,6 +2,7 @@ site_name: SolarNode Handbook
 
 theme:
     name: material
+    logo: images/logo.png
     features:
         - content.code.annotate
         - content.code.copy
