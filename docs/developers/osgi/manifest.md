@@ -174,7 +174,7 @@ Import-Package:
  net.solarnetwork.service.support;version="[1.1,2.0)"
 ```
 
-# Package exports
+## Package exports
 
 A plugin can _export_ any package it provides, making the resources within that package available to
 _other_ plugins to import and use. Declare exoprted packages with a `Export-Package` attribute. This
@@ -188,8 +188,11 @@ Export-Package: com.example.service;version="1.0.0"
 
 !!! note
 
-	Exported packages should not be confused with [registered services](blueprint.md#service-registration).
-	Exported packages give plugins access to the classes and any other resources declared
+	Exported packages should not be confused with [services](index.md#services). Exported packages
+	give other plugins access to the classes and any other resources within those packages, but do
+	not provide services to the platform. You can use [Blueprint](blueprint.md#service-registration)
+	to register services. Keep in mind that any service a plugin registers must exist within an
+	exported package to be of any use.
 
 [jar]: https://docs.oracle.com/javase/8/docs/technotes/guides/jar/jar.html
 [nsc-jdt-manifest]: https://github.com/SolarNetwork/solarnetwork-common/blob/develop/net.solarnetwork.common.jdt/META-INF/MANIFEST.MF

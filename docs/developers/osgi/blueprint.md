@@ -305,6 +305,21 @@ element within the `<service>` element, in place of the `interface` attribute. F
 </service>
 ```
 
+#### Export service packages
+
+For a registered service to be of any use to another plugin, the package the service is defined in
+_must_ be [exported](manifest.md#package-exports) by the plugin hosting that package. That is
+because the plugin wishing to add a [reference](#service-references) to the service will need to
+[import](manifest.md#package-dependencies) the package in order to use it.
+
+For example, the plugin that hosts the `com.example.service.MyService` service would need a
+[manifest](manifest.md) file that includes an [`Export-Package`](manifest.md#package-exports)
+attribute similar to:
+
+```properties
+Export-Package: com.example.service;version="1.0.0"
+```
+
 [eclipse-gemini-blueprint]: https://eclipse.org/gemini/blueprint/
 [osgi-blueprint]: https://docs.osgi.org/specification/osgi.cmpn/7.0.0/service.blueprint.html
 [spring-xml-config]: https://docs.spring.io/spring-framework/docs/5.3.0/reference/html/core.html#beans-factory-metadata
