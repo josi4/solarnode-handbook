@@ -1,5 +1,5 @@
 nav:
-    - Introduction: index.md
+    - index.md
     - Plugins: osgi
     - Settings: settings
     - Services: services

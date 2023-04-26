@@ -1,4 +1,5 @@
 nav:
-    - Introduction: index.md
+    - index.md
     - manifest.md
+    - life-cycle.md
     - blueprint.md

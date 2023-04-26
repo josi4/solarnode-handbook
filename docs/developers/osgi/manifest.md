@@ -120,7 +120,7 @@ Other common manifest attributes are:
 
 | Attribute | Example | Description |
 |:----------|:--------|:------------|
-| `Bundle-Activator` | com.example.awesome.Activator | a fully-qualified Java class name that implements the `org.osgi.framework.BundleActivator` interface, to handle plugin lifecycle events |
+| `Bundle-Activator` | com.example.awesome.Activator | a fully-qualified Java class name that implements the `org.osgi.framework.BundleActivator` interface, to handle plugin lifecycle events; see [Activator](life-cycle.md) for more information |
 | `Export-Package` | net.solarnetwork.common.jdt;version="2.0.0" | a [package export](#package-exports) list |
 | `Import-Package` | net.solarnetwork.service;version="[1.0,2.0)" | a [package dependency](#package-dependencies) list |
 
