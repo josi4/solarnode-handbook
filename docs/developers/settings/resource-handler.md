@@ -147,7 +147,7 @@ for exporting. The `currentSettingResources()` method returns the resources to e
 The SolarNode GUI shows a form menu with all the available resources for all components that support
 the `SettingResourceHandler` API, and lets the user to download them:
 
-![Resource export UI in SolarNode](/images/developers/settings/setting-resource-export-ui.png){width=482}
+![Resource export UI in SolarNode](../../images/developers/settings/setting-resource-export-ui.png){width=482}
 
 ### Exporting example
 

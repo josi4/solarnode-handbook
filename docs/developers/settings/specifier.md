@@ -37,7 +37,7 @@ setting _types_.
 
 Here is a view of the class hierarchy that builds off of this interface:
 
-![SettingSpecifier class hierarchy diagram](/images/developers/settings/setting-specifier-class-hierarchy.png){width=317}
+![SettingSpecifier class hierarchy diagram](../../images/developers/settings/setting-specifier-class-hierarchy.png){width=317}
 
 !!! note
 
@@ -57,7 +57,7 @@ configurable property and is the most common setting type. The setting defines a
 a setter method on its associated component class. In the SolarNode GUI a text field is rendered as
 an HTML form text input, like this:
 
-![Text field setting as an HTML form field](/images/developers/settings/text-field-setting.png){width=416}
+![Text field setting as an HTML form field](../../images/developers/settings/text-field-setting.png){width=416}
 
 The `net.solarnetwork.settings.support.BasicTextFieldSettingSpecifier` class provides the standard implementation
 of this API. A standard text field setting is created like this:
@@ -86,7 +86,7 @@ The `BasicTextFieldSettingSpecifier` can also be used for "secure" text fields w
 content is obscured from view. In the SolarNode GUI a secure text field is rendered as an HTML
 password form input like this:
 
-![Secure text field setting as an HTML form field](/images/developers/settings/secure-text-field-setting.png){width=435}
+![Secure text field setting as an HTML form field](../../images/developers/settings/secure-text-field-setting.png){width=435}
 
 A standard secure text field setting is created by passing a third `true` argument, like this:
 
@@ -104,7 +104,7 @@ configurable property for a larger text value, loaded as an external file using 
 [SettingResourceHandler](resource-handler.md) API. In the SolarNode GUI a text area is rendered
 as an HTML form text area with an associated button to upload the content, like this:
 
-![Text area setting as an HTML form field](/images/developers/settings/text-area-setting.png){width=476}
+![Text area setting as an HTML form field](../../images/developers/settings/text-area-setting.png){width=476}
 
 The `net.solarnetwork.settings.support.BasicTextAreaSettingSpecifier` class provides the standard implementation
 of this API. A standard text field setting is created like this:
@@ -122,7 +122,7 @@ The `BasicTextAreaSettingSpecifier` can also be used for "direct" text areas whe
 content is not uploaded as an external file. In the SolarNode GUI a direct text area is rendered as
 an HTML form text area, like this:
 
-![Direct text area setting as an HTML form field](/images/developers/settings/direct-text-area-setting.png){width=446}
+![Direct text area setting as an HTML form field](../../images/developers/settings/direct-text-area-setting.png){width=446}
 
 A standard direct text area setting is created by passing a third `true` argument, like this:
 
@@ -138,7 +138,7 @@ new BasicTextAreaSettingSpecifier("myProperty", null, true);
 The [`ToggleSettingSpecifier`][ToggleSettingSpecifier] defines a boolean configurable property. In
 the SolarNode GUI a toggle is rendered as an HTML form button, like this:
 
-![Toggle setting as an HTML form field](/images/developers/settings/toggle-setting.png){width=142}
+![Toggle setting as an HTML form field](../../images/developers/settings/toggle-setting.png){width=142}
 
 The `net.solarnetwork.settings.support.BasicToggleSettingSpecifier` class provides the standard implementation
 of this API. A standard toggle setting is created like this:

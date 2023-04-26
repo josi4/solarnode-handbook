@@ -5,7 +5,7 @@ called _settings_, to the platform. SolarNode provides a web-based GUI that make
 to configure those components using a web browser. For example, here is a screen shot of the
 SolarNode GUI showing a form for the settings of a Database Backup component:
 
-![SolarNode settings form for a component](/images/developers/settings/web-form.png){width=783}
+![SolarNode settings form for a component](../../images/developers/settings/web-form.png){width=783}
 
 The mechanism for components to describe themselves in this way is called the **Settings API**.
 Classes that wish to participate in this system publish metadata about their configurable properties,
