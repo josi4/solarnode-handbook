@@ -20,7 +20,7 @@ To summarize: _everything_ in SolarNode is a plugin!
 Practically speaking a plugin, which is an OSGi bundle, is simply a Java JAR file that includes
 the Java code implementing your plugin and some OSGi metadata in its [Manifest](manifest.md).
 
-# Services
+## Services
 
 Central to the plugin architecture SolarNode uses is the concept of a _service_. In SolarNode a
 service is defined by a Java interface. A plugin can _advertise_ a service to the SolarNode runtime.
