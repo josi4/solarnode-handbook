@@ -5,12 +5,12 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://solarnetwork.github.io/solarnode-handbook/developers/settings/" rel="canonical"/>
-<link href="../osgi/blueprint/" rel="prev"/>
-<link href="provider/" rel="next"/>
+<link href="https://solarnetwork.github.io/solarnode-handbook/users/networking/" rel="canonical"/>
+<link href="../getting-started/" rel="prev"/>
+<link href="../configuration/" rel="next"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.1.7" name="generator"/>
-<title>Introduction - SolarNode Handbook</title>
+<title>Networking - SolarNode Handbook</title>
 <link href="../../assets/stylesheets/main.ded33207.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -25,7 +25,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#settings">
+<a class="md-skip" href="#networking">
           Skip to content
         </a>
 </div>
@@ -49,7 +49,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Introduction
+              Networking
             
           </span>
 </div>
@@ -111,62 +111,99 @@
     SolarNode Handbook
   </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_1" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../users/">User Guide</a>
+<a href="../">User Guide</a>
 <label for="__nav_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_1">
 <span class="md-nav__icon md-icon"></span>
           User Guide
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../users/getting-started/">
+<a class="md-nav__link" href="../getting-started/">
         Getting Started
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../users/networking/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Networking
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
         Networking
       </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#wifi">
+    WiFi
+  </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../users/configuration/">
+<a class="md-nav__link" href="#finding-solarnodes-ip-address">
+    Finding SolarNode's IP address
+  </a>
+<nav aria-label="Finding SolarNode's IP address" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#consult-your-network-router">
+    Consult your network router
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#connect-a-keyboard-and-screen">
+    Connect a keyboard and screen
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../configuration/">
         Configuration
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../users/settings/">
+<a class="md-nav__link" href="../settings/">
         Settings Files
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../users/logging/">
+<a class="md-nav__link" href="../logging/">
         Logging
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../users/placeholders/">
+<a class="md-nav__link" href="../placeholders/">
         Placeholders
       </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../">Developer Guide</a>
+<a href="../../developers/">Developer Guide</a>
 <label for="__nav_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_2">
 <span class="md-nav__icon md-icon"></span>
           Developer Guide
@@ -175,7 +212,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../osgi/">Plugins</a>
+<a href="../../developers/osgi/">Plugins</a>
 <label for="__nav_2_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -187,59 +224,59 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../osgi/manifest/">
+<a class="md-nav__link" href="../../developers/osgi/manifest/">
         Manifest
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../osgi/life-cycle/">
+<a class="md-nav__link" href="../../developers/osgi/life-cycle/">
         Life cycle
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../osgi/blueprint/">
+<a class="md-nav__link" href="../../developers/osgi/blueprint/">
         Blueprint
       </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index md-nav__link--active">
-<a href="./">Settings</a>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../developers/settings/">Settings</a>
 <label for="__nav_2_3">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_2_3">
 <span class="md-nav__icon md-icon"></span>
           Settings
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="provider/">
+<a class="md-nav__link" href="../../developers/settings/provider/">
         Settings Provider
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="specifier/">
+<a class="md-nav__link" href="../../developers/settings/specifier/">
         Setting Specifier
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="resource-handler/">
+<a class="md-nav__link" href="../../developers/settings/resource-handler/">
         Setting Resource Handler
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="singleton/">
+<a class="md-nav__link" href="../../developers/settings/singleton/">
         Singleton Service
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="factory/">
+<a class="md-nav__link" href="../../developers/settings/factory/">
         Factory Service
       </a>
 </li>
@@ -259,27 +296,27 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../services/closeable-service/">
+<a class="md-nav__link" href="../../developers/services/closeable-service/">
         Closeable Service
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../services/job-scheduler/">
+<a class="md-nav__link" href="../../developers/services/job-scheduler/">
         Job Scheduler
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../services/placeholder-service/">
+<a class="md-nav__link" href="../../developers/services/placeholder-service/">
         Placeholder Service
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../services/settings-db/">
+<a class="md-nav__link" href="../../developers/services/settings-db/">
         Settings Database
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../services/settings-service/">
+<a class="md-nav__link" href="../../developers/services/settings-service/">
         Settings Service
       </a>
 </li>
@@ -298,25 +335,80 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#wifi">
+    WiFi
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#finding-solarnodes-ip-address">
+    Finding SolarNode's IP address
+  </a>
+<nav aria-label="Finding SolarNode's IP address" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#consult-your-network-router">
+    Consult your network router
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#connect-a-keyboard-and-screen">
+    Connect a keyboard and screen
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="settings"><span class="enumerate-headings-plugin enumerate-heading-plugin">13.</span> Settings<a class="headerlink" href="#settings" title="Permanent link">¶</a></h1>
-<p>SolarNode provides a way for plugin components to describe their user-configurable properties,
-called <em>settings</em>, to the platform. SolarNode provides a web-based GUI that makes it easy for users
-to configure those components using a web browser. For example, here is a screen shot of the
-SolarNode GUI showing a form for the settings of a Database Backup component:</p>
-<p><img alt="SolarNode settings form for a component with 3 settings" src="../../images/developers/settings/web-form.png" width="783"/></p>
-<p>The mechanism for components to describe themselves in this way is called the <strong>Settings API</strong>.
-Classes that wish to participate in this system publish metadata about their configurable properties
-through the <a href="provider/">Settings Provider</a> API, and then SolarNode generates a GUI form based on
-that metadata. Each form field in the previous example image is a <a href="specifier/">Setting Specifier</a>.</p>
-<p>The process is similar to the built-in Settings app on iOS: iOS applications can publish
-configurable property definitions and the Settings app displays a GUI that allows users to modify
-those properties.</p>
+<h1 id="networking"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.</span> Networking<a class="headerlink" href="#networking" title="Permanent link">¶</a></h1>
+<p>SolarNode will attempt to automatically configure networking access from a local DHCP server. For
+many deployments the local network router is the DHCP server. SolarNode will identify itself with
+the name <code>solarnode</code>, so in many cases you can reach the SolarNode setup app at <a href="http://solarnode/">http://solarnode/</a>.</p>
+<h2 id="wifi"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.1</span> WiFi<a class="headerlink" href="#wifi" title="Permanent link">¶</a></h2>
+<p>If your device will use WiFi for network access, you will need to configure the network name and credentials to use.
+You can do that by creating a <code>wpa_supplicant.conf</code> file on the SolarNodeOS media (typically an SD card). For Raspberry Pi media, you can mount the SD card on your computer and it will mount the appropriate drive for you.</p>
+<p><img alt="macOS and Windows SOLARBOOT disk image icon" src="../../images/users/os-solarboot-disk-icon.png" width="435"/></p>
+<p>Once mounted use your favorite text editor to create a <code>wpa_supplicant.conf</code> file with content like
+this:</p>
+<div class="highlight"><pre><span></span><code>country=nz
+network={
+    ssid="wifi network name here"
+    psk="wifi password here"
+}
+</code></pre></div>
+<p>Change the <code>country=nz</code> to match your own country code.</p>
+<h2 id="finding-solarnodes-ip-address"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2</span> Finding SolarNode's IP address<a class="headerlink" href="#finding-solarnodes-ip-address" title="Permanent link">¶</a></h2>
+<p>To find what IP address SolarNode is using, you have a few options:</p>
+<h3 id="consult-your-network-router"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2.1</span> Consult your network router<a class="headerlink" href="#consult-your-network-router" title="Permanent link">¶</a></h3>
+<p>Your local network router is very likely to have a record of SolarNode's network connection. Log
+into the router's management UI and look for a device named <code>solarnode</code>.</p>
+<h3 id="connect-a-keyboard-and-screen"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2.2</span> Connect a keyboard and screen<a class="headerlink" href="#connect-a-keyboard-and-screen" title="Permanent link">¶</a></h3>
+<p>If your SolarNode supports connecting a keyboard and screen, you can log into the SolarNode command line
+console and run <code class="highlight">ip<span class="w"> </span>-br<span class="w"> </span>addr</code> to print out a brief summary of the current networking configuration:</p>
+<div class="highlight"><pre><span></span><code>$ ip -br addr
+
+lo               UNKNOWN        127.0.0.1/8 ::1/128
+eth0             UP             192.168.0.254/24 fe80::e65f:1ff:fed1:893c/64
+wlan0            DOWN
+</code></pre></div>
+<p>In the previous output, SolarNode has an ethernet device <code>eth0</code> with an IP address <code>192.168.0.254</code>
+and a WiFi device <code>wlan0</code> that is not connected. You could reach that SolarNode at
+<code>http://192.168.0.254/</code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can get more details by running <code class="highlight">ip<span class="w"> </span>addr</code> (without the <code>-br</code> argument).</p>
+</div>
 </article>
 </div>
 </div>

@@ -96,7 +96,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://solarnetwork.github.io/solarnode-handbook/users/getting-started/</loc>
+         <lastmod>2023-04-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://solarnetwork.github.io/solarnode-handbook/users/logging/</loc>
+         <lastmod>2023-04-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://solarnetwork.github.io/solarnode-handbook/users/networking/</loc>
          <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>

@@ -5,12 +5,12 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://solarnetwork.github.io/solarnode-handbook/users/configuration/" rel="canonical"/>
-<link href="../networking/" rel="prev"/>
-<link href="../settings/" rel="next"/>
+<link href="https://solarnetwork.github.io/solarnode-handbook/users/getting-started/" rel="canonical"/>
+<link href="../" rel="prev"/>
+<link href="../networking/" rel="next"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.1.7" name="generator"/>
-<title>Configuration - SolarNode Handbook</title>
+<title>Getting Started - SolarNode Handbook</title>
 <link href="../../assets/stylesheets/main.ded33207.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -25,7 +25,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#configuration">
+<a class="md-skip" href="#getting-started">
           Skip to content
         </a>
 </div>
@@ -49,7 +49,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Configuration
+              Getting Started
             
           </span>
 </div>
@@ -125,24 +125,14 @@
           User Guide
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../getting-started/">
-        Getting Started
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../networking/">
-        Networking
-      </a>
-</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
-          Configuration
+          Getting Started
           <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
-        Configuration
+        Getting Started
       </a>
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">
@@ -151,12 +141,55 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#example">
-    Example
+<a class="md-nav__link" href="#get-solarnodeos">
+    Get SolarNodeOS
+  </a>
+<nav aria-label="Get SolarNodeOS" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#networking-configuration">
+    Networking configuration
   </a>
 </li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#associate-solarnode-with-solarnetwork">
+    Associate SolarNode with SolarNetwork
+  </a>
+<nav aria-label="Associate SolarNode with SolarNetwork" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#log-into-solarnetwork">
+    Log into SolarNetwork
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#create-solarnode-invitation">
+    Create SolarNode invitation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#accept-invitation-on-solarnode">
+    Accept invitation on SolarNode
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../networking/">
+        Networking
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../configuration/">
+        Configuration
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../settings/">
@@ -322,9 +355,42 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#example">
-    Example
+<a class="md-nav__link" href="#get-solarnodeos">
+    Get SolarNodeOS
   </a>
+<nav aria-label="Get SolarNodeOS" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#networking-configuration">
+    Networking configuration
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#associate-solarnode-with-solarnetwork">
+    Associate SolarNode with SolarNetwork
+  </a>
+<nav aria-label="Associate SolarNode with SolarNetwork" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#log-into-solarnetwork">
+    Log into SolarNetwork
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#create-solarnode-invitation">
+    Create SolarNode invitation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#accept-invitation-on-solarnode">
+    Accept invitation on SolarNode
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -333,22 +399,97 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="configuration"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.</span> Configuration<a class="headerlink" href="#configuration" title="Permanent link">¶</a></h1>
-<p>Some SolarNode components can be configured from properties files. This type of configuration is
-meant to be changed just once, when a SolarNode is first deployed, to alter some default
-configuration value. The <a href="https://en.wikipedia.org/wiki/.properties">properties files</a> are read from the <code>/etc/solarnode/services</code>
-directory and named like <code>NAMESPACE.cfg</code> , where <code>NAMESPACE</code> represents a <em>configuration namespace</em>.</p>
-<div class="admonition note">
-<p class="admonition-title">Configuration location</p>
-<p>The <code>/etc/solarnode/services</code> location is the default location in SolarNodeOS. It might be
-another location in other SolarNode deployments.</p>
+<h1 id="getting-started"><span class="enumerate-headings-plugin enumerate-heading-plugin">2.</span> Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">¶</a></h1>
+<p>This section describes how to get SolarNode running on a device.</p>
+<h2 id="get-solarnodeos"><span class="enumerate-headings-plugin enumerate-heading-plugin">2.1</span> Get SolarNodeOS<a class="headerlink" href="#get-solarnodeos" title="Permanent link">¶</a></h2>
+<p>SolarNodeOS is a complete operating system tailor made for SolarNode. You must download the
+appropriate SolarNodeOS image for the device you want to run SolarNode on and then copy that image
+to your device media (typically an SD card). You can use a tool like <a href="https://www.balena.io/etcher">Etcher</a> to help with
+that.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Raspberry Pi</label><label for="__tabbed_1_2">Orange Pi</label><label for="__tabbed_1_3">Something Else</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>The <a href="https://www.raspberrypi.com/">Raspberry Pi</a> is the best supported option for general SolarNode deployments. Models 3
+or later, Compute Module 3 or later, and Zero 2 W or later are supported. Use a tool like
+<a href="https://www.balena.io/etcher">Etcher</a> or <a href="https://www.raspberrypi.com/software/">Raspberry Pi Imager</a> to copy the
+image to an SD card (minimum size is 2 GB, 4 GB recommended).</p>
+<p><a class="md-button md-button--primary" href="https://sourceforge.net/projects/solarnetwork/files/solarnode/pi/"><span class="twemoji"><svg viewbox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zm192 0v128h128L256 0zm-40 232v102.1l31-31c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-72 72c-9.4 9.4-24.6 9.4-33.9 0l-72-72c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l31 31V232c0-13.3 10.7-24 24-24s24 10.7 24 24z"></path></svg></span> Download SolarNodeOS for Raspberry Pi</a></p>
 </div>
-<h2 id="example"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.1</span> Example<a class="headerlink" href="#example" title="Permanent link">¶</a></h2>
-<p>Imagine a component uses the configuration namespace <code>com.example.service</code> and supports a
-configurable property named <code>max-threads</code> that accepts an integer value you would like to configure
-as <code>4</code>. You would create a <code>com.example.service.properties</code> file like:</p>
-<div class="highlight"><span class="filename">/etc/solarnode/services/com.example.service.cfg</span><pre><span></span><code><span class="na">max-threads</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">4</span>
-</code></pre></div>
+<div class="tabbed-block">
+<p>The <a href="http://www.orangepi.org/">Orange Pi</a> models Zero and Zero Plus are supported. Use a tool like <a href="https://www.balena.io/etcher">Etcher</a> to copy
+the image to an SD card (minimum size is 1 GB, 4 GB recommended).</p>
+<p><a class="md-button md-button--primary" href="https://sourceforge.net/projects/solarnetwork/files/solarnode/orange-pi/"><span class="twemoji"><svg viewbox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zm192 0v128h128L256 0zm-40 232v102.1l31-31c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-72 72c-9.4 9.4-24.6 9.4-33.9 0l-72-72c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l31 31V232c0-13.3 10.7-24 24-24s24 10.7 24 24z"></path></svg></span> Download SolarNodeOS for Orange Pi</a></p>
+</div>
+<div class="tabbed-block">
+<p>Looking for SolarNodeOS for a device not listed here? Reach out to us through
+<a href="mailto:info@solarnetwork.net">email</a> or <a href="https://join.slack.com/t/solarnetwork-f8n/shared_invite/zt-1qhses7cw-FhwcUlSiYh~3KYIDouOH4w">Slack</a> to see if we can help!</p>
+</div>
+</div>
+</input></input></input></div>
+<h3 id="networking-configuration"><span class="enumerate-headings-plugin enumerate-heading-plugin">2.1.1</span> Networking configuration<a class="headerlink" href="#networking-configuration" title="Permanent link">¶</a></h3>
+<p>SolarNode needs a network connection. If your device has an ethernet port, that is the most reliable way
+to get started. See the <a href="../networking/">Networking</a> section for more information, including WiFi details.</p>
+<h2 id="associate-solarnode-with-solarnetwork"><span class="enumerate-headings-plugin enumerate-heading-plugin">2.2</span> Associate SolarNode with SolarNetwork<a class="headerlink" href="#associate-solarnode-with-solarnetwork" title="Permanent link">¶</a></h2>
+<p>Every SolarNode must be associated (registered) with a SolarNetwork account. To associate a SolarNode, you must:</p>
+<ol>
+<li>Log into <a href="https://data.solarnetwork.net/solaruser/">SolarNetwork</a></li>
+<li>Generate an <em>invitation</em> for a new SolarNode</li>
+<li>Paste the invitation into the SolarNode setup page and follow the instructions</li>
+</ol>
+<h3 id="log-into-solarnetwork"><span class="enumerate-headings-plugin enumerate-heading-plugin">2.2.1</span> Log into SolarNetwork<a class="headerlink" href="#log-into-solarnetwork" title="Permanent link">¶</a></h3>
+<p>If you do not already have a <a href="https://data.solarnetwork.net/solaruser/">SolarNetwork</a> account, <a href="https://data.solarnetwork.net/solaruser/register.do">register</a> for one and then log in.</p>
+<h3 id="create-solarnode-invitation"><span class="enumerate-headings-plugin enumerate-heading-plugin">2.2.2</span> Create SolarNode invitation<a class="headerlink" href="#create-solarnode-invitation" title="Permanent link">¶</a></h3>
+<p>Click on the <a href="https://data.solarnetwork.net/solaruser/u/sec/my-nodes">My Nodes</a> link. You will see an <strong>Invite New SolarNode</strong> button, like this:</p>
+<p><img alt="Empty My Nodes page on SolarNetwork" src="../../images/users/solaruser/mynodes-empty%402x.png" width="928"/></p>
+<p>Click the <strong>Invite New SolarNode</strong> button, then fill in and submit the form that appears and select your
+time zone by clicking on the world map:</p>
+<p><img alt="Choose node time zone on world map" src="../../images/users/solaruser/invite-node-choose-time-zone%402x.gif" width="582"/></p>
+<p>The generated SolarNode invitation will appear next.</p>
+<p><img alt="Generated SolarNode invitation" src="../../images/users/solaruser/node-invitation%402x.png" width="928"/></p>
+<p>Select and copy the <strong>entire</strong> invitation. You will need to paste that into the SolarNode setup
+screen in the next section.</p>
+<h3 id="accept-invitation-on-solarnode"><span class="enumerate-headings-plugin enumerate-heading-plugin">2.2.3</span> Accept invitation on SolarNode<a class="headerlink" href="#accept-invitation-on-solarnode" title="Permanent link">¶</a></h3>
+<p>Open the SolarNode setup app in your browser. The URL to use might be <a href="http://solarnode/">http://solarnode/</a> or it
+might be an IP address like <code>http://192.168.1.123</code>. See the <a href="../networking/">Networking</a> section for
+more information. You will be greeted with an invitation acceptance form into which you can paste
+the invitation you generated in SolarNetwork. The acceptance process goes through the following steps:</p>
+<ol>
+<li><strong>Submit</strong> the invitation in the acceptance form</li>
+<li><strong>Preview</strong> the invitation details</li>
+<li><strong>Confirm</strong> the invitation</li>
+</ol>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><input id="__tabbed_2_4" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Acceptance form</label><label for="__tabbed_2_2">Preview</label><label for="__tabbed_2_3">Confirm</label><label for="__tabbed_2_4">Complete</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>First you <strong>submit</strong> the invitation in the acceptance form.</p>
+<p><img alt="SolarNode invitation acceptance form" src="../../images/users/associate/invitation-form%402x.png" width="852"/></p>
+</div>
+<div class="tabbed-block">
+<p>Next you <strong>preview</strong> the invitation details.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The expected <strong>SolarNetwork Service</strong> value shown in this step will be <code>in.solarnetwork.net</code>.</p>
+</div>
+<p><img alt="SolarNode invitation preview" src="../../images/users/associate/invitation-preview%402x.png" width="852"/></p>
+</div>
+<div class="tabbed-block">
+<p>Finally, <strong>confirm</strong> the invitation. This step contacts SolarNetwork and completes the
+association process.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Ensure you provide a <strong>Certificate Password</strong> on this step, so SolarNetwork can generate
+a security certificate for your SolarNode.</p>
+</div>
+<p><img alt="Confirm SolarNode invitation details" src="../../images/users/associate/invitation-verify%402x.png" width="837"/></p>
+</div>
+<div class="tabbed-block">
+<p>When these steps are completed, SolarNetwork will have assigned your SolarNode a unique
+identifier known as your <strong>Node ID</strong>. A randomly generated SolarNode login password will have been
+generated; you are given the opportunity to easily change that if you prefer.</p>
+<p><img alt="SolarNode invitation complete" src="../../images/users/associate/invitation-complete%402x.png" width="852"/></p>
+</div>
+</div>
+</input></input></input></input></div>
 </article>
 </div>
 </div>
