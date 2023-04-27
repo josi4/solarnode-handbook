@@ -5,12 +5,12 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://solarnetwork.github.io/solarnode-handbook/developers/settings/singleton/" rel="canonical"/>
-<link href="../resource-handler/" rel="prev"/>
-<link href="../factory/" rel="next"/>
+<link href="https://solarnetwork.github.io/solarnode-handbook/developers/osgi/life-cycle/" rel="canonical"/>
+<link href="../manifest/" rel="prev"/>
+<link href="../blueprint/" rel="next"/>
 <link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.1.7" name="generator"/>
-<title>Singleton Service - SolarNode Handbook</title>
+<title>Life cycle - SolarNode Handbook</title>
 <link href="../../../assets/stylesheets/main.ded33207.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -25,7 +25,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#singleton-service">
+<a class="md-skip" href="#life-cycle">
           Skip to content
         </a>
 </div>
@@ -49,7 +49,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Singleton Service
+              Life cycle
             
           </span>
 </div>
@@ -157,75 +157,92 @@
           Developer Guide
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_2" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../osgi/">Plugins</a>
+<a href="../">Plugins</a>
 <label for="__nav_2_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_2_2_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="true" aria-labelledby="__nav_2_2_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_2_2">
 <span class="md-nav__icon md-icon"></span>
           Plugins
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../osgi/manifest/">
+<a class="md-nav__link" href="../manifest/">
         Manifest
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../osgi/life-cycle/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Life cycle
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
         Life cycle
       </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#activator">
+    Activator
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../osgi/blueprint/">
+<a class="md-nav__link" href="../blueprint/">
         Blueprint
       </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../">Settings</a>
+<a href="../../settings/">Settings</a>
 <label for="__nav_2_3">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_2_3">
 <span class="md-nav__icon md-icon"></span>
           Settings
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../provider/">
+<a class="md-nav__link" href="../../settings/provider/">
         Settings Provider
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../specifier/">
+<a class="md-nav__link" href="../../settings/specifier/">
         Settings Specifier
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../resource-handler/">
+<a class="md-nav__link" href="../../settings/resource-handler/">
         Setting Resource Handler
       </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../settings/singleton/">
         Singleton Service
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../factory/">
+<a class="md-nav__link" href="../../settings/factory/">
         Factory Service
       </a>
 </li>
@@ -284,13 +301,131 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#activator">
+    Activator
+  </a>
+</li>
+</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="singleton-service"><span class="enumerate-headings-plugin enumerate-heading-plugin">14.</span> Singleton Service<a class="headerlink" href="#singleton-service" title="Permanent link">¶</a></h1>
+<h1 id="life-cycle"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.</span> Life cycle<a class="headerlink" href="#life-cycle" title="Permanent link">¶</a></h1>
+<p>Plugins in SolarNode can be added to and removed from the platform at any time without restarting
+the SolarNode process, because of the <a href="https://en.wikipedia.org/wiki/OSGi#Life-cycle">Life Cycle</a> process OSGi manages. The life
+cycle of a plugin consists of a set of <em>states</em> and OSGi will transition a plugin's state over the
+course of the plugin's life.</p>
+<p>The available plugin states are:</p>
+<table>
+<thead>
+<tr>
+<th align="left">State</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>INSTALLED</code></td>
+<td align="left">The plugin has been successfully added to the OSGi framework.</td>
+</tr>
+<tr>
+<td align="left"><code>RESOLVED</code></td>
+<td align="left">All package dependencies that the bundle needs are available. This state indicates that the plugin is either ready to be started or has stopped.</td>
+</tr>
+<tr>
+<td align="left"><code>STARTING</code></td>
+<td align="left">The plugin is being started by the OSGi framework, but it has not finished starting yet.</td>
+</tr>
+<tr>
+<td align="left"><code>ACTIVE</code></td>
+<td align="left">The plugin has been successfully started and is running.</td>
+</tr>
+<tr>
+<td align="left"><code>STOPPING</code></td>
+<td align="left">The plugin is being stopped by the OSGi framework, but it has not finished stopping yet.</td>
+</tr>
+<tr>
+<td align="left"><code>UNINSTALLED</code></td>
+<td align="left">The plugin has been removed by the OSGi framework. It cannot change to another state.</td>
+</tr>
+</tbody>
+</table>
+<p>The possible changes in state can be visualized in the following state-change diagram:</p>
+<figure>
+<img alt="OSGi Life Cycle state change diagram" src="../../../images/developers/osgi/OSGi_Bundle_Life-Cycle.svg"/>
+<figcaption>Faisal.akeel, Public domain, via <a href="https://commons.wikimedia.org/wiki/File:OSGi_Bundle_Life-Cycle.svg">Wikimedia Common</a></figcaption>
+</figure>
+<h2 id="activator"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.1</span> Activator<a class="headerlink" href="#activator" title="Permanent link">¶</a></h2>
+<p>A plugin can opt in to receiving callbacks for the start/stop state transitions by providing an
+<code>org.osgi.framework.BundleActivator</code> implementation and declaring that class in the
+<a href="../manifest/#common-attributes"><code>Bundle-Activator</code> manifest attribute</a>. This can be useful when a
+plugin needs to initialize some resources when the plugin is started, and then release those
+resources when the plugin is stopped.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">BundleActivator API</label><label for="__tabbed_1_2">BundleActivator implementation example</label><label for="__tabbed_1_3">Manifest declaration example</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">BundleActivator</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * Called when this bundle is started so the Framework can perform the</span>
+<span class="cm">     * bundle-specific activities necessary to start this bundle.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param context The execution context of the bundle being started.</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">start</span><span class="p">(</span><span class="n">BundleContext</span><span class="w"> </span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="p">;</span>
+
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * Called when this bundle is stopped so the Framework can perform the</span>
+<span class="cm">     * bundle-specific activities necessary to stop the bundle.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param context The execution context of the bundle being stopped.</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">stop</span><span class="p">(</span><span class="n">BundleContext</span><span class="w"> </span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">com.example.activator</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.osgi.framework.BundleActivator</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.osgi.framework.BundleContext</span><span class="p">;</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Activator</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">BundleActivator</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">start</span><span class="p">(</span><span class="n">BundleContext</span><span class="w"> </span><span class="n">bundleContext</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// initialize resources here</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">stop</span><span class="p">(</span><span class="n">BundleContext</span><span class="w"> </span><span class="n">bundleContext</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// clean up resources here</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="na">Manifest-Version</span><span class="o">:</span><span class="w"> </span><span class="s">1.0</span>
+<span class="na">Bundle-ManifestVersion</span><span class="o">:</span><span class="w"> </span><span class="s">2</span>
+<span class="na">Bundle-Name</span><span class="o">:</span><span class="w"> </span><span class="s">Example Activator</span>
+<span class="na">Bundle-SymbolicName</span><span class="o">:</span><span class="w"> </span><span class="s">com.example.activator</span>
+<span class="na">Bundle-Version</span><span class="o">:</span><span class="w"> </span><span class="s">1.0.0</span>
+<span class="na">Bundle-Activator</span><span class="o">:</span><span class="w"> </span><span class="s">com.example.activator.Activator</span>
+<span class="na">Import-Package</span><span class="o">:</span><span class="w"> </span><span class="s">org.osgi.framework;version="[1.3,2.0)"</span>
+</code></pre></div>
+</div>
+</div>
+</input></input></input></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Often making use of the <a href="../blueprint/#startstop-hooks">component life cycle hooks</a> available in
+Blueprint are sufficient and no <code>BundleActivator</code> is necessary.</p>
+</div>
 </article>
 </div>
 </div>
