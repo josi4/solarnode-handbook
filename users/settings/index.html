@@ -5,12 +5,12 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://solarnetwork.github.io/solarnode-handbook/users/placeholders/" rel="canonical"/>
-<link href="../logging/" rel="prev"/>
-<link href="../../developers/" rel="next"/>
+<link href="https://solarnetwork.github.io/solarnode-handbook/users/settings/" rel="canonical"/>
+<link href="../configuration/" rel="prev"/>
+<link href="../logging/" rel="next"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.1.7" name="generator"/>
-<title>Placeholders - SolarNode Handbook</title>
+<title>Settings Files - SolarNode Handbook</title>
 <link href="../../assets/stylesheets/main.ded33207.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -25,7 +25,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#placeholders">
+<a class="md-skip" href="#settings-files">
           Skip to content
         </a>
 </div>
@@ -49,7 +49,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Placeholders
+              Settings Files
             
           </span>
 </div>
@@ -130,24 +130,14 @@
         Configuration
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../settings/">
-        Settings Files
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../logging/">
-        Logging
-      </a>
-</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
-          Placeholders
+          Settings Files
           <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
-        Placeholders
+        Settings Files
       </a>
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">
@@ -156,12 +146,51 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#placeholder-syntax">
-    Placeholder syntax
+<a class="md-nav__link" href="#settings-csv-example">
+    Settings CSV example
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#settings-csv-syntax">
+    Settings CSV syntax
+  </a>
+<nav aria-label="Settings CSV syntax" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#setting-property-syntax">
+    Setting property syntax
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#setting-flags">
+    Setting flags
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#component-factories">
+    Component factories
   </a>
 </li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#auto-settings">
+    Auto settings
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../logging/">
+        Logging
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../placeholders/">
+        Placeholders
+      </a>
 </li>
 </ul>
 </nav>
@@ -312,8 +341,37 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#placeholder-syntax">
-    Placeholder syntax
+<a class="md-nav__link" href="#settings-csv-example">
+    Settings CSV example
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#settings-csv-syntax">
+    Settings CSV syntax
+  </a>
+<nav aria-label="Settings CSV syntax" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#setting-property-syntax">
+    Setting property syntax
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#setting-flags">
+    Setting flags
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#component-factories">
+    Component factories
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#auto-settings">
+    Auto settings
   </a>
 </li>
 </ul>
@@ -323,61 +381,174 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="placeholders"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.</span> Placeholders<a class="headerlink" href="#placeholders" title="Permanent link">¶</a></h1>
-<p>SolarNode supports <em>placeholders</em> in some setting values, such as datum data source IDs. These allow
-you to define a set of parameters that can be consistently applied to many settings.</p>
-<p>For example, imagine you manage many SolarNode devices across different buildings or sites, You'd
-like to follow a naming convention for your datum data source ID values that include a code for the
-building the node is deployed in, along the lines of <code>/BUILDING/DEVICE</code>. You could define a
-placeholder <code>building</code> and then configure the source IDs like <code>/{building}/device</code>. On each node
-you'd define the <code>building</code> placeholder with a building-specific value, so at runtime the nodes
-would resolve actual source ID values with those names replacing the <code>{building}</code> placeholder.</p>
-<h2 id="placeholder-syntax"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.1</span> Placeholder syntax<a class="headerlink" href="#placeholder-syntax" title="Permanent link">¶</a></h2>
-<p>Placeholders are written using the form <code>{name:default}</code> where <code>name</code> is the placeholder name and
-<code>default</code> is an optional default value to apply if no placeholder value exists for the given name.
-If a default value is not needed, omit the <code>colon</code> so the placeholder becomes just <code>{name}</code>.</p>
-<p>For example, imagine a set of placeholder values like</p>
+<h1 id="settings-files"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.</span> Settings Files<a class="headerlink" href="#settings-files" title="Permanent link">¶</a></h1>
+<p>SolarNode plugins support configurable properties, called <em>settings</em>. The SolarNode setup app allows
+you to manage settings through simple web forms.</p>
+<p>Settings can also be exported and imported in a CSV format, and can be applied when SolarNode starts
+up with <a href="#auto-settings">Auto Settings</a> CSV files. Here is an example of a settings form in the
+SolarNode setup app:</p>
+<p><img alt="SolarNode settings form for a component with 3 settings" src="../../images/developers/settings/web-form.png" width="783"/></p>
+<p>There are 3 settings represented in that screen shot:</p>
+<ol>
+<li>Schedule</li>
+<li>Destination</li>
+<li>Temporary Destination</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Nearly every form field you can edit in the SolarNode setup app represents a setting for a
+component in SolarNode.</p>
+</div>
+<p>In the SolarNode setup app the settings can be imported and exported from the main Settings screen:</p>
+<p><img alt="SolarNode settings import/export form" src="../../images/users/settings-io.png" width="742"/></p>
+<h2 id="settings-csv-example"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.1</span> Settings CSV example<a class="headerlink" href="#settings-csv-example" title="Permanent link">¶</a></h2>
+<p>Here's an example snippet of a settings CSV file:</p>
+<div class="highlight"><pre><span></span><code>net.solarnetwork.node.io.modbus.1,serialParams.baudRate,19200,0,2014-03-01 21:01:31
+net.solarnetwork.node.io.modbus.1,serialParams.parityString,even,0,2014-03-01 21:01:31
+net.solarnetwork.node.io.modbus.1,serialParams.portName,/dev/cuaU0,0,2014-03-01 21:01:31
+net.solarnetwork.node.io.modbus.FACTORY,1,1,0,2014-03-01 21:00:31
+</code></pre></div>
+<p>These settings all belong to a <code>net.solarnetwork.node.io.modbus</code> component. The meaning
+of the CSV columns is discussed in the following section.</p>
+<h2 id="settings-csv-syntax"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2</span> Settings CSV syntax<a class="headerlink" href="#settings-csv-syntax" title="Permanent link">¶</a></h2>
+<p>Settings files are CSV (comma separated values) files, easily exported from spreadsheet applications
+like Microsoft Excel or Google Sheets. The CSV <strong>must</strong> include a header row, which is skipped. All
+other rows will be processed as settings.</p>
+<p>The Settings CSV format uses a quite general format and contains the following columns:</p>
 <table>
 <thead>
 <tr>
+<th align="left">#</th>
 <th align="left">Name</th>
-<th align="left">Value</th>
+<th align="left">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">building</td>
-<td align="left">OFFICE1</td>
+<td align="left">1</td>
+<td align="left">key</td>
+<td align="left">A unique identifier for the service the setting applies to.</td>
 </tr>
 <tr>
-<td align="left">room</td>
-<td align="left">BREAK</td>
+<td align="left">2</td>
+<td align="left">type</td>
+<td align="left">A unique identifier for the setting with the service specified by <code>key</code>, typically using <a href="#setting-property-syntax">standard property syntax</a>.</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">value</td>
+<td align="left">The setting value.</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left">flags</td>
+<td align="left">An integer bitmask of flags associated with the setting. See the <a href="#setting-flags">flags section</a> for more info.</td>
+</tr>
+<tr>
+<td align="left">5</td>
+<td align="left">modified</td>
+<td align="left">The date the setting was last modified, in <code>yyyy-MM-dd HH:mm:ss</code> format.</td>
 </tr>
 </tbody>
 </table>
-<p>Here are some example settings with placeholders with what they would resolve to:</p>
+<p>To understand the <code>key</code> and <code>type</code> values required for a given component requires consulting the
+documentation of the plugin that provides that component. You can get a pretty good picture of what
+the values are by exporting the settings after configuring a component in SolarNode. Typically the
+<code>key</code> value will mirror a plugin's Java package name, and <code>type</code> follows a JavaScript-like property
+accessor syntax representing a configurable property on the component.</p>
+<h3 id="setting-property-syntax"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2.1</span> Setting property syntax<a class="headerlink" href="#setting-property-syntax" title="Permanent link">¶</a></h3>
+<p>The <code>type</code> setting value usually defines a component property using a JavaScript-like syntax with
+these rules:</p>
 <table>
 <thead>
 <tr>
-<th align="left">Input</th>
-<th align="left">Resolved value</th>
+<th align="left">Expression</th>
+<th align="left">Example</th>
+<th align="left">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>/{building}/meter</code></td>
-<td align="left"><code>/OFFICE1/meter</code></td>
+<td align="left">Property</td>
+<td align="left"><code>name</code></td>
+<td align="left">a property named <code>name</code></td>
 </tr>
 <tr>
-<td align="left"><code>/{building}/{room}/temp</code></td>
-<td align="left"><code>/OFFICE1/BREAK/temp</code></td>
+<td align="left">Nested property</td>
+<td align="left"><code>name.subname</code></td>
+<td align="left">a nested property <code>subname</code> on a parent property <code>name</code></td>
 </tr>
 <tr>
-<td align="left"><code>/{building}/{floor:1}/{room}</code></td>
-<td align="left"><code>/OFFICE1/1/BREAK</code></td>
+<td align="left">List property</td>
+<td align="left"><code>name[0]</code></td>
+<td align="left">the first element of an indexed list property named <code>name</code></td>
+</tr>
+<tr>
+<td align="left">Map property</td>
+<td align="left"><code>name['key']</code></td>
+<td align="left">the <code>key</code> element of the map property <code>name</code></td>
 </tr>
 </tbody>
 </table>
+<p>These rules can be combined into complex expressions, for example <code>propIncludes[0].name</code> or
+<code>delegate.connectionFactory.propertyFilters['UID']</code>.</p>
+<h3 id="setting-flags"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2.2</span> Setting flags<a class="headerlink" href="#setting-flags" title="Permanent link">¶</a></h3>
+<p>Each setting has a set of flags that can be associated with it. The following table outlines the
+bit offset for each flag along with a description:</p>
+<table>
+<thead>
+<tr>
+<th align="left">#</th>
+<th align="left">Name</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">0</td>
+<td align="left">Ignore modification date</td>
+<td align="left">If this flag is set then changes to the associated setting will not trigger a new auto backup.</td>
+</tr>
+<tr>
+<td align="left">1</td>
+<td align="left">Volatile</td>
+<td align="left">If this flag is set then changes to the associated setting will not trigger an internal "setting changed" event to be broadcast.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong> these are bit offsets, so the decimal value to ignore modification date is <code>1</code>, to mark
+as volatile is <code>2</code>, and for both is <code>3</code>.</p>
+<h3 id="component-factories"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2.3</span> Component factories<a class="headerlink" href="#component-factories" title="Permanent link">¶</a></h3>
+<p>Many plugins provide <em>component factories</em> which allow you to configure any number of <em>instances</em> of
+that component. Each component <em>instance</em> is assigned a unique <em>identifier</em> when it is created. In
+the SolarNode setup app, the component instance identifiers appear throughout the UI:</p>
+<p><img alt="Component identifiers in the SolarNode setup app" src="../../images/users/component-instance-identifiers.png" width="736"/></p>
+<p>In the previous <a href="#settings-csv-example">example CSV</a> the <strong>Modbus I/O</strong> plugin allows you to
+configure any number of Modbus connection components, each with their own specific settings. That is
+an example of a component factory. The settings CSV will include a special row to indicate that such
+a factory component should be activated, using a unique identifier, and then all the settings
+associated with that factory <em>instance</em> will have that unique identifier appended to its <code>key</code>
+values.</p>
+<p>Going back to that example CSV, this is the row that activates a Modbus I/O component instance with
+an identifier of <code>1</code>:</p>
+<div class="highlight"><pre><span></span><code>net.solarnetwork.node.io.modbus.FACTORY,1,1,0,2014-03-01 21:00:31
+</code></pre></div>
+<p>The synax for <code>key</code> column is simply the service identifier followed by <code>.FACTORY</code>. Then the <code>type</code>
+and <code>value</code> columns are both set the same unique identifier. In this example that identifier is <code>1</code>.
+For all settings specific to a factory component, the <code>key</code> column will be the service identifier
+followed by <code>.IDENTIFIER</code> where <code>IDENTIFIER</code> is the unique instance identifier.</p>
+<p>Here is an example that shows two factory instances configured: <code>Lighting</code> and <code>HVAC</code>. Each have a
+different <code>serialParams.portName</code> setting value configured:</p>
+<div class="highlight"><pre><span></span><code>net.solarnetwork.node.io.modbus.Lighting,serialParams.portName,/dev/cuaU0,0,2014-03-01 21:01:31
+net.solarnetwork.node.io.modbus.HVAC,serialParams.portName,/dev/ttyUSB0,0,2014-03-01 21:01:31
+net.solarnetwork.node.io.modbus.FACTORY,Lighting,Lighting,0,2014-03-01 21:00:31
+net.solarnetwork.node.io.modbus.FACTORY,HVAC,HVAC,0,2014-03-01 21:00:31
+</code></pre></div>
+<h2 id="auto-settings"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.3</span> Auto settings<a class="headerlink" href="#auto-settings" title="Permanent link">¶</a></h2>
+<p>SolarNode settings can also be configured through Auto Settings, applied when SolarNode starts up,
+by placing Settings CSV files in the <code>/etc/solarnode/auto-settings.d</code> directory. These settings are
+applied only if they don't already exist or the modified date in the settings file is newer than the
+date they were previously applied.</p>
 </article>
 </div>
 </div>
