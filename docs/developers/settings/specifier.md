@@ -1,4 +1,4 @@
-# Settings Specifier
+# Setting Specifier
 
 The [`net.solarnetwork.settings.SettingSpecifier`][SettingSpecifier] API defines metadata for a
 single configurable property in the Settings API. The API looks like this:
@@ -95,6 +95,33 @@ new BasicTextFieldSettingSpecifier("myProperty", "DEFAULT_VALUE", true);
 
 // or without any default value
 new BasicTextFieldSettingSpecifier("myProperty", null, true);
+```
+
+## Title
+
+The [`TitleSettingSpecifier`][TitleSettingSpecifier] defines a simple read-only string-based
+configurable property. The setting defines a `key` that maps to a setter method on its associated
+component class. In the SolarNode GUI the default value is rendered as plain text, like this:
+
+![Title setting as HTML text](../../images/developers/settings/title-setting.png){width=246}
+
+The `net.solarnetwork.settings.support.BasicTitleSettingSpecifier` class provides the standard
+implementation of this API. A standard title setting is created like this:
+
+```java
+new BasicTitleSettingSpecifier("status", "Status is good.", true);
+```
+
+### HTML Title
+
+The [`TitleSettingSpecifier`][TitleSettingSpecifier] supports HTML markup. In the SolarNode GUI the
+default value is rendered directly into HTML, like this:
+
+![Title setting as HTML text](../../images/developers/settings/title-markup-setting.png){width=366}
+
+```java
+// pass `true` as the 4th argument to enable HTML markup in the status value
+new BasicTitleSettingSpecifier("status", "Status is <b>good</b>.", true, true);
 ```
 
 ## Text Area
@@ -235,12 +262,172 @@ new BasicFileSettingSpecifier("document-list", null,
 		new LinkedHashSet<>(Arrays.asList(".txt", "text/*")), true);
 ```
 
+## Dynamic List
+
+A Dynamic List setting allows the user to manage a list of homogeneous items, adding or subtracting items as desired.
+The items can be literals like strings, or arbitrary objects that define their own settings. In the SolarNode GUI a
+dynamic list setting is rendered as a pair of HTML buttons to remove and add items, like this:
+
+![Dynamic list setting in an HTML form](../../images/developers/settings/dynamic-list-setting.png){width=198}
+
+A Dynamic List is often backed by a Java `Collection` or array in the associated component. In addition
+a special size-adjusting accessor method is required, named after the setter method with `Count` appended.
+SolarNode will use this accessor to request a specific size for the dynamic list.
+
+=== "Array-backed dynamic list accessors"
+
+	```java
+	private String[] names = new String[0];
+
+	public String[] getNames() {
+		return names;
+	}
+
+	public void setNames(String[] names) {
+		this.names = names;
+	}
+
+	public int getNamesCount() {
+		String[] l = getNames();
+		return (l == null ? 0 : l.length);
+	}
+
+	public void setNamesCount(int count) {
+		setNames(ArrayUtils.arrayOfLength(
+			getNames(), count, String.class, String::new));
+	}
+	```
+
+=== "List-backed dynamic list accessors"
+
+	```java
+	private List<String> names = new ArrayList<>();
+
+	public List<String> getNames() {
+		return names;
+	}
+
+	public void setNames(List<String> names) {
+		this.names = names;
+	}
+
+	public int getNamesCount() {
+		List<String> l = getNames();
+		return (l == null ? 0 : l.size());
+	}
+
+	public void setNamesCount(int count) {
+		if ( count < 0 ) {
+			count = 0;
+		}
+		List<String> l = getNames();
+		int lCount = (l == null ? 0 : l.size());
+		while ( lCount > count ) {
+			l.remove(l.size() - 1);
+			lCount--;
+		}
+		if ( l == null && count > 0 ) {
+			l = new ArrayList<>();
+			setNames(l);
+		}
+		while ( lCount < count ) {
+			l.add("");
+			lCount++;
+		}
+	}
+	```
+
+The [`SettingUtils.dynamicListSettingSpecifier()`][SettingUtils] method simplifies the creation of a
+[`GroupSettingSpecifier`][GroupSettingSpecifier] that represents a dynamic list (the examples in the
+following sections demonstrate this).
+
+### Simple Dynamic List
+
+A _simple_ Dynamic List is a dynamic list of string or number values.
+
+![Simple dynamic list setting in an HTML form](../../images/developers/settings/dynamic-list-simple-setting.png){width=420}
+
+```java
+private String[] names = new String[0];
+
+@Override
+public List<SettingSpecifier> getSettingSpecifiers() {
+	List<SettingSpecifier> results = new ArrayList<>();
+
+	// turn a list of strings into a Group of TextField settings
+	GroupSettingSpecifier namesList = SettingUtils.dynamicListSettingSpecifier(
+			"names", asList(names), (String value, int index, String key) ->
+					singletonList(new BasicTextFieldSettingSpecifier(key, null)));
+	results.add(namesList);
+
+	return results;
+}
+```
+
+### Complex Dynamic List
+
+A _complex_ Dynamic List is a dynamic list of arbitrary object values. The main difference in terms
+of the necessary settings structure required, compared to a Simple Dynamic List, is that a
+group-of-groups is used.
+
+![Complex dynamic list setting in an HTML form](../../images/developers/settings/dynamic-list-complex-setting.png){width=452}
+
+=== "Complex data class"
+
+	```java
+	public class Person {
+		private String firstName;
+		private String lastName;
+
+		// generate list of settings for a Person, nested under some prefix
+		public List<SettingSpecifier> settings(String prefix) {
+			List<SettingSpecifier> results = new ArrayList<>(2);
+			results.add(new BasicTextFieldSettingSpecifier(prefix + "firstName", null));
+			results.add(new BasicTextFieldSettingSpecifier(prefix + "lastName", null));
+			return results;
+		}
+
+		public void setFirstName(String firstName) {
+			this.firstName = firstName;
+		}
+
+		public void setLastName(String lastName) {
+			this.lastName = lastName;
+		}
+	}
+	```
+
+=== "Dynamic List setting"
+
+	```java
+	private Person[] people = new Person[0];
+
+	@Override
+	public List<SettingSpecifier> getSettingSpecifiers() {
+		List<SettingSpecifier> results = new ArrayList<>();
+
+		// turn a list of People into a Group of Group settings
+		GroupSettingSpecifier peopleList = SettingUtils.dynamicListSettingSpecifier(
+				"people", asList(people), (Person value, int index, String key) ->
+						singletonList(new BasicGroupSettingSpecifier(
+							value.settings(key + "."))));
+		results.add(peopleList);
+
+		return results;
+	}
+	```
+
+
 [playpen]: https://github.com/SolarNetwork/solarnetwork-node/tree/develop/net.solarnetwork.node.settings.playpen
+[ArrayUtils]: https://javadoc.io/doc/net.solarnetwork.common/net.solarnetwork.common/latest/net/solarnetwork/util/ArrayUtils.html
 [FileSettingSpecifier]: https://javadoc.io/doc/net.solarnetwork.node/net.solarnetwork.node/latest/net/solarnetwork/node/settings/FileSettingSpecifier.html
+[GroupSettingSpecifier]: https://javadoc.io/doc/net.solarnetwork.common/net.solarnetwork.common/latest/net/solarnetwork/settings/GroupSettingSpecifier.html
 [MultiValueSettingSpecifier]: https://javadoc.io/doc/net.solarnetwork.common/net.solarnetwork.common/latest/net/solarnetwork/settings/MultiValueSettingSpecifier.html
 [RadioGroupSettingSpecifier]: https://javadoc.io/doc/net.solarnetwork.common/net.solarnetwork.common/latest/net/solarnetwork/settings/RadioGroupSettingSpecifier.html
 [SettingSpecifier]: https://javadoc.io/doc/net.solarnetwork.common/net.solarnetwork.common/latest/net/solarnetwork/settings/SettingSpecifier.html
+[SettingUtils]: https://javadoc.io/doc/net.solarnetwork.common/net.solarnetwork.common/latest/net/solarnetwork/settings/support/SettingUtils.html
 [SliderSettingSpecifier]: https://javadoc.io/doc/net.solarnetwork.common/net.solarnetwork.common/latest/net/solarnetwork/settings/SliderSettingSpecifier.html
 [TextAreaSettingSpecifier]: https://javadoc.io/doc/net.solarnetwork.common/net.solarnetwork.common/latest/net/solarnetwork/settings/TextAreaSettingSpecifier.html
 [TextFieldSettingSpecifier]: https://javadoc.io/doc/net.solarnetwork.common/net.solarnetwork.common/latest/net/solarnetwork/settings/TextFieldSettingSpecifier.html
+[TitleSettingSpecifier]: https://javadoc.io/doc/net.solarnetwork.common/net.solarnetwork.common/latest/net/solarnetwork/settings/TitleSettingSpecifier.html
 [ToggleSettingSpecifier]: https://javadoc.io/doc/net.solarnetwork.common/net.solarnetwork.common/latest/net/solarnetwork/settings/ToggleSettingSpecifier.html
