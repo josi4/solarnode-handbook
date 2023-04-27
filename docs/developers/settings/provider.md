@@ -39,10 +39,7 @@ component, as a list of [Setting Specifier](specifier.md) instances.
 
 ## Setting accessors
 
-For each configurable property exposed as a setting, your service must provide a standard
-setter method that will accept values provided by a user. For example, a
-**username** setting would expect a `setUsername(String)` method on the service like this:
-
+s
 ```java
 @Override
 private String username;
