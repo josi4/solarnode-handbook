@@ -1,5 +1,7 @@
 nav:
     - Introduction: index.md
+    - getting-started.md
+    - networking.md
     - configuration.md
     - settings.md
     - logging.md
