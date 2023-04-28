@@ -2,11 +2,14 @@
 
 This section describes how to get SolarNode running on a device.
 
-## Get SolarNodeOS
+## Get your device ready to use
 
-SolarNodeOS is a complete operating system tailor made for SolarNode. To get started using
-SolarNode, you must download the appropriate SolarNodeOS image for the device you want to run
-SolarNode on and then copy that image to your device media (typically an SD card).
+SolarNode can run on a variety of devices. To get started using SolarNode, you must download the
+appropriate SolarNodeOS image for your device. SolarNodeOS is a complete operating system tailor
+made for SolarNode.  Choose the SolarNodeOS image for the device you want to run SolarNode on and
+then copy that image to your device media (typically an SD card).
+
+### Choose your device
 
 === "Raspberry Pi"
 
@@ -15,7 +18,7 @@ SolarNode on and then copy that image to your device media (typically an SD card
 	[Etcher][etcher] or [Raspberry Pi Imager](https://www.raspberrypi.com/software/) to copy the
 	image to an SD card (minimum size is 2 GB, 4 GB recommended).
 
-	[:fontawesome-solid-file-arrow-down: Download SolarNodeOS for Raspberry Pi](https://sourceforge.net/projects/solarnetwork/files/solarnode/pi/){ .md-button .md-button--primary target=_blank}
+	[:fontawesome-solid-file-arrow-down: Download SolarNodeOS for Raspberry Pi](https://sourceforge.net/projects/solarnetwork/files/solarnode/pi/){ .md-button .md-button--primary}
 
 === "Orange Pi"
 
@@ -29,14 +32,23 @@ SolarNode on and then copy that image to your device media (typically an SD card
 	Looking for SolarNodeOS for a device not listed here? Reach out to us through
 	[email](mailto:info@solarnetwork.net) or [Slack][slack] to see if we can help!
 
-### Networking configuration
+### Configure your network
 
 SolarNode needs a network connection. If your device has an ethernet port, that is the most reliable way
-to get started. See the [Networking](networking.md) section for more information, including WiFi details.
+to get started: just plug in your ethernet cable and off you go!
 
-## Associate SolarNode with SolarNetwork
+If you want to use WiFi, or would like more detailed information about SolarNode's networking
+options, see the [Networking](networking.md) sections.
 
-Every SolarNode must be associated (registered) with a SolarNetwork account. To associate a SolarNode, you must:
+### Power it on
+
+Insert your SD card (or other device media) into your device, and power it on.
+While it starts up, proceed with the next steps.
+
+## Associate your SolarNode with SolarNetwork
+
+Every SolarNode must be associated (registered) with a SolarNetwork account. To associate a
+SolarNode, you must:
 
  1. Log into [SolarNetwork][solaruser]
  2. Generate an _invitation_ for a new SolarNode
@@ -46,7 +58,7 @@ Every SolarNode must be associated (registered) with a SolarNetwork account. To 
 
 If you do not already have a [SolarNetwork][solaruser] account, [register][user-reg] for one and then log in.
 
-### Create SolarNode invitation
+### Generate a SolarNode invitation
 
 Click on the [My Nodes][my-nodes] link. You will see an **Invite New SolarNode** button, like this:
 
@@ -64,7 +76,7 @@ The generated SolarNode invitation will appear next.
 Select and copy the **entire** invitation. You will need to paste that into the SolarNode setup
 screen in the next section.
 
-### Accept invitation on SolarNode
+### Accept the invitation on SolarNode
 
 Open the SolarNode Setup app in your browser. The URL to use might be <http://solarnode/> or it
 might be an IP address like `http://192.168.1.123`. See the [Networking](networking.md) section for
