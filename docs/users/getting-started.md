@@ -1,6 +1,12 @@
 # Getting Started
 
-This section describes how to get SolarNode running on a device.
+This section describes how to get SolarNode running on a device. You will need to configure
+your device as a SolarNode and associate your SolarNode with SolarNetwork.
+
+!!! tip
+
+	You might find it helpful to read through this entire guide before jumping in. There
+	are screen shots and tips provided to help you along the way.
 
 ## Get your device ready to use
 
@@ -52,7 +58,7 @@ SolarNode, you must:
 
  1. Log into [SolarNetwork][solaruser]
  2. Generate an _invitation_ for a new SolarNode
- 3. Paste the invitation into the SolarNode setup page and follow the instructions
+ 3. Accept the invitation on SolarNode
 
 ### Log into SolarNetwork
 
