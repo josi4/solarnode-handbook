@@ -57,15 +57,17 @@ docs/
 
 You will notice there are `.pages` files within each folder in the `docs/` hierarchy. Those files
 are [YAML][yaml] configuration files that configure what navigation links should appear in the
-rendered Handbook. Their structure is quite simple, holding just a `nav` property with a list of
-page links. For example a `.pages` file might look like this:
+rendered Handbook. Their structure is quite simple, holding just a `title` property for the section
+title and  `nav` property with a list of page links. For example a `.pages` file might look like
+this:
 
 ```yaml
+title: Developer Guide
 nav:
     - index.md
-    - Plugins: osgi
-    - Settings: settings
-    - Service: services
+    - osgi
+    - settings
+    - services
 ```
 
 This ends up generating the Handbook navigation, that looks like this:

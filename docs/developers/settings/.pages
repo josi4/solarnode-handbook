@@ -1,5 +1,6 @@
+title: Settings
 nav:
-    - Introduction: index.md
+    - index.md
     - provider.md
     - specifier.md
     - resource-handler.md

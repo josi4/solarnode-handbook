@@ -1,5 +1,6 @@
+title: Developer Guide
 nav:
     - index.md
-    - Plugins: osgi
-    - Settings: settings
-    - Services: services
+    - osgi
+    - settings
+    - services
