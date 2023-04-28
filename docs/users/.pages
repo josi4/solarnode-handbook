@@ -1,7 +1,8 @@
 title: User Guide
 nav:
-    - Introduction: index.md
+    - index.md
     - getting-started.md
+    - setup-app
     - networking.md
     - configuration.md
     - settings.md

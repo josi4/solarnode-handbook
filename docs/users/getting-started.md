@@ -67,7 +67,7 @@ screen in the next section.
 
 ### Accept invitation on SolarNode
 
-Open the SolarNode setup app in your browser. The URL to use might be <http://solarnode/> or it
+Open the SolarNode Setup app in your browser. The URL to use might be <http://solarnode/> or it
 might be an IP address like `http://192.168.1.123`. See the [Networking](networking.md) section for
 more information. You will be greeted with an invitation acceptance form into which you can paste
 the invitation you generated in SolarNetwork. The acceptance process goes through the following steps:
@@ -111,6 +111,10 @@ the invitation you generated in SolarNetwork. The acceptance process goes throug
 	generated; you are given the opportunity to easily change that if you prefer.
 
 	![SolarNode invitation complete](../images/users/associate/invitation-complete%402x.png){width=852}
+
+## Next steps
+
+Learn more about the [SolarNode Setup](setup-app/index.md) app.
 
 [etcher]: https://www.balena.io/etcher
 [my-nodes]: https://data.solarnetwork.net/solaruser/u/sec/my-nodes

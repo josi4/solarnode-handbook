@@ -1,0 +1,9 @@
+title: Setup App
+nav:
+    - index.md
+    - login.md
+    - home.md
+    - certificates.md
+    - settings
+    - tools
+    - plugins.md

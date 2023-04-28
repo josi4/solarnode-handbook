@@ -1,0 +1,7 @@
+title: Settings
+nav:
+    - index.md
+    - components.md
+    - datum-filters.md
+    - logging.md
+    - op-modes.md
