@@ -130,6 +130,107 @@
         Getting Started
       </a>
 </li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_1_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../users/setup-app/">Setup App</a>
+<label for="__nav_1_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_1_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_1_3">
+<span class="md-nav__icon md-icon"></span>
+          Setup App
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../users/setup-app/login/">
+        Login
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../users/setup-app/home/">
+        Home
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../users/setup-app/certificates/">
+        Certificates
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_1_3_5" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../users/setup-app/settings/">Settings</a>
+<label for="__nav_1_3_5">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_1_3_5_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_1_3_5">
+<span class="md-nav__icon md-icon"></span>
+          Settings
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../users/setup-app/settings/components/">
+        Components
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../users/setup-app/settings/datum-filters/">
+        Datum Filters
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../users/setup-app/settings/logging/">
+        Logging
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../users/setup-app/settings/op-modes/">
+        Operational Modes
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_1_3_6" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../users/setup-app/tools/">Tools</a>
+<label for="__nav_1_3_6">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_1_3_6_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_1_3_6">
+<span class="md-nav__icon md-icon"></span>
+          Tools
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../users/setup-app/tools/controls/">
+        Controls
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../users/setup-app/tools/command-console/">
+        Command Console
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../users/setup-app/plugins/">
+        Plugins
+      </a>
+</li>
+</ul>
+</nav>
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../users/networking/">
         Networking
@@ -351,7 +452,7 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="settings-provider"><span class="enumerate-headings-plugin enumerate-heading-plugin">14.</span> Settings Provider<a class="headerlink" href="#settings-provider" title="Permanent link">¶</a></h1>
+<h1 id="settings-provider"><span class="enumerate-headings-plugin enumerate-heading-plugin">27.</span> Settings Provider<a class="headerlink" href="#settings-provider" title="Permanent link">¶</a></h1>
 <p>The <a href="https://javadoc.io/doc/net.solarnetwork.common/net.solarnetwork.common/latest/net/solarnetwork/settings/SettingSpecifierProvider.html"><code>net.solarnetwork.settings.SettingSpecifierProvider</code></a> interface
 defines the way a class can declare themselves as a user-configurable component. The main elements
 of this API are:</p>
@@ -384,7 +485,7 @@ of this API are:</p>
 class or package name of the component (or a derivative of it) is used as the ID.</p>
 <p>The <code>getSettingSpecifiers()</code> method returns a list of all the configurable properties of the
 component, as a list of <a href="../specifier/">Setting Specifier</a> instances.</p>
-<h2 id="setting-accessors"><span class="enumerate-headings-plugin enumerate-heading-plugin">14.1</span> Setting accessors<a class="headerlink" href="#setting-accessors" title="Permanent link">¶</a></h2>
+<h2 id="setting-accessors"><span class="enumerate-headings-plugin enumerate-heading-plugin">27.1</span> Setting accessors<a class="headerlink" href="#setting-accessors" title="Permanent link">¶</a></h2>
 <p>s
 <div class="highlight"><pre><span></span><code><span class="nd">@Override</span>
 <span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">username</span><span class="p">;</span>
@@ -421,7 +522,7 @@ settings can accept any primitive or standard number type like <code>int</code> 
 <span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="proxy-setting-accessors"><span class="enumerate-headings-plugin enumerate-heading-plugin">14.1.1</span> Proxy setting accessors<a class="headerlink" href="#proxy-setting-accessors" title="Permanent link">¶</a></h3>
+<h3 id="proxy-setting-accessors"><span class="enumerate-headings-plugin enumerate-heading-plugin">27.1.1</span> Proxy setting accessors<a class="headerlink" href="#proxy-setting-accessors" title="Permanent link">¶</a></h3>
 <p>Sometimes you might like to expose a simple string setting but internally treat the string as a more
 complex type. For example a <code>Map</code> could be configured using a simple delimited string like <code>key1 =
 val1, key2 = val2</code>. For situations like this you can publish a <em>proxy</em> setting that manages a
