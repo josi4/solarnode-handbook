@@ -4,10 +4,9 @@ This section describes how to get SolarNode running on a device.
 
 ## Get SolarNodeOS
 
-SolarNodeOS is a complete operating system tailor made for SolarNode. You must download the
-appropriate SolarNodeOS image for the device you want to run SolarNode on and then copy that image
-to your device media (typically an SD card). You can use a tool like [Etcher][etcher] to help with
-that.
+SolarNodeOS is a complete operating system tailor made for SolarNode. To get started using
+SolarNode, you must download the appropriate SolarNodeOS image for the device you want to run
+SolarNode on and then copy that image to your device media (typically an SD card).
 
 === "Raspberry Pi"
 
@@ -16,7 +15,7 @@ that.
 	[Etcher][etcher] or [Raspberry Pi Imager](https://www.raspberrypi.com/software/) to copy the
 	image to an SD card (minimum size is 2 GB, 4 GB recommended).
 
-	[:fontawesome-solid-file-arrow-down: Download SolarNodeOS for Raspberry Pi](https://sourceforge.net/projects/solarnetwork/files/solarnode/pi/){ .md-button .md-button--primary }
+	[:fontawesome-solid-file-arrow-down: Download SolarNodeOS for Raspberry Pi](https://sourceforge.net/projects/solarnetwork/files/solarnode/pi/){ .md-button .md-button--primary target=_blank}
 
 === "Orange Pi"
 
