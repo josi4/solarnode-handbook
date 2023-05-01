@@ -19,7 +19,8 @@ There are 3 settings represented in that screen shot:
 	Nearly every form field you can edit in the SolarNode setup app represents a setting for a
 	component in SolarNode.
 
-In the SolarNode setup app the settings can be imported and exported from the main Settings screen:
+In the SolarNode setup app the settings can be imported and exported from the main Settings screen
+in the [Settings Backup & Restore](setup-app/settings/index.md#settings-backup-restore) section:
 
 ![SolarNode settings import/export form](../images/users/settings-io.png){width=742}
 
