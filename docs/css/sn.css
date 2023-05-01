@@ -65,3 +65,8 @@
 	--md-text-font: "Suisse Screen";
 	--md-code-font: "Source Code Pro";
 }
+
+/** Lighten up heading enumerations */
+.enumerate-headings-plugin {
+	filter: opacity(35%);
+}
