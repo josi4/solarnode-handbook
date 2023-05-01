@@ -6,7 +6,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://solarnetwork.github.io/solarnode-handbook/developers/services/closeable-service/" rel="canonical"/>
-<link href="../../settings/factory/" rel="prev"/>
+<link href="../backup-manager/" rel="prev"/>
 <link href="../job-scheduler/" rel="next"/>
 <link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.1.7" name="generator"/>
@@ -359,6 +359,11 @@
           Services
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../backup-manager/">
+        Backup Manager
+      </a>
+</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <a class="md-nav__link md-nav__link--active" href="./">
@@ -406,7 +411,7 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="closeable-service"><span class="enumerate-headings-plugin enumerate-heading-plugin">32.</span> Closeable Service<a class="headerlink" href="#closeable-service" title="Permanent link">¶</a></h1>
+<h1 id="closeable-service"><span class="enumerate-headings-plugin enumerate-heading-plugin">33.</span> Closeable Service<a class="headerlink" href="#closeable-service" title="Permanent link">¶</a></h1>
 <p>A plugin can publish a <code>net.solarnetwork.service.CloseableService</code> and SolarNode will invoke the
 <code>closeService()</code> method on it when that service is destroyed. This can be useful in some situations,
 to make sure resources are freed when a service is no longer needed.</p>

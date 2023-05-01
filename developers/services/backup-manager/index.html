@@ -5,12 +5,12 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://solarnetwork.github.io/solarnode-handbook/developers/services/job-scheduler/" rel="canonical"/>
-<link href="../closeable-service/" rel="prev"/>
-<link href="../placeholder-service/" rel="next"/>
+<link href="https://solarnetwork.github.io/solarnode-handbook/developers/services/backup-manager/" rel="canonical"/>
+<link href="../../settings/factory/" rel="prev"/>
+<link href="../closeable-service/" rel="next"/>
 <link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.1.7" name="generator"/>
-<title>Job Scheduler - SolarNode Handbook</title>
+<title>Backup Manager - SolarNode Handbook</title>
 <link href="../../../assets/stylesheets/main.ded33207.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -25,7 +25,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#job-scheduler">
+<a class="md-skip" href="#backup-manager">
           Skip to content
         </a>
 </div>
@@ -49,7 +49,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Job Scheduler
+              Backup Manager
             
           </span>
 </div>
@@ -359,24 +359,14 @@
           Services
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../backup-manager/">
-        Backup Manager
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../closeable-service/">
-        Closeable Service
-      </a>
-</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
-          Job Scheduler
+          Backup Manager
           <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
-        Job Scheduler
+        Backup Manager
       </a>
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">
@@ -389,8 +379,57 @@
     Configuration
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#backup">
+    Backup
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#backup-archive">
+    Backup Archive
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#backup-resource">
+    Backup Resource
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#backup-resource-provider">
+    Backup Resource Provider
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#backup-service">
+    Backup Service
+  </a>
+<nav aria-label="Backup Service" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#filesystembackupservice">
+    FileSystemBackupService
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#s3backupservice">
+    S3BackupService
+  </a>
+</li>
 </ul>
 </nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../closeable-service/">
+        Closeable Service
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../job-scheduler/">
+        Job Scheduler
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../placeholder-service/">
@@ -432,6 +471,45 @@
     Configuration
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#backup">
+    Backup
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#backup-archive">
+    Backup Archive
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#backup-resource">
+    Backup Resource
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#backup-resource-provider">
+    Backup Resource Provider
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#backup-service">
+    Backup Service
+  </a>
+<nav aria-label="Backup Service" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#filesystembackupservice">
+    FileSystemBackupService
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#s3backupservice">
+    S3BackupService
+  </a>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </div>
@@ -439,34 +517,97 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="job-scheduler"><span class="enumerate-headings-plugin enumerate-heading-plugin">34.</span> Job Scheduler<a class="headerlink" href="#job-scheduler" title="Permanent link">¶</a></h1>
-<p>SolarNode provides a <a href="https://javadoc.io/doc/net.solarnetwork.node/net.solarnetwork.node/latest/net/solarnetwork/node/runtime/ManagedJobScheduler.html">Job Scheduler service</a> that can automatically schedule and execute
-jobs exported by plugins.</p>
-<h2 id="configuration"><span class="enumerate-headings-plugin enumerate-heading-plugin">34.1</span> Configuration<a class="headerlink" href="#configuration" title="Permanent link">¶</a></h2>
-<p>The Job Scheduler supports the following <a href="../../../users/configuration/">configuration properties</a> in the <code>net.solarnetwork.node.core</code> namespace:</p>
+<h1 id="backup-manager"><span class="enumerate-headings-plugin enumerate-heading-plugin">32.</span> Backup Manager<a class="headerlink" href="#backup-manager" title="Permanent link">¶</a></h1>
+<p>The <a href="https://javadoc.io/doc/net.solarnetwork.node/net.solarnetwork.node/latest/net/solarnetwork/node/backup/BackupManager.html"><code>net.solarnetwork.node.backup.BackupManager</code></a> API provides SolarNode with a
+modular backup system composed of <a href="#backup-service">Backup Services</a> that provide storage for backup
+data and <a href="#backup-resource-provider">Backup Resource Providers</a> that contribute data to be backed up
+and support restoring backed up data.</p>
+<p>The Backup Manager coordinates the creation and restoration of backups, delegating most of its
+functionality to the <em>active</em> <a href="#backup-service">Backup Service</a>. The active Backup Service can be
+controlled through <a href="#configuration">configuration</a>.</p>
+<p>The Backup Manager also supports <em>exporting</em> and <em>importing</em> <a href="#backup-archive">Backup Archives</a>,
+which are just <code>.zip</code> archives using a defined folder structure to preserve all backup resources
+within a single backup.</p>
+<p>This design of the SolarNode backup system makes it easy for SolarNode plugins to contribute
+resources to backups, without needing to know where or how the backup data is ultimately stored.</p>
+<div class="admonition info">
+<p class="admonition-title">What goes in a Backup?</p>
+<p>In SolarNode a Backup will contain all the critical settings that are unique to that node, such as:</p>
+<ol>
+<li>The node's security certificate</li>
+<li>SolarNetwork association details</li>
+<li>User accounts</li>
+<li>Settings</li>
+<li><em>and more</em></li>
+</ol>
+</div>
+<h2 id="configuration"><span class="enumerate-headings-plugin enumerate-heading-plugin">32.1</span> Configuration<a class="headerlink" href="#configuration" title="Permanent link">¶</a></h2>
+<p>The Backup Manager can be configured under the <code>net.solarnetwork.node.backup.DefaultBackupManager</code>
+<a href="../../../users/configuration/">configuration namespace</a>:</p>
 <div class="props-explicit-col-widths">
 <table>
 <thead>
 <tr>
-<th align="left">Property</th>
+<th align="left">Key</th>
 <th align="left">Default</th>
 <th align="left">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>jobScheduler.poolSize</code></td>
-<td align="left">10</td>
-<td align="left">The number of threads to maintain in the job scheduler, and thus the maximum number of jobs that can run simultaneously. Must be set to 1 or higher.</td>
+<td align="left"><code>backupRestoreDelaySeconds</code></td>
+<td align="left">15</td>
+<td align="left">A number of seconds to delay the attempt of restoring a backup, when a backup has been previously marked for restoration. This delay gives the platform time to boot up and register the <a href="#backup-resource-provider">backup resource providers</a> and other services required to perform the restore.</td>
 </tr>
 <tr>
-<td align="left"><code>scheduler.startupDelay</code></td>
-<td align="left">180</td>
-<td align="left">A delay in seconds after creating the job scheduler to start triggering jobs. This can be useful to give the application time to completely initialize before starting to run jobs.</td>
+<td align="left"><code>preferredBackupServiceKey</code></td>
+<td align="left">net.solarnetwork.node.backup.FileSystemBackupService</td>
+<td align="left">The key of the preferred (active) <a href="#backup-service">Backup Service</a> to use.</td>
 </tr>
 </tbody>
 </table>
 </div>
+<h2 id="backup"><span class="enumerate-headings-plugin enumerate-heading-plugin">32.2</span> Backup<a class="headerlink" href="#backup" title="Permanent link">¶</a></h2>
+<p>The <a href="https://javadoc.io/doc/net.solarnetwork.node/net.solarnetwork.node/latest/net/solarnetwork/node/backup/Backup.html"><code>net.solarnetwork.node.backup.Backup</code></a> API defines a unique backup, created by a
+<a href="#backup-service">Backup Service</a>. Backups are uniquely identified with a unique <strong>key</strong> assigned by
+the <a href="#backup-service">Backup Service</a> that creates them.</p>
+<p>A <code>Backup</code> does not itself provide access to any of the resources associated with the backup.
+Instead, the <code>getBackupResources()</code> method of <a href="https://javadoc.io/doc/net.solarnetwork.node/net.solarnetwork.node/latest/net/solarnetwork/node/backup/BackupService.html"><code>BackupService</code></a> returns them.</p>
+<h2 id="backup-archive"><span class="enumerate-headings-plugin enumerate-heading-plugin">32.3</span> Backup Archive<a class="headerlink" href="#backup-archive" title="Permanent link">¶</a></h2>
+<p>The <a href="#backup-manager">Backup Manager</a> supports <em>exporting</em> and <em>importing</em> specially formed <code>.zip</code>
+archives that contain a complete <a href="#backup">Backup</a>. These archives are a convenient way to transfer
+settings from one node to another, and can be used to restore SolarNode on a new device.</p>
+<h2 id="backup-resource"><span class="enumerate-headings-plugin enumerate-heading-plugin">32.4</span> Backup Resource<a class="headerlink" href="#backup-resource" title="Permanent link">¶</a></h2>
+<p>The <a href="https://javadoc.io/doc/net.solarnetwork.node/net.solarnetwork.node/latest/net/solarnetwork/node/backup/BackupResource.html"><code>net.solarnetwork.node.backup.BackupResource</code></a> API defines a unique item
+within a <a href="#backup">Backup</a>. A Backup Resource could be a file, a database table, or anything that
+can be serialized to a stream of bytes. Backup Resources are both provided by, and restored with,
+<a href="#backup-resource-provider">Backup Resource Providers</a> so it is up to the Provider implementation to
+know how to generate and then restore the Resources it manages.</p>
+<h2 id="backup-resource-provider"><span class="enumerate-headings-plugin enumerate-heading-plugin">32.5</span> Backup Resource Provider<a class="headerlink" href="#backup-resource-provider" title="Permanent link">¶</a></h2>
+<p>The <a href="https://javadoc.io/doc/net.solarnetwork.node/net.solarnetwork.node/latest/net/solarnetwork/node/backup/BackupResourceProvider.html"><code>net.solarnetwork.node.backup.BackupResourceProvider</code></a> API defines a
+service that can both generate and restore <a href="#backup-resource">Backup Resources</a>. Each implementation
+is identified by a unique <strong>key</strong>, typically the fully-qualified Java class name of the
+implementation.</p>
+<p>When a Backup is <strong>created</strong>, all Backup Resource Provider services registered in SolarNode will be
+asked to contribute their Backup Resources, using the <code>getBackupResources()</code> method.</p>
+<p>When a Backup is <strong>restored</strong>, Backup Resources will be passed to their associated Provider with the
+<code>restoreBackupResource(BackupResource)</code> method.</p>
+<h2 id="backup-service"><span class="enumerate-headings-plugin enumerate-heading-plugin">32.6</span> Backup Service<a class="headerlink" href="#backup-service" title="Permanent link">¶</a></h2>
+<p>The <a href="https://javadoc.io/doc/net.solarnetwork.node/net.solarnetwork.node/latest/net/solarnetwork/node/backup/BackupService.html"><code>net.solarnetwork.node.backup.BackupService</code></a> API defines the bulk of the
+SolarNode backup system. Each implementation is identified by a unique <strong>key</strong>, typically the
+fully-qualified Java class name of the implementation.</p>
+<p>To <strong>create</strong> a Backup, use the <code>performBackup(Iterable&lt;BackupResource&gt;)</code> method, passing in the
+collection of <a href="#backup-resource">Backup Resources</a> to include.</p>
+<p>To <strong>list</strong> the available Backups, use the <code>getAvailableBackups(Backup)</code> method.</p>
+<p>To <strong>view</strong> a single Backup, use the <code>backupForKey(String)</code> method.</p>
+<p>To <strong>list the resources</strong> in a Backup, use the <code>getBackupResources(Backup)</code>method.</p>
+<h3 id="filesystembackupservice"><span class="enumerate-headings-plugin enumerate-heading-plugin">32.6.1</span> FileSystemBackupService<a class="headerlink" href="#filesystembackupservice" title="Permanent link">¶</a></h3>
+<p>SolarNode provides the <code>net.solarnetwork.node.backup.FileSystemBackupService</code> default Backup Service
+implementation that saves <a href="#backup-archive">Backup Archives</a> to the node's own file system.</p>
+<h3 id="s3backupservice"><span class="enumerate-headings-plugin enumerate-heading-plugin">32.6.2</span> S3BackupService<a class="headerlink" href="#s3backupservice" title="Permanent link">¶</a></h3>
+<p>The <a href="https://github.com/SolarNetwork/solarnetwork-node/tree/develop/net.solarnetwork.node.backup.s3"><code>net.solarnetwork.node.backup.s3</code></a> plugin provides the
+<code>net.solarnetwork.node.backup.s3.S3BackupService</code> Backup Service implementation that saves all
+Backup data to <a href="https://aws.amazon.com/s3/">AWS S3</a>.</p>
 </article>
 </div>
 </div>
