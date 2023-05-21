@@ -59,7 +59,7 @@ building = OFFICE1
 room = BREAK
 ```
 
-# Dynamic placeholder configuration
+## Dynamic placeholder configuration
 
 SolarNode also supports storing placeholder values as [Settings](settings.md) using the key
 `placeholder`. The SolarUser [/instruction/add][instr-add] API can be used with the
