@@ -271,6 +271,16 @@
     Placeholder syntax
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#static-placeholder-configuration">
+    Static placeholder configuration
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dynamic-placeholder-configuration">
+    Dynamic placeholder configuration
+  </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -432,6 +442,16 @@
     Placeholder syntax
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#static-placeholder-configuration">
+    Static placeholder configuration
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dynamic-placeholder-configuration">
+    Dynamic placeholder configuration
+  </a>
+</li>
 </ul>
 </nav>
 </div>
@@ -442,12 +462,13 @@
 <h1 id="placeholders"><span class="enumerate-headings-plugin enumerate-heading-plugin">20.</span> Placeholders<a class="headerlink" href="#placeholders" title="Permanent link">¶</a></h1>
 <p>SolarNode supports <em>placeholders</em> in some setting values, such as datum data source IDs. These allow
 you to define a set of parameters that can be consistently applied to many settings.</p>
-<p>For example, imagine you manage many SolarNode devices across different buildings or sites, You'd
+<p>For example, imagine you manage many SolarNode devices across different buildings or sites. You'd
 like to follow a naming convention for your datum data source ID values that include a code for the
 building the node is deployed in, along the lines of <code>/BUILDING/DEVICE</code>. You could define a
 placeholder <code>building</code> and then configure the source IDs like <code>/{building}/device</code>. On each node
 you'd define the <code>building</code> placeholder with a building-specific value, so at runtime the nodes
-would resolve actual source ID values with those names replacing the <code>{building}</code> placeholder.</p>
+would resolve actual source ID values with those names replacing the <code>{building}</code> placeholder,
+for example <code>/OFFICE1/meter</code>.</p>
 <h2 id="placeholder-syntax"><span class="enumerate-headings-plugin enumerate-heading-plugin">20.1</span> Placeholder syntax<a class="headerlink" href="#placeholder-syntax" title="Permanent link">¶</a></h2>
 <p>Placeholders are written using the form <code>{name:default}</code> where <code>name</code> is the placeholder name and
 <code>default</code> is an optional default value to apply if no placeholder value exists for the given name.
@@ -494,6 +515,60 @@ If a default value is not needed, omit the <code>colon</code> so the placeholder
 </tr>
 </tbody>
 </table>
+<h2 id="static-placeholder-configuration"><span class="enumerate-headings-plugin enumerate-heading-plugin">20.2</span> Static placeholder configuration<a class="headerlink" href="#static-placeholder-configuration" title="Permanent link">¶</a></h2>
+<p>SolarNode will look for placeholder values defined in properties files stored in the
+<code>conf/placeholders.d</code> directory by default. In SolarNodeOS this is the
+<code>/etc/solarnode/placeholders.d</code> directory.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>These files are <strong>only loaded once, when SolarNode starts up</strong>. If you make changes to any of
+them then SolarNode must be restarted.</p>
+</div>
+<p>The properties file names must have a <code>.properties</code> extension and follow Java <a href="https://en.wikipedia.org/wiki/.properties">properties
+file</a> syntax. Put simply, each file contains lines like</p>
+<div class="highlight"><pre><span></span><code>name = value
+</code></pre></div>
+<p>where <code>name</code> is the placeholder name and <code>value</code> is its associated value. The example set of
+placeholder values <a href="#placeholder-syntax">shown previously</a> could be defined in a
+<code>/etc/solarnode/placeholders.d/mynode.properties</code> file with this content:</p>
+<div class="highlight"><pre><span></span><code>building = OFFICE1
+room = BREAK
+</code></pre></div>
+<h2 id="dynamic-placeholder-configuration"><span class="enumerate-headings-plugin enumerate-heading-plugin">20.3</span> Dynamic placeholder configuration<a class="headerlink" href="#dynamic-placeholder-configuration" title="Permanent link">¶</a></h2>
+<p>SolarNode also supports storing placeholder values as <a href="../settings/">Settings</a> using the key
+<code>placeholder</code>. The SolarUser <a href="https://github.com/SolarNetwork/solarnetwork/wiki/SolarUser-API#queue-instruction">/instruction/add</a> API can be used with the
+<a href="https://github.com/SolarNetwork/solarnetwork/wiki/SolarUser-API-enumerated-types#updatesetting">UpdateSetting</a> topic to modify the placeholder values as needed. The <code>type</code> value is
+the placeholder name and the <code>value</code> the placeholder value. Placeholders defined this way have
+priority over any similarly-named placeholders defined statically. <strong>Changes take effect as soon as
+SolarNode receives and processes the instruction.</strong></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Once a placeholder value is set via the <code>UpdateSetting</code> instruction, the same value defined as a
+<a href="#static-placeholder-configuration">static</a> placeholder will be overridden and changes to the
+static value will be ignored.</p>
+</div>
+<p>For example, to set the <code>floor</code> placeholder to <code>2</code> on node 123, you could make a <code>POST</code> request to
+<code>/solaruser/api/v1/sec/instr/add/UpdateSetting</code> with the following JSON body:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"nodeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"params"</span><span class="p">:{</span>
+<span class="w">    </span><span class="nt">"key"</span><span class="p">:</span><span class="w">   </span><span class="s2">"placeholder"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"type"</span><span class="p">:</span><span class="w">  </span><span class="s2">"floor"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Multiple settings can be updated as well, using a different syntax. Here's a request that sets
+both <code>floor</code> to <code>2</code> and <code>room</code> to <code>MEET</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"nodeId"</span><span class="p">:</span><span class="mi">123</span><span class="p">,</span><span class="nt">"parameters"</span><span class="p">:[</span>
+<span class="w">  </span><span class="p">{</span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"key"</span><span class="p">,</span><span class="w">   </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"placeholder"</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"type"</span><span class="p">,</span><span class="w">  </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"floor"</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"value"</span><span class="p">,</span><span class="w"> </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"key"</span><span class="p">,</span><span class="w">   </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"placeholder"</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"type"</span><span class="p">,</span><span class="w">  </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"room"</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"value"</span><span class="p">,</span><span class="w"> </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"MEET"</span><span class="p">}</span>
+<span class="p">]}</span>
+</code></pre></div>
 </article>
 </div>
 </div>

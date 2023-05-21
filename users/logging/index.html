@@ -248,9 +248,74 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Logging
+          <span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
         Logging
       </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#logging-concepts">
+    Logging concepts
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#logger-namespaces">
+    Logger namespaces
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#logging-ui">
+    Logging UI
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#storage-constraints">
+    Storage constraints
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#persistent-logging">
+    Persistent logging
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#logging-example-split-across-multiple-files">
+    Logging example: split across multiple files
+  </a>
+<nav aria-label="Logging example: split across multiple files" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#separate-file-configuration-notes">
+    Separate file configuration notes
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#enable-mqtt-wire-logging">
+    Enable MQTT wire logging
+  </a>
+<nav aria-label="Enable MQTT wire logging" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mqtt-wire-log-namespace">
+    MQTT wire log namespace
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../placeholders/">
@@ -405,6 +470,65 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#logging-concepts">
+    Logging concepts
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#logger-namespaces">
+    Logger namespaces
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#logging-ui">
+    Logging UI
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#storage-constraints">
+    Storage constraints
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#persistent-logging">
+    Persistent logging
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#logging-example-split-across-multiple-files">
+    Logging example: split across multiple files
+  </a>
+<nav aria-label="Logging example: split across multiple files" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#separate-file-configuration-notes">
+    Separate file configuration notes
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#enable-mqtt-wire-logging">
+    Enable MQTT wire logging
+  </a>
+<nav aria-label="Enable MQTT wire logging" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mqtt-wire-log-namespace">
+    MQTT wire log namespace
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
 </nav>
 </div>
 </div>
@@ -412,7 +536,226 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="logging"><span class="enumerate-headings-plugin enumerate-heading-plugin">19.</span> Logging<a class="headerlink" href="#logging" title="Permanent link">¶</a></h1>
-<p>TODO</p>
+<p>Logging in SolarNode is configured in the <code>/etc/solarnode/log4j2.xml</code> file, which is in the <a href="https://logging.apache.org/log4j/2.x/manual/configuration.html#configuration-with-xml">log4j
+configuration format</a>. The <a href="https://github.com/SolarNetwork/solarnode-os-packages/blob/develop/solarnode-base/debian/usr/share/solarnode/conf/log4j2-example.xml">default configuration</a> in SolarNodeOS
+sets the overall verbosity to <code>INFO</code> and logs to a temporary storage area
+<code>/run/solarnode/log/solarnode.log</code>.</p>
+<h2 id="logging-concepts"><span class="enumerate-headings-plugin enumerate-heading-plugin">19.1</span> Logging concepts<a class="headerlink" href="#logging-concepts" title="Permanent link">¶</a></h2>
+<p>Log messages have the following general properties:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Component</th>
+<th align="left">Example</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Timestamp</td>
+<td align="left"><code>2022-03-15 09:05:37,029</code></td>
+<td align="left">The date/time the message was generated. Note the format of the timestamp depends on the logging configuration; the SolarNode default is shown in this example.</td>
+</tr>
+<tr>
+<td align="left">Level</td>
+<td align="left"><code>INFO</code></td>
+<td align="left">The severity/verbosity of the message (as determined by the developer). This is an enumeration, and from least-to-most severe: <code>TRACE</code>, <code>DEBUG</code>, <code>INFO</code>, <code>WARN</code>, <code>ERROR</code>.  The level of a given logger allows messages with that level <em>or higher</em> to be logged, while lower levels are skipped. The default SolarNode configuration sets the overal level to <code>INFO</code>, so <code>TRACE</code> and <code>DEBUG</code> messages are not logged.</td>
+</tr>
+<tr>
+<td align="left">Logger</td>
+<td align="left"><code>ModbusDatumDataSource</code></td>
+<td align="left">A category or namespace associated with the message. Most commonly these equate to Java class names, but can be any value and is determined by the developer. Periods in the logger name act as a delimiter, forming a hierarchy that can be tuned to log at different levels. For example, given the default <code>INFO</code> level, configuring the <code>net.solarnetwork.node.io.modbus</code> logger to <code>DEBUG</code> would turn on debug-level logging for all loggers in the Modbus IO namespace. Note that the default SolarNode configuration logs just a fixed number of the last characters of the logger name. This can be changed in the configuration to log more (or all) of the name, as desired.</td>
+</tr>
+<tr>
+<td align="left">Message</td>
+<td align="left"><code>Error reading from device.</code></td>
+<td align="left">The message itself, determined by the developer.</td>
+</tr>
+<tr>
+<td align="left">Exception</td>
+<td align="left"></td>
+<td align="left">Some messages include an exception stack trace, which shows the runtime call tree where the exception occurred.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="logger-namespaces"><span class="enumerate-headings-plugin enumerate-heading-plugin">19.2</span> Logger namespaces<a class="headerlink" href="#logger-namespaces" title="Permanent link">¶</a></h2>
+<p>The <strong>Logger</strong> component outlined in the previous section allows a lot of flexibility to configure
+what gets logged in SolarNode. Setting the level on a given namespace impacts that namespace as well
+as all namespaces <em>beneath</em> it, meaning all other loggers that share the same namespace prefix.</p>
+<p>For example, imagine the following two loggers exist in SolarNode:</p>
+<ul>
+<li><code>net.solarnetwork.node.io.modbus.serial.SerialModbusNetwork</code></li>
+<li><code>net.solarnetwork.node.io.modbus.util.ModbusUtils</code></li>
+</ul>
+<p>Given the default configuration sets the default level to <code>INFO</code>, we can turn in <code>DEBUG</code> logging for
+both of these by adding a <code>&lt;Logger&gt;</code> line like the following within the <code>&lt;Loggers&gt;</code> element:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;Logger</span><span class="w"> </span><span class="na">name=</span><span class="s">"net.solarnetwork.node.io.modbus"</span><span class="w"> </span><span class="na">level=</span><span class="s">"debug"</span><span class="nt">/&gt;</span>
+</code></pre></div>
+<p>That turns on <code>DEBUG</code> for both loggers because they are both children of the <code>net.solarnetwork.node.io.modbus</code> namespace.
+We could turn on <code>TRACE</code> logging for one of them like this:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;Logger</span><span class="w"> </span><span class="na">name=</span><span class="s">"net.solarnetwork.node.io.modbus"</span><span class="w">        </span><span class="na">level=</span><span class="s">"debug"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;Logger</span><span class="w"> </span><span class="na">name=</span><span class="s">"net.solarnetwork.node.io.modbus.serial"</span><span class="w"> </span><span class="na">level=</span><span class="s">"trace"</span><span class="nt">/&gt;</span>
+</code></pre></div>
+<p>That would also turn on <code>TRACE</code> for any other loggers in the <code>net.solarnetwork.node.io.modbus.serial</code>
+namespace. You can limit the configuration all the way down to a full logger name if you like, for
+example:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;Logger</span><span class="w"> </span><span class="na">name=</span><span class="s">"net.solarnetwork.node.io.modbus"</span><span class="w">                            </span><span class="na">level=</span><span class="s">"debug"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;Logger</span><span class="w"> </span><span class="na">name=</span><span class="s">"net.solarnetwork.node.io.modbus.serial.SerialModbusNetwork"</span><span class="w"> </span><span class="na">level=</span><span class="s">"trace"</span><span class="nt">/&gt;</span>
+</code></pre></div>
+<h2 id="logging-ui"><span class="enumerate-headings-plugin enumerate-heading-plugin">19.3</span> Logging UI<a class="headerlink" href="#logging-ui" title="Permanent link">¶</a></h2>
+<p>The SolarNode UI supports configuring logger levels dynamically, without having to change the
+logging configuration file. See the <a href="../setup-app/settings/logging/">Setup App / Settings / Logging</a>
+page for more information.</p>
+<h2 id="storage-constraints"><span class="enumerate-headings-plugin enumerate-heading-plugin">19.4</span> Storage constraints<a class="headerlink" href="#storage-constraints" title="Permanent link">¶</a></h2>
+<p>The default SolarNode configuration automatically rotates log files based on size, and limits the
+number of historic log files kept around, to that its associated storage space is not filled up.
+When a log file reaches the file limit, it is renamed to include a <code>-i.log</code> suffix, where <code>i</code> is an
+offset from the current log. The default configuration sets the maximum log size to <strong>1 MB</strong> and
+limits the number of historic files to <strong>3</strong>.</p>
+<p>You can also adjust how much history is saved by tweaking the <code>&lt;SizeBasedTriggeringPolicy&gt;</code> and
+<code>&lt;DefaultRolloverStrategy&gt;</code> configuration. For example to change to a limit of <strong>9</strong> historic files of
+at most <strong>5 MB</strong> each, the configuration would look like this:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;Policies&gt;</span>
+<span class="w">  </span><span class="nt">&lt;SizeBasedTriggeringPolicy</span><span class="w"> </span><span class="na">size=</span><span class="s">"5 MB"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/Policies&gt;</span>
+<span class="nt">&lt;DefaultRolloverStrategy</span><span class="w"> </span><span class="na">max=</span><span class="s">"9"</span><span class="nt">/&gt;</span>
+</code></pre></div>
+<h2 id="persistent-logging"><span class="enumerate-headings-plugin enumerate-heading-plugin">19.5</span> Persistent logging<a class="headerlink" href="#persistent-logging" title="Permanent link">¶</a></h2>
+<p>By default SolarNode logs to temporary (RAM) storage that is discarded when the node reboots. The
+configuration can be changed so that logs are written directly to persistent storage if you would
+like to have the logs persisted across reboots, or would like to preserve more log history than can
+be stored in the temporary storage area.</p>
+<p>To make this change, update the <code>&lt;RollingFile&gt;</code> element's <code>fileName</code> and/or <code>filePattern</code> attributes to point to a persistent filesystem. SolarNode already has write permission to the <code>/var/lib/solarnode/var</code> directory, so an
+easy location to use is <code>/var/lib/solarnode/var/log</code>, like this:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;RollingFile</span><span class="w"> </span><span class="na">name=</span><span class="s">"File"</span>
+<span class="w">    </span><span class="na">immediateFlush=</span><span class="s">"false"</span>
+<span class="w">    </span><span class="na">fileName=</span><span class="s">"/var/lib/solarnode/var/log/solarnode.log"</span>
+<span class="w">    </span><span class="na">filePattern=</span><span class="s">"/var/lib/solarnode/var/log/solarnode-%i.log"</span><span class="nt">&gt;</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This configuration can add a lot of stress to the node's storage medium, and may shorten its useful life.
+Consumer-grade SD cards in particular can fail quickly if SolarNode is writting a lot of information,
+such as verbose logging. Use of this configuration should be used with caution.</p>
+</div>
+<h2 id="logging-example-split-across-multiple-files"><span class="enumerate-headings-plugin enumerate-heading-plugin">19.6</span> Logging example: split across multiple files<a class="headerlink" href="#logging-example-split-across-multiple-files" title="Permanent link">¶</a></h2>
+<p>Sometimes it can be useful to turn on verbose logging for some area of SolarNode, but have those
+messages go to a different file so they don't clog up the main <code>solarnode.log</code> file. This can be
+done by configuring additional <em>appender</em> configurations.</p>
+<p>The following example logging configuration creates the following log files:</p>
+<ul>
+<li><code>/var/log/solarnode/solarnode.log</code> - the main log</li>
+<li><code>/var/log/solarnode/filter.log</code> - filter logging</li>
+<li><code>/var/log/solarnode/mqtt-solarin.log</code> - MQTT wire logging to SolarIn</li>
+<li><code>/var/log/solarnode/mqtt-solarflux.log</code> - MQTT wire logging to SolarFlux</li>
+</ul>
+<p>First you must create the <code>/var/log/solarnode</code> directory and give SolarNode permission to write there:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>mkdir<span class="w"> </span>/var/log/solarnode
+sudo<span class="w"> </span>chgrp<span class="w"> </span>solar<span class="w"> </span>/var/log/solarnode
+sudo<span class="w"> </span>chmod<span class="w"> </span>g+w<span class="w"> </span>/var/log/solarnode
+</code></pre></div>
+<p>Then edit the <code>/etc/solarnode/log4j2.xml</code> file to hold the following (adjust according to your
+needs):</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;Configuration</span><span class="w"> </span><span class="na">status=</span><span class="s">"WARN"</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;Appenders&gt;</span>
+<span class="w">    </span><span class="nt">&lt;RollingFile</span><span class="w"> </span><span class="na">name=</span><span class="s">"File"</span>
+<span class="w">        </span><span class="na">immediateFlush=</span><span class="s">"true"</span>
+<span class="w">        </span><span class="na">fileName=</span><span class="s">"/var/log/solarnode/solarnode.log"</span>
+<span class="w">        </span><span class="na">filePattern=</span><span class="s">"/var/log/solarnode/solarnode-%i.log"</span><span class="nt">&gt;</span><span class="cm">&lt;!-- (1)! --&gt;</span>
+<span class="w">      </span><span class="nt">&lt;PatternLayout</span><span class="w"> </span><span class="na">pattern=</span><span class="s">"%d{DEFAULT} %-5p %40.40c; %msg%n"</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;Policies&gt;</span>
+<span class="w">        </span><span class="nt">&lt;SizeBasedTriggeringPolicy</span><span class="w"> </span><span class="na">size=</span><span class="s">"5 MB"</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/Policies&gt;</span>
+<span class="w">      </span><span class="nt">&lt;DefaultRolloverStrategy</span><span class="w"> </span><span class="na">max=</span><span class="s">"9"</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/RollingFile&gt;</span>
+<span class="w">    </span><span class="nt">&lt;RollingFile</span><span class="w"> </span><span class="na">name=</span><span class="s">"Filter"</span>
+<span class="w">        </span><span class="na">immediateFlush=</span><span class="s">"false"</span>
+<span class="w">        </span><span class="na">fileName=</span><span class="s">"/var/log/solarnode/filter.log"</span>
+<span class="w">        </span><span class="na">filePattern=</span><span class="s">"/var/log/solarnode/filter-%i.log"</span><span class="nt">&gt;</span><span class="cm">&lt;!-- (2)! --&gt;</span>
+<span class="w">      </span><span class="nt">&lt;PatternLayout</span><span class="w"> </span><span class="na">pattern=</span><span class="s">"%d{DEFAULT} %-5p %40.40c; %msg%n"</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;Policies&gt;</span>
+<span class="w">        </span><span class="nt">&lt;SizeBasedTriggeringPolicy</span><span class="w"> </span><span class="na">size=</span><span class="s">"10 MB"</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/Policies&gt;</span>
+<span class="w">      </span><span class="nt">&lt;DefaultRolloverStrategy</span><span class="w"> </span><span class="na">max=</span><span class="s">"9"</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/RollingFile&gt;</span>
+<span class="w">    </span><span class="nt">&lt;RollingFile</span><span class="w"> </span><span class="na">name=</span><span class="s">"MQTT"</span>
+<span class="w">        </span><span class="na">immediateFlush=</span><span class="s">"false"</span>
+<span class="w">        </span><span class="na">fileName=</span><span class="s">"/var/log/solarnode/mqtt.log"</span>
+<span class="w">        </span><span class="na">filePattern=</span><span class="s">"/var/log/solarnode/mqtt-%i.log"</span><span class="nt">&gt;</span><span class="cm">&lt;!-- (3)! --&gt;</span>
+<span class="w">      </span><span class="nt">&lt;PatternLayout</span><span class="w"> </span><span class="na">pattern=</span><span class="s">"%d{DEFAULT} %-5p %40.40c; %msg%n"</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;Policies&gt;</span>
+<span class="w">        </span><span class="nt">&lt;SizeBasedTriggeringPolicy</span><span class="w"> </span><span class="na">size=</span><span class="s">"10 MB"</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/Policies&gt;</span>
+<span class="w">      </span><span class="nt">&lt;DefaultRolloverStrategy</span><span class="w"> </span><span class="na">max=</span><span class="s">"9"</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/RollingFile&gt;</span>
+<span class="w">    </span><span class="nt">&lt;RollingFile</span><span class="w"> </span><span class="na">name=</span><span class="s">"Flux"</span>
+<span class="w">        </span><span class="na">immediateFlush=</span><span class="s">"false"</span>
+<span class="w">        </span><span class="na">fileName=</span><span class="s">"/var/log/solarnode/flux.log"</span>
+<span class="w">        </span><span class="na">filePattern=</span><span class="s">"/var/log/solarnode/flux-%i.log"</span><span class="nt">&gt;</span><span class="cm">&lt;!-- (4)! --&gt;</span>
+<span class="w">      </span><span class="nt">&lt;PatternLayout</span><span class="w"> </span><span class="na">pattern=</span><span class="s">"%d{DEFAULT} %-5p %40.40c; %msg%n"</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;Policies&gt;</span>
+<span class="w">        </span><span class="nt">&lt;SizeBasedTriggeringPolicy</span><span class="w"> </span><span class="na">size=</span><span class="s">"10 MB"</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/Policies&gt;</span>
+<span class="w">      </span><span class="nt">&lt;DefaultRolloverStrategy</span><span class="w"> </span><span class="na">max=</span><span class="s">"9"</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/RollingFile&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/Appenders&gt;</span>
+<span class="w">  </span><span class="nt">&lt;Loggers&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Logger</span><span class="w"> </span><span class="na">name=</span><span class="s">"org.eclipse.gemini.blueprint.blueprint.container.support"</span><span class="w"> </span><span class="na">level=</span><span class="s">"warn"</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Logger</span><span class="w"> </span><span class="na">name=</span><span class="s">"org.eclipse.gemini.blueprint.context.support"</span><span class="w"> </span><span class="na">level=</span><span class="s">"warn"</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Logger</span><span class="w"> </span><span class="na">name=</span><span class="s">"org.eclipse.gemini.blueprint.service.importer.support"</span><span class="w"> </span><span class="na">level=</span><span class="s">"warn"</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Logger</span><span class="w"> </span><span class="na">name=</span><span class="s">"org.springframework.beans.factory"</span><span class="w"> </span><span class="na">level=</span><span class="s">"warn"</span><span class="nt">/&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;Logger</span><span class="w"> </span><span class="na">name=</span><span class="s">"net.solarnetwork.node.datum.filter"</span><span class="w"> </span><span class="na">level=</span><span class="s">"trace"</span><span class="w"> </span><span class="na">additivity=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;AppenderRef</span><span class="w"> </span><span class="na">ref=</span><span class="s">"Filter"</span><span class="nt">/&gt;</span><span class="cm">&lt;!-- (5)! --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/Logger&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;Logger</span><span class="w"> </span><span class="na">name=</span><span class="s">"net.solarnetwork.mqtt.queue"</span><span class="w"> </span><span class="na">level=</span><span class="s">"trace"</span><span class="w"> </span><span class="na">additivity=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;AppenderRef</span><span class="w"> </span><span class="na">ref=</span><span class="s">"MQTT"</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/Logger&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;Logger</span><span class="w"> </span><span class="na">name=</span><span class="s">"net.solarnetwork.mqtt.influx"</span><span class="w"> </span><span class="na">level=</span><span class="s">"trace"</span><span class="w"> </span><span class="na">additivity=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;AppenderRef</span><span class="w"> </span><span class="na">ref=</span><span class="s">"Flux"</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/Logger&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;Root</span><span class="w"> </span><span class="na">level=</span><span class="s">"info"</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;AppenderRef</span><span class="w"> </span><span class="na">ref=</span><span class="s">"File"</span><span class="nt">/&gt;</span><span class="cm">&lt;!-- (6)! --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/Root&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/Loggers&gt;</span>
+<span class="nt">&lt;/Configuration&gt;</span>
+</code></pre></div>
+<ol>
+<li>The <code>File</code> appender is the "main" application log where most logs should go.</li>
+<li>The <code>Filter</code> appender is where we want <code>net.solarnetwork.node.datum.filter</code> messages to go.</li>
+<li>The <code>MQTT</code> appender is where we want <code>net.solarnetwork.mqtt.queue</code> messages to go.</li>
+<li>The <code>Flux</code> appender is where we want <code>net.solarnetwork.mqtt.influx</code> messages to go.</li>
+<li>Here we include <code>additivity="false"</code> and add the <code>&lt;AppenderRef&gt;</code> element that refereneces
+   the specific appender name we want the log messages to go to. The <code>additivity=false</code> attribute
+   means the log messages will <strong>only</strong> go to the <code>Filter</code> appender, instead of <em>also</em> going to
+   the root-level <code>File</code> appender.</li>
+<li>The <strong>root-level</strong> appender is the "default" destination for log messages, unless overridden
+   by a specific appender like we did for the <code>Filter</code>, <code>MQTT</code>, and <code>Flux</code> appenders above.</li>
+</ol>
+<h3 id="separate-file-configuration-notes"><span class="enumerate-headings-plugin enumerate-heading-plugin">19.6.1</span> Separate file configuration notes<a class="headerlink" href="#separate-file-configuration-notes" title="Permanent link">¶</a></h3>
+<p>The various <code>&lt;AppenderRef&gt;</code> elements configure the appender name to write the messages to.</p>
+<p>The various <code>additivity="false"</code> attributes disable appender <em>additivity</em> which means the log
+message will only be written to one appender, instead of being written to <strong>all</strong>
+configured appenders in the hierarchy (for example the root-level appender).</p>
+<p>The <code>immediateFlush="false"</code> turns on buffered logging, which means log messages are buffered in RAM
+before being flushed to disk. This is more forgiving to the disk, at the expense of a delay before
+the messages appear.</p>
+<h2 id="enable-mqtt-wire-logging"><span class="enumerate-headings-plugin enumerate-heading-plugin">19.7</span> Enable MQTT wire logging<a class="headerlink" href="#enable-mqtt-wire-logging" title="Permanent link">¶</a></h2>
+<p>MQTT wire logging means the raw MQTT packets send and received over MQTT connections will be logged
+in an easy-to-read but very verbose format. For the MQTT wire logging to be enabled, it must be
+activated with a special configuration file. Create the
+<code>/etc/solarnode/services/net.solarnetwork.common.mqtt.netty.cfg</code> file with this content:</p>
+<div class="highlight"><pre><span></span><code>wireLogging = true
+</code></pre></div>
+<h3 id="mqtt-wire-log-namespace"><span class="enumerate-headings-plugin enumerate-heading-plugin">19.7.1</span> MQTT wire log namespace<a class="headerlink" href="#mqtt-wire-log-namespace" title="Permanent link">¶</a></h3>
+<p>MQTT wire logs use a namespace prefix <code>net.solarnetwork.mqtt.</code> followed by the connection's host
+name or IP address and port. For example SolarIn messages would use
+<code>net.solarnetwork.mqtt.queue.solarnetwork.net:8883</code> and SolarFlux messages would use
+<code>net.solarnetwork.mqtt.influx.solarnetwork.net:8884</code>.</p>
 </article>
 </div>
 </div>

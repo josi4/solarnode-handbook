@@ -442,7 +442,15 @@
 <h1 id="configuration"><span class="enumerate-headings-plugin enumerate-heading-plugin">17.</span> Configuration<a class="headerlink" href="#configuration" title="Permanent link">¶</a></h1>
 <p>Some SolarNode components can be configured from properties files. This type of configuration is
 meant to be changed just once, when a SolarNode is first deployed, to alter some default
-configuration value. The <a href="https://en.wikipedia.org/wiki/.properties">properties files</a> are read from the <code>/etc/solarnode/services</code>
+configuration value.</p>
+<div class="admonition warning">
+<p class="admonition-title">Not to be confused with Settings</p>
+<p>This type of configuration differs from what the <a href="../setup-app/settings/">Settings</a> page
+in the Setup App provides a UI managing. This configuration might be created by system
+administrators when creating a custom SolarNodeOS image for their needs, while Settings are
+meant to be managed by end users.</p>
+</div>
+<p>Configuration <a href="https://en.wikipedia.org/wiki/.properties">properties files</a> are read from the <code>/etc/solarnode/services</code>
 directory and named like <code>NAMESPACE.cfg</code> , where <code>NAMESPACE</code> represents a <em>configuration namespace</em>.</p>
 <div class="admonition note">
 <p class="admonition-title">Configuration location</p>
@@ -452,7 +460,7 @@ another location in other SolarNode deployments.</p>
 <h2 id="example"><span class="enumerate-headings-plugin enumerate-heading-plugin">17.1</span> Example<a class="headerlink" href="#example" title="Permanent link">¶</a></h2>
 <p>Imagine a component uses the configuration namespace <code>com.example.service</code> and supports a
 configurable property named <code>max-threads</code> that accepts an integer value you would like to configure
-as <code>4</code>. You would create a <code>com.example.service.properties</code> file like:</p>
+as <code>4</code>. You would create a <code>com.example.service.cfg</code> file like:</p>
 <div class="highlight"><span class="filename">/etc/solarnode/services/com.example.service.cfg</span><pre><span></span><code><span class="na">max-threads</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">4</span>
 </code></pre></div>
 </article>
