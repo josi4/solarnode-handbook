@@ -3,4 +3,6 @@ nav:
     - index.md
     - manifest.md
     - life-cycle.md
+    - configuration-admin.md
     - blueprint.md
+    - Blueprint Compendium: blueprint-compendium.md
