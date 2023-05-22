@@ -6,11 +6,11 @@ The queue can be configured with various _filters_ that can augment, modify, or 
 The queue buffers the datum for a short amount of time and then processes them sequentially in order
 of time, oldest to newest.
 
-Data sources are _polled_ for datum on a recurring schedule and those datum are then posted to and
-stored in SolarNetwork. Data sources can also offer datum directly to the `DatumQueue` if they
-_emit_ datum based on external events. When offering datum directly, the datum can be tagged as
-_transient_ and they will then still be processed by the queue but will **not** be posted/stored in
-SolarNetwork.
+Datum data sources that use the [Datum Data Source Poll Job](datum-data-source-poll-job.md) are
+_polled_ for datum on a recurring schedule and those datum are then posted to and stored in
+SolarNetwork. Data sources can also offer datum directly to the `DatumQueue` if they _emit_ datum
+based on external events. When offering datum directly, the datum can be tagged as _transient_ and
+they will then still be processed by the queue but will **not** be posted/stored in SolarNetwork.
 
 ```java
 /**
