@@ -15,7 +15,11 @@ Any plugin simply needs to register a [ManagedJob][ManagedJob] service for the J
 automatically schedule and execute the job. The schedule is provided by the [`getSchedle()`][getSchedule]
 method, which can return a [cron expression][cron] or a plain number representing a millisecond period.
 
-## Job
+The `net.solarnetwork.node.job.SimpleManagedJob` class implements `ManagedJob` and can be used in
+most situations. It delegates the actual work to a `net.solarnetwork.node.job.JobService` API,
+discussed in the next section.
+
+## Job Service
 
 The `ManagedJob` API delegates the actual task work to a [`JobService`][JobService] API. The `executeJobService()`
 method will be invoked when the job executes.
