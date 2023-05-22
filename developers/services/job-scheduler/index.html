@@ -6,7 +6,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://solarnetwork.github.io/solarnode-handbook/developers/services/job-scheduler/" rel="canonical"/>
-<link href="../closeable-service/" rel="prev"/>
+<link href="../datum-queue/" rel="prev"/>
 <link href="../placeholder-service/" rel="next"/>
 <link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.1.7" name="generator"/>
@@ -298,8 +298,18 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../osgi/configuration-admin/">
+        Configuration Admin
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../osgi/blueprint/">
         Blueprint
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../osgi/blueprint-compendium/">
+        Blueprint Compendium
       </a>
 </li>
 </ul>
@@ -369,6 +379,26 @@
         Closeable Service
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../datum-data-source-poll-job/">
+        Datum Data Source Poll Job
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../datum-data-source/">
+        Datum Data Source
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../datum-db/">
+        Datum Database
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../datum-queue/">
+        Datum Queue
+      </a>
+</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
@@ -385,8 +415,18 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#configuration">
-    Configuration
+<a class="md-nav__link" href="#managed-jobs">
+    Managed Jobs
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#job-service">
+    Job Service
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-managed-job">
+    Example Managed Job
   </a>
 </li>
 </ul>
@@ -405,6 +445,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../settings-service/">
         Settings Service
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../sql-database/">
+        SQL Database
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../task-executor/">
+        Task Executor
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../task-scheduler/">
+        Task Scheduler
       </a>
 </li>
 </ul>
@@ -428,8 +483,18 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#configuration">
-    Configuration
+<a class="md-nav__link" href="#managed-jobs">
+    Managed Jobs
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#job-service">
+    Job Service
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-managed-job">
+    Example Managed Job
   </a>
 </li>
 </ul>
@@ -439,34 +504,110 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="job-scheduler"><span class="enumerate-headings-plugin enumerate-heading-plugin">34.</span> Job Scheduler<a class="headerlink" href="#job-scheduler" title="Permanent link">¶</a></h1>
-<p>SolarNode provides a <a href="https://javadoc.io/doc/net.solarnetwork.node/net.solarnetwork.node/latest/net/solarnetwork/node/runtime/ManagedJobScheduler.html">Job Scheduler service</a> that can automatically schedule and execute
-jobs exported by plugins.</p>
-<h2 id="configuration"><span class="enumerate-headings-plugin enumerate-heading-plugin">34.1</span> Configuration<a class="headerlink" href="#configuration" title="Permanent link">¶</a></h2>
-<p>The Job Scheduler supports the following <a href="../../../users/configuration/">configuration properties</a> in the <code>net.solarnetwork.node.core</code> namespace:</p>
-<div class="props-explicit-col-widths">
-<table>
-<thead>
-<tr>
-<th align="left">Property</th>
-<th align="left">Default</th>
-<th align="left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><code>jobScheduler.poolSize</code></td>
-<td align="left">10</td>
-<td align="left">The number of threads to maintain in the job scheduler, and thus the maximum number of jobs that can run simultaneously. Must be set to 1 or higher.</td>
-</tr>
-<tr>
-<td align="left"><code>scheduler.startupDelay</code></td>
-<td align="left">180</td>
-<td align="left">A delay in seconds after creating the job scheduler to start triggering jobs. This can be useful to give the application time to completely initialize before starting to run jobs.</td>
-</tr>
-</tbody>
-</table>
+<h1 id="job-scheduler"><span class="enumerate-headings-plugin enumerate-heading-plugin">40.</span> Job Scheduler<a class="headerlink" href="#job-scheduler" title="Permanent link">¶</a></h1>
+<p>SolarNode provides a <a href="https://javadoc.io/doc/net.solarnetwork.node/net.solarnetwork.node/latest/net/solarnetwork/node/runtime/ManagedJobScheduler.html">ManagedJobScheduler</a> service that can automatically execute
+jobs exported by plugins that have user-defined schedules.</p>
+<div class="admonition tip">
+<p class="admonition-title">The Job Scheduler uses the Task Scheduler</p>
+<p>The Job Scheduler service uses the <a href="../task-scheduler/">Task Scheduler</a> internally, which means
+the number of jobs that can execute simultaneously will be limited by its thread pool
+configuration.</p>
 </div>
+<h2 id="managed-jobs"><span class="enumerate-headings-plugin enumerate-heading-plugin">40.1</span> Managed Jobs<a class="headerlink" href="#managed-jobs" title="Permanent link">¶</a></h2>
+<p>Any plugin simply needs to register a <a href="https://javadoc.io/doc/net.solarnetwork.node/net.solarnetwork.node/latest/net/solarnetwork/node/job/ManagedJob.html">ManagedJob</a> service for the Job Scheduler to
+automatically schedule and execute the job. The schedule is provided by the <a href="https://javadoc.io/doc/net.solarnetwork.node/net.solarnetwork.node/latest/net/solarnetwork/node/job/ManagedJob.html#getSchedule()"><code>getSchedle()</code></a>
+method, which can return a <a href="https://github.com/SolarNetwork/solarnetwork/wiki/SolarNode-Cron-Job-Syntax">cron expression</a> or a plain number representing a millisecond period.</p>
+<p>The <code>net.solarnetwork.node.job.SimpleManagedJob</code> class implements <code>ManagedJob</code> and can be used in
+most situations. It delegates the actual work to a <code>net.solarnetwork.node.job.JobService</code> API,
+discussed in the next section.</p>
+<h2 id="job-service"><span class="enumerate-headings-plugin enumerate-heading-plugin">40.2</span> Job Service<a class="headerlink" href="#job-service" title="Permanent link">¶</a></h2>
+<p>The <code>ManagedJob</code> API delegates the actual task work to a <a href="https://javadoc.io/doc/net.solarnetwork.node/net.solarnetwork.node/latest/net/solarnetwork/node/job/JobService.html"><code>JobService</code></a> API. The <code>executeJobService()</code>
+method will be invoked when the job executes.</p>
+<h2 id="example-managed-job"><span class="enumerate-headings-plugin enumerate-heading-plugin">40.3</span> Example Managed Job<a class="headerlink" href="#example-managed-job" title="Permanent link">¶</a></h2>
+<p>Let's imagine you have a <code>com.example.Job</code> class that you would like to allow users to schedule. Your
+class would implement the <code>JobService</code> interface, and then you would provide a localized messages
+properties file and configure the service using <a href="../../osgi/blueprint/">OSGi Blueprint</a>.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">com.example.Job.java</label><label for="__tabbed_1_2">com.example.Job.properties</label><label for="__tabbed_1_3">OSGi Blueprint</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">com.example</span><span class="p">;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Collections</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.List</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">net.solarnetwork.node.job.JobService</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">net.solarnetwork.node.service.support.BaseIdentifiable</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">net.solarnetwork.settings.SettingSpecifier</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * My super-duper job.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Job</span><span class="w"> </span><span class="n">exetnds</span><span class="w"> </span><span class="n">BaseIdentifiable</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">JobService</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getSettingUid</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"com.example.job"</span><span class="p">;</span><span class="w"> </span><span class="c1">// (1)!</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">SettingSpecifier</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getSettingSpecifiers</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Collections</span><span class="p">.</span><span class="na">emptyList</span><span class="p">();</span><span class="w"> </span><span class="c1">// (2)!</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">executeJobService</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// do great stuff here!</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<ol>
+<li>The setting UID will be configured in the Blueprint XML as well.</li>
+<li>The <code>SimpleManagedJob</code> class we'll configure in Blueprint XML will automatically
+   add a <code>schedule</code> setting to configure the job schedule.</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="na">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Super-duper Job</span>
+<span class="na">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">This job does it all.</span>
+
+<span class="na">schedule.key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Schedule</span>
+<span class="na">schedule.desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">The schedule to execute the job at. </span><span class="se">\</span>
+<span class="w">    </span><span class="s">Can be either a number representing a frequency in &lt;b&gt;milliseconds&lt;/b&gt; </span><span class="se">\</span>
+<span class="w">    </span><span class="s">or a &lt;a href="{0}"&gt;cron expression&lt;/a&gt;, for example &lt;code&gt;0 * * * * *&lt;/code&gt;.</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;service</span><span class="w"> </span><span class="na">interface=</span><span class="s">"net.solarnetwork.node.job.ManagedJob"</span><span class="nt">&gt;</span><span class="cm">&lt;!-- (1)! --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;service-properties&gt;</span>
+<span class="w">        </span><span class="nt">&lt;entry</span><span class="w"> </span><span class="na">key=</span><span class="s">"service.pid"</span><span class="w"> </span><span class="na">value=</span><span class="s">"com.example.job"</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/service-properties&gt;</span>
+<span class="w">    </span><span class="nt">&lt;bean</span><span class="w"> </span><span class="na">class=</span><span class="s">"net.solarnetwork.node.job.SimpleManagedJob"</span><span class="nt">&gt;</span><span class="cm">&lt;!-- (2)! --&gt;</span>
+<span class="w">        </span><span class="nt">&lt;argument&gt;</span>
+<span class="w">            </span><span class="nt">&lt;bean</span><span class="w"> </span><span class="na">class=</span><span class="s">"com.example.Job"</span><span class="nt">&gt;</span>
+<span class="w">                </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">"uid"</span><span class="w"> </span><span class="na">value=</span><span class="s">"com.example.job"</span><span class="nt">/&gt;</span><span class="cm">&lt;!-- (3)! --&gt;</span>
+<span class="w">                </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">"messageSource"</span><span class="nt">&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;bean</span><span class="w"> </span><span class="na">class=</span><span class="s">"org.springframework.context.support.ResourceBundleMessageSource"</span><span class="nt">&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">"basenames"</span><span class="w"> </span><span class="na">value=</span><span class="s">"com.example.Job"</span><span class="nt">/&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;/bean&gt;</span>
+<span class="w">                </span><span class="nt">&lt;/property&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/bean&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/argument&gt;</span>
+<span class="w">        </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">"schedule"</span><span class="w"> </span><span class="na">value=</span><span class="s">"0 * * * * *"</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/bean&gt;</span>
+<span class="nt">&lt;/service&gt;</span>
+</code></pre></div>
+<ol>
+<li>This registers a <code>ManagedJob</code> service with the SolarNode runtime.</li>
+<li>The <code>SimpleManagedJob</code> class is a handy <code>ManagedJob</code> implementation. It adds a <code>schedule</code>
+   setting to any settings returned by the <code>JobService</code>.</li>
+<li>The <code>uid</code> value should match the <code>service.pid</code> used earlier, which matches the value
+   returned by the <code>getSettingUid()</code> method in the <code>Job</code> class.</li>
+</ol>
+</div>
+</div>
+</input></input></input></div>
+<p>When this plugin is deployed in SolarNode, the component will appear on the main <a href="../../../users/setup-app/settings/">Settings
+page</a> and offer a configurable <strong>Schedule</strong> setting,
+like this:</p>
+<p><img alt="Example job in Settings UI" src="../../../images/developers/services/example-managed-job-settings-ui.png" width="658"/></p>
 </article>
 </div>
 </div>
