@@ -70,3 +70,10 @@
 .enumerate-headings-plugin {
 	filter: opacity(35%);
 }
+
+figure {
+	border-width: 1px 0;
+	border-color: rgba(122, 122, 122, 0.8);
+	border-style: dotted;
+	padding: 0rem 2rem;
+}
