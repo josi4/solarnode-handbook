@@ -34,7 +34,7 @@
 <header class="md-header md-header--shadow" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
 <a aria-label="SolarNode Handbook" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="SolarNode Handbook">
-<img alt="logo" src="../../../images/logo.png"/>
+<img alt="logo" src="../../../images/solarnode-icon.svg"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
@@ -106,7 +106,7 @@
 <nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
 <a aria-label="SolarNode Handbook" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="SolarNode Handbook">
-<img alt="logo" src="../../../images/logo.png"/>
+<img alt="logo" src="../../../images/solarnode-icon.svg"/>
 </a>
     SolarNode Handbook
   </label>
@@ -226,6 +226,11 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../users/setup-app/plugins/">
         Plugins
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../users/setup-app/profile/">
+        Profile
       </a>
 </li>
 </ul>
@@ -484,7 +489,7 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="life-cycle"><span class="enumerate-headings-plugin enumerate-heading-plugin">24.</span> Life cycle<a class="headerlink" href="#life-cycle" title="Permanent link">¶</a></h1>
+<h1 id="life-cycle"><span class="enumerate-headings-plugin enumerate-heading-plugin">25.</span> Life cycle<a class="headerlink" href="#life-cycle" title="Permanent link">¶</a></h1>
 <p>Plugins in SolarNode can be added to and removed from the platform at any time without restarting
 the SolarNode process, because of the <a href="https://en.wikipedia.org/wiki/OSGi#Life-cycle">Life Cycle</a> process OSGi manages. The life
 cycle of a plugin consists of a set of <em>states</em> and OSGi will transition a plugin's state over the
@@ -529,7 +534,7 @@ course of the plugin's life.</p>
 <img alt="OSGi Life Cycle state change diagram" src="../../../images/developers/osgi/OSGi_Bundle_Life-Cycle.svg"/>
 <figcaption>Faisal.akeel, Public domain, via <a href="https://commons.wikimedia.org/wiki/File:OSGi_Bundle_Life-Cycle.svg">Wikimedia Common</a></figcaption>
 </figure>
-<h2 id="activator"><span class="enumerate-headings-plugin enumerate-heading-plugin">24.1</span> Activator<a class="headerlink" href="#activator" title="Permanent link">¶</a></h2>
+<h2 id="activator"><span class="enumerate-headings-plugin enumerate-heading-plugin">25.1</span> Activator<a class="headerlink" href="#activator" title="Permanent link">¶</a></h2>
 <p>A plugin can opt in to receiving callbacks for the start/stop state transitions by providing an
 <code>org.osgi.framework.BundleActivator</code> implementation and declaring that class in the
 <a href="../manifest/#common-attributes"><code>Bundle-Activator</code> manifest attribute</a>. This can be useful when a

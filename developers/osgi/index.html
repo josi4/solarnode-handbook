@@ -34,7 +34,7 @@
 <header class="md-header md-header--shadow" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
 <a aria-label="SolarNode Handbook" class="md-header__button md-logo" data-md-component="logo" href="../.." title="SolarNode Handbook">
-<img alt="logo" src="../../images/logo.png"/>
+<img alt="logo" src="../../images/solarnode-icon.svg"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
@@ -106,7 +106,7 @@
 <nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
 <a aria-label="SolarNode Handbook" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="SolarNode Handbook">
-<img alt="logo" src="../../images/logo.png"/>
+<img alt="logo" src="../../images/solarnode-icon.svg"/>
 </a>
     SolarNode Handbook
   </label>
@@ -226,6 +226,11 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../users/setup-app/plugins/">
         Plugins
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../users/setup-app/profile/">
+        Profile
       </a>
 </li>
 </ul>
@@ -466,7 +471,7 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="plugins"><span class="enumerate-headings-plugin enumerate-heading-plugin">22.</span> Plugins<a class="headerlink" href="#plugins" title="Permanent link">¶</a></h1>
+<h1 id="plugins"><span class="enumerate-headings-plugin enumerate-heading-plugin">23.</span> Plugins<a class="headerlink" href="#plugins" title="Permanent link">¶</a></h1>
 <p>The SolarNode platform has been designed to be highly modular and dynamic, by using a plugin-based
 architecture. The plugin system SolarNode uses is based on the <a href="https://en.wikipedia.org/wiki/OSGi">OSGi</a> specification, where
 plugins are implemented as <a href="https://en.wikipedia.org/wiki/OSGi#Bundles">OSGi bundles</a>. SolarNode can be thought of as a collection of
@@ -494,7 +499,7 @@ net/solarnetwork/common/jdt/JdtJavaCompiler.class
 net/solarnetwork/common/jdt/MapClassLoader.class
 net/solarnetwork/common/jdt/ResourceCompilationUnit.class
 </code></pre></div>
-<h2 id="services"><span class="enumerate-headings-plugin enumerate-heading-plugin">22.1</span> Services<a class="headerlink" href="#services" title="Permanent link">¶</a></h2>
+<h2 id="services"><span class="enumerate-headings-plugin enumerate-heading-plugin">23.1</span> Services<a class="headerlink" href="#services" title="Permanent link">¶</a></h2>
 <p>Central to the plugin architecture SolarNode uses is the concept of a <em>service</em>. In SolarNode a
 service is defined by a Java interface. A plugin can <em>advertise</em> a service to the SolarNode runtime.
 Plugins can <em>lookup</em> a service in the SolarNode runtime and then invoke the methods defined on it.</p>

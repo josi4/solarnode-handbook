@@ -34,7 +34,7 @@
 <header class="md-header md-header--shadow" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
 <a aria-label="SolarNode Handbook" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="SolarNode Handbook">
-<img alt="logo" src="../../../images/logo.png"/>
+<img alt="logo" src="../../../images/solarnode-icon.svg"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
@@ -106,7 +106,7 @@
 <nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
 <a aria-label="SolarNode Handbook" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="SolarNode Handbook">
-<img alt="logo" src="../../../images/logo.png"/>
+<img alt="logo" src="../../../images/solarnode-icon.svg"/>
 </a>
     SolarNode Handbook
   </label>
@@ -226,6 +226,11 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../users/setup-app/plugins/">
         Plugins
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../users/setup-app/profile/">
+        Profile
       </a>
 </li>
 </ul>
@@ -484,17 +489,17 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="datum-queue"><span class="enumerate-headings-plugin enumerate-heading-plugin">39.</span> Datum Queue<a class="headerlink" href="#datum-queue" title="Permanent link">¶</a></h1>
+<h1 id="datum-queue"><span class="enumerate-headings-plugin enumerate-heading-plugin">40.</span> Datum Queue<a class="headerlink" href="#datum-queue" title="Permanent link">¶</a></h1>
 <p>SolarNode has a <a href="https://javadoc.io/doc/net.solarnetwork.node/net.solarnetwork.node/latest/net/solarnetwork/node/service/DatumQueue.html"><code>DatumQueue</code></a> service that acts as a central facility for processing
 all <a href="https://javadoc.io/doc/net.solarnetwork.node/net.solarnetwork.node/latest/net/solarnetwork/node/domain/datum/NodeDatum.html"><code>NodeDatum</code></a> captured by all data source plugins deployed in the SolarNode runtime.
 The queue can be configured with various <em>filters</em> that can augment, modify, or discard the datum.
 The queue buffers the datum for a short amount of time and then processes them sequentially in order
 of time, oldest to newest.</p>
-<p>Data sources are <em>polled</em> for datum on a recurring schedule and those datum are then posted to and
-stored in SolarNetwork. Data sources can also offer datum directly to the <code>DatumQueue</code> if they
-<em>emit</em> datum based on external events. When offering datum directly, the datum can be tagged as
-<em>transient</em> and they will then still be processed by the queue but will <strong>not</strong> be posted/stored in
-SolarNetwork.</p>
+<p>Datum data sources that use the <a href="../datum-data-source-poll-job/">Datum Data Source Poll Job</a> are
+<em>polled</em> for datum on a recurring schedule and those datum are then posted to and stored in
+SolarNetwork. Data sources can also offer datum directly to the <code>DatumQueue</code> if they <em>emit</em> datum
+based on external events. When offering datum directly, the datum can be tagged as <em>transient</em> and
+they will then still be processed by the queue but will <strong>not</strong> be posted/stored in SolarNetwork.</p>
 <div class="highlight"><pre><span></span><code><span class="cm">/**</span>
 <span class="cm"> * Offer a new datum to the queue, optionally persisting.</span>
 <span class="cm"> *</span>
@@ -507,7 +512,7 @@ SolarNetwork.</p>
 <span class="cm"> */</span>
 <span class="kt">boolean</span><span class="w"> </span><span class="nf">offer</span><span class="p">(</span><span class="n">NodeDatum</span><span class="w"> </span><span class="n">datum</span><span class="p">,</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">persist</span><span class="p">);</span>
 </code></pre></div>
-<h2 id="queue-observer"><span class="enumerate-headings-plugin enumerate-heading-plugin">39.1</span> Queue observer<a class="headerlink" href="#queue-observer" title="Permanent link">¶</a></h2>
+<h2 id="queue-observer"><span class="enumerate-headings-plugin enumerate-heading-plugin">40.1</span> Queue observer<a class="headerlink" href="#queue-observer" title="Permanent link">¶</a></h2>
 <p>Plugins can also register observers on the <code>DatumQueue</code> that are notified of each datum that gets
 processed. The <code>addConsumer()</code> and <code>removeConsumer()</code> methods allow you to register/deregister
 observers:</p>
