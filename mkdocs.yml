@@ -3,7 +3,7 @@ site_url: https://solarnetwork.github.io/solarnode-handbook/
 
 theme:
     name: material
-    logo: images/logo.png
+    logo: images/solarnode-icon.svg
     features:
         - content.code.annotate
         - content.code.copy
