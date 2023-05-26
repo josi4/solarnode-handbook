@@ -5,6 +5,7 @@ nav:
     - setup-app
     - sysadmin
     - networking.md
+    - security-tokens.md
     - remote-access.md
     - configuration.md
     - settings.md
