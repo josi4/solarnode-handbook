@@ -6,8 +6,8 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://solarnetwork.github.io/solarnode-handbook/users/networking/" rel="canonical"/>
-<link href="../setup-app/profile/" rel="prev"/>
-<link href="../configuration/" rel="next"/>
+<link href="../sysadmin/solarssh/" rel="prev"/>
+<link href="../remote-access/" rel="next"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.1.7" name="generator"/>
 <title>Networking - SolarNode Handbook</title>
@@ -236,6 +236,43 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_1_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../sysadmin/">System Administration</a>
+<label for="__nav_1_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_1_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_1_4">
+<span class="md-nav__icon md-icon"></span>
+          System Administration
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../sysadmin/date-time/">
+        Date and Time
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../sysadmin/networking/">
+        Networking
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../sysadmin/solarnode-service/">
+        SolarNode Service
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../sysadmin/solarssh/">
+        SolarSSH
+      </a>
+</li>
+</ul>
+</nav>
+</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
@@ -277,6 +314,11 @@
 </li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../remote-access/">
+        Remote Access
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../configuration/">
@@ -527,16 +569,16 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="networking"><span class="enumerate-headings-plugin enumerate-heading-plugin">17.</span> Networking<a class="headerlink" href="#networking" title="Permanent link">¶</a></h1>
+<h1 id="networking"><span class="enumerate-headings-plugin enumerate-heading-plugin">22.</span> Networking<a class="headerlink" href="#networking" title="Permanent link">¶</a></h1>
 <p>SolarNode will attempt to automatically configure networking access from a local DHCP server. For
 many deployments the local network router is the DHCP server. SolarNode will identify itself with
 the name <code>solarnode</code>, so in many cases you can reach the SolarNode setup app at <a href="http://solarnode/">http://solarnode/</a>.</p>
-<h2 id="finding-solarnodes-network-address"><span class="enumerate-headings-plugin enumerate-heading-plugin">17.1</span> Finding SolarNode's network address<a class="headerlink" href="#finding-solarnodes-network-address" title="Permanent link">¶</a></h2>
+<h2 id="finding-solarnodes-network-address"><span class="enumerate-headings-plugin enumerate-heading-plugin">22.1</span> Finding SolarNode's network address<a class="headerlink" href="#finding-solarnodes-network-address" title="Permanent link">¶</a></h2>
 <p>To find what network address SolarNode is using, you have a few options:</p>
-<h3 id="consult-your-network-router"><span class="enumerate-headings-plugin enumerate-heading-plugin">17.1.1</span> Consult your network router<a class="headerlink" href="#consult-your-network-router" title="Permanent link">¶</a></h3>
+<h3 id="consult-your-network-router"><span class="enumerate-headings-plugin enumerate-heading-plugin">22.1.1</span> Consult your network router<a class="headerlink" href="#consult-your-network-router" title="Permanent link">¶</a></h3>
 <p>Your local network router is very likely to have a record of SolarNode's network connection. Log
 into the router's management UI and look for a device named <code>solarnode</code>.</p>
-<h3 id="connect-a-keyboard-and-screen"><span class="enumerate-headings-plugin enumerate-heading-plugin">17.1.2</span> Connect a keyboard and screen<a class="headerlink" href="#connect-a-keyboard-and-screen" title="Permanent link">¶</a></h3>
+<h3 id="connect-a-keyboard-and-screen"><span class="enumerate-headings-plugin enumerate-heading-plugin">22.1.2</span> Connect a keyboard and screen<a class="headerlink" href="#connect-a-keyboard-and-screen" title="Permanent link">¶</a></h3>
 <p>If your SolarNode supports connecting a keyboard and screen, you can log into the SolarNode command line
 console and run <code class="highlight">ip<span class="w"> </span>-br<span class="w"> </span>addr</code> to print out a brief summary of the current networking configuration:</p>
 <div class="highlight"><pre><span></span><code>$ ip -br addr
@@ -552,7 +594,7 @@ and a WiFi device <code>wlan0</code> that is not connected. You could reach that
 <p class="admonition-title">Tip</p>
 <p>You can get more details by running <code class="highlight">ip<span class="w"> </span>addr</code> (without the <code>-br</code> argument).</p>
 </div>
-<h2 id="wifi"><span class="enumerate-headings-plugin enumerate-heading-plugin">17.2</span> WiFi<a class="headerlink" href="#wifi" title="Permanent link">¶</a></h2>
+<h2 id="wifi"><span class="enumerate-headings-plugin enumerate-heading-plugin">22.2</span> WiFi<a class="headerlink" href="#wifi" title="Permanent link">¶</a></h2>
 <p>If your device will use WiFi for network access, you will need to configure the network name and credentials to use.
 You can do that by creating a <code>wpa_supplicant.conf</code> file on the SolarNodeOS media (typically an SD card). For Raspberry Pi media, you can mount the SD card on your computer and it will mount the appropriate drive for you.</p>
 <p><img alt="macOS and Windows SOLARBOOT disk image icon" src="../../images/users/os-solarboot-disk-icon.png" width="435"/></p>
