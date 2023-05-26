@@ -171,6 +171,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://solarnetwork.github.io/solarnode-handbook/users/security-tokens/</loc>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://solarnetwork.github.io/solarnode-handbook/users/settings/</loc>
          <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>

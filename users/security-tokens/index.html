@@ -5,12 +5,12 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://solarnetwork.github.io/solarnode-handbook/users/configuration/" rel="canonical"/>
-<link href="../remote-access/" rel="prev"/>
-<link href="../settings/" rel="next"/>
+<link href="https://solarnetwork.github.io/solarnode-handbook/users/security-tokens/" rel="canonical"/>
+<link href="../networking/" rel="prev"/>
+<link href="../remote-access/" rel="next"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.1.7" name="generator"/>
-<title>Configuration - SolarNode Handbook</title>
+<title>Security Tokens - SolarNode Handbook</title>
 <link href="../../assets/stylesheets/main.ded33207.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -25,7 +25,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#configuration">
+<a class="md-skip" href="#security-tokens">
           Skip to content
         </a>
 </div>
@@ -49,7 +49,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Configuration
+              Security Tokens
             
           </span>
 </div>
@@ -278,24 +278,14 @@
         Networking
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../security-tokens/">
-        Security Tokens
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../remote-access/">
-        Remote Access
-      </a>
-</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
-          Configuration
+          Security Tokens
           <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
-        Configuration
+        Security Tokens
       </a>
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">
@@ -304,12 +294,76 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#example">
-    Example
+<a class="md-nav__link" href="#user-tokens">
+    User Tokens
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#data-tokens">
+    Data Tokens
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#security-policy">
+    Security Policy
+  </a>
+<nav aria-label="Security Policy" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#api-paths">
+    API Paths
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#expiry">
+    Expiry
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#minimum-aggregation">
+    Minimum Aggregation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#node-ids">
+    Node IDs
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#node-metadata">
+    Node Metadata
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#refresh-allowed">
+    Refresh Allowed
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#source-ids">
+    Source IDs
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#user-metadata">
+    User Metadata
   </a>
 </li>
 </ul>
 </nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../remote-access/">
+        Remote Access
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../configuration/">
+        Configuration
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../settings/">
@@ -525,9 +579,63 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#example">
-    Example
+<a class="md-nav__link" href="#user-tokens">
+    User Tokens
   </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#data-tokens">
+    Data Tokens
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#security-policy">
+    Security Policy
+  </a>
+<nav aria-label="Security Policy" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#api-paths">
+    API Paths
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#expiry">
+    Expiry
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#minimum-aggregation">
+    Minimum Aggregation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#node-ids">
+    Node IDs
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#node-metadata">
+    Node Metadata
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#refresh-allowed">
+    Refresh Allowed
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#source-ids">
+    Source IDs
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#user-metadata">
+    User Metadata
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -536,30 +644,137 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="configuration"><span class="enumerate-headings-plugin enumerate-heading-plugin">25.</span> Configuration<a class="headerlink" href="#configuration" title="Permanent link">¶</a></h1>
-<p>Some SolarNode components can be configured from properties files. This type of configuration is
-meant to be changed just once, when a SolarNode is first deployed, to alter some default
-configuration value.</p>
-<div class="admonition warning">
-<p class="admonition-title">Not to be confused with Settings</p>
-<p>This type of configuration differs from what the <a href="../setup-app/settings/">Settings</a> page
-in the Setup App provides a UI managing. This configuration might be created by system
-administrators when creating a custom SolarNodeOS image for their needs, while Settings are
-meant to be managed by end users.</p>
-</div>
-<p>Configuration <a href="https://en.wikipedia.org/wiki/.properties">properties files</a> are read from the <code>/etc/solarnode/services</code>
-directory and named like <code>NAMESPACE.cfg</code> , where <code>NAMESPACE</code> represents a <em>configuration namespace</em>.</p>
-<div class="admonition note">
-<p class="admonition-title">Configuration location</p>
-<p>The <code>/etc/solarnode/services</code> location is the default location in SolarNodeOS. It might be
-another location in other SolarNode deployments.</p>
-</div>
-<h2 id="example"><span class="enumerate-headings-plugin enumerate-heading-plugin">25.1</span> Example<a class="headerlink" href="#example" title="Permanent link">¶</a></h2>
-<p>Imagine a component uses the configuration namespace <code>com.example.service</code> and supports a
-configurable property named <code>max-threads</code> that accepts an integer value you would like to configure
-as <code>4</code>. You would create a <code>com.example.service.cfg</code> file like:</p>
-<div class="highlight"><span class="filename">/etc/solarnode/services/com.example.service.cfg</span><pre><span></span><code><span class="na">max-threads</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">4</span>
-</code></pre></div>
+<h1 id="security-tokens"><span class="enumerate-headings-plugin enumerate-heading-plugin">23.</span> Security Tokens<a class="headerlink" href="#security-tokens" title="Permanent link">¶</a></h1>
+<p>Some SolarNode features require SolarNetwork Security Tokens to use as <a href="https://github.com/SolarNetwork/solarnetwork/wiki/SolarNet-API-authentication-scheme-V2">authentication credentails</a>
+for SolarNetwork services. Security Tokens are managed on the <a href="https://data.solarnetwork.net/solaruser/u/sec/auth-tokens">Security Tokens</a> page in
+SolarNetwork.</p>
+<figure>
+<p><img alt="Security Tokens page in SolarNetwork" src="../../images/users/solaruser/security-tokens%402x.png" width="935">
+</img></p>
+<figcaption>
+<p>The Security Tokens page in SolarNetwork</p>
+</figcaption>
+</figure>
+<h2 id="user-tokens"><span class="enumerate-headings-plugin enumerate-heading-plugin">23.1</span> User Tokens<a class="headerlink" href="#user-tokens" title="Permanent link">¶</a></h2>
+<p><strong>User Security Tokens</strong> allow access to web services that perform functions directly on your
+behalf, for example issue an instruction to your SolarNode.</p>
+<p>Click the "+" button in the <strong>User Tokens</strong> section to generate a new security token. You will be shown
+a form where you can give a name, description, and policy restrictions for the token.</p>
+<figure>
+<p><img alt="Create User Security Token form" src="../../images/users/solaruser/security-token-user-create-form%402x.png" width="590">
+</img></p>
+<figcaption>
+<p>The form for creating a new User Security Token</p>
+</figcaption>
+</figure>
+<p>Click the <strong>Generate Security Token</strong> button to generate the new token. You will then be shown the
+generated token. You will need to copy and save the token to a safe and secure place.</p>
+<figure>
+<p><img alt="Newly generated security token" src="../../images/users/solaruser/create-token-user-result%402x.png" width="594"/>
+</p>
+<figcaption>
+<p>A newly generated security token — make sure to save the token in a safe place</p>
+</figcaption>
+</figure>
+<h2 id="data-tokens"><span class="enumerate-headings-plugin enumerate-heading-plugin">23.2</span> Data Tokens<a class="headerlink" href="#data-tokens" title="Permanent link">¶</a></h2>
+<p><strong>Data Security Tokens</strong> allow access to web services that query the data collected by your SolarNodes.</p>
+<p>Click the "+" button in the <strong>Data Tokens</strong> section to generate a new security token. You will be shown
+a form where you can give a name, description, and policy restrictions for the token.</p>
+<figure>
+<p><img alt="Create Data Security Token form" src="../../images/users/solaruser/security-token-data-create-form%402x.png" width="593"/>
+</p>
+<figcaption>
+<p>The form for creating a new Data Security Token</p>
+</figcaption>
+</figure>
+<p>Click the <strong>Generate Security Token</strong> button to generate the new token. You will then be shown the
+generated token. You will need to copy and save the token to a safe and secure place.</p>
+<h2 id="security-policy"><span class="enumerate-headings-plugin enumerate-heading-plugin">23.3</span> Security Policy<a class="headerlink" href="#security-policy" title="Permanent link">¶</a></h2>
+<p>Security tokens can be configured with a <strong>Security Policy</strong> that restricts the types of functions or data the
+token has permission to access.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Policy</th>
+<th align="left">User</th>
+<th align="left">Node</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><a href="#api-paths">API Paths</a></td>
+<td align="left"><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:"/></td>
+<td align="left"><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:"/></td>
+<td align="left">Restrict the token to specific API methods.</td>
+</tr>
+<tr>
+<td align="left"><a href="#expiry">Expiry</a></td>
+<td align="left"><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:"/></td>
+<td align="left"><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:"/></td>
+<td align="left">Make the token invalid after a specific date.</td>
+</tr>
+<tr>
+<td align="left"><a href="#minimum-aggregation">Minimum Aggregation</a></td>
+<td align="left"></td>
+<td align="left"><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:"/></td>
+<td align="left">Restrict the data aggregation level allowed.</td>
+</tr>
+<tr>
+<td align="left"><a href="#node-ids">Node IDs</a></td>
+<td align="left"></td>
+<td align="left"><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:"/></td>
+<td align="left">Restrict to specific node IDs.</td>
+</tr>
+<tr>
+<td align="left"><a href="#refresh-allowed">Refresh Allowed</a></td>
+<td align="left"><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:"/></td>
+<td align="left"><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:"/></td>
+<td align="left">Make the token invalid after a specific date.</td>
+</tr>
+<tr>
+<td align="left"><a href="#source-ids">Source IDs</a></td>
+<td align="left"></td>
+<td align="left"><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:"/></td>
+<td align="left">Restrict to specific datum source IDs.</td>
+</tr>
+<tr>
+<td align="left"><a href="#node-metadata">Node Metadata</a></td>
+<td align="left"></td>
+<td align="left"><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:"/></td>
+<td align="left">Restrict to specific node metadata.</td>
+</tr>
+<tr>
+<td align="left"><a href="#user-metadata">User Metadata</a></td>
+<td align="left"></td>
+<td align="left"><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:"/></td>
+<td align="left">Restrict to specific user metadata.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="api-paths"><span class="enumerate-headings-plugin enumerate-heading-plugin">23.3.1</span> API Paths<a class="headerlink" href="#api-paths" title="Permanent link">¶</a></h3>
+<p>The API Paths policy restricts the token to specific SolarNet API methods, based on their URL path. If this policy is
+not included then all API methods are allowed.</p>
+<h3 id="expiry"><span class="enumerate-headings-plugin enumerate-heading-plugin">23.3.2</span> Expiry<a class="headerlink" href="#expiry" title="Permanent link">¶</a></h3>
+<p>The Expiry policy makes the token invalid after a specific date. If this policy is not included, the token
+does not ever expire.</p>
+<h3 id="minimum-aggregation"><span class="enumerate-headings-plugin enumerate-heading-plugin">23.3.3</span> Minimum Aggregation<a class="headerlink" href="#minimum-aggregation" title="Permanent link">¶</a></h3>
+<p>The Minimum Aggregation policy restricts the token to a minimum data aggregation level. If this policy is not included,
+or of the minimum level is set to <strong>None</strong>, data for any aggregation level is allowed.</p>
+<h3 id="node-ids"><span class="enumerate-headings-plugin enumerate-heading-plugin">23.3.4</span> Node IDs<a class="headerlink" href="#node-ids" title="Permanent link">¶</a></h3>
+<p>The Node IDspolicy restrict the token to specific node IDs. If this policy is not
+included, then the token has access to <strong>all</strong> node IDs in your SolarNetwork account.</p>
+<h3 id="node-metadata"><span class="enumerate-headings-plugin enumerate-heading-plugin">23.3.5</span> Node Metadata<a class="headerlink" href="#node-metadata" title="Permanent link">¶</a></h3>
+<p>The Node Metadata policy restricts the token to specific portions of node-level <a href="https://github.com/SolarNetwork/solarnetwork/wiki/SolarNet-API-global-objects#metadata">metadata</a>. If this policy is
+not included then all node metadata is allowed.</p>
+<h3 id="refresh-allowed"><span class="enumerate-headings-plugin enumerate-heading-plugin">23.3.6</span> Refresh Allowed<a class="headerlink" href="#refresh-allowed" title="Permanent link">¶</a></h3>
+<p>The Refresh Allowed policy grants applications given a signing key rather than the token's private password can refresh the key as long as the token has not expired.</p>
+<h3 id="source-ids"><span class="enumerate-headings-plugin enumerate-heading-plugin">23.3.7</span> Source IDs<a class="headerlink" href="#source-ids" title="Permanent link">¶</a></h3>
+<p>The Source IDs policy restrict the token to specific datum source IDs. If this policy is not
+included, then the token has access to <strong>all</strong> source IDs in your SolarNetwork account.</p>
+<h3 id="user-metadata"><span class="enumerate-headings-plugin enumerate-heading-plugin">23.3.8</span> User Metadata<a class="headerlink" href="#user-metadata" title="Permanent link">¶</a></h3>
+<p>The User Metadata policy restricts the token to specific portions of account-level <a href="https://github.com/SolarNetwork/solarnetwork/wiki/SolarNet-API-global-objects#metadata">metadata</a>. If this policy is
+not included then all user metadata is allowed.</p>
 </article>
 </div>
 </div>

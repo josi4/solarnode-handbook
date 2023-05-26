@@ -6,7 +6,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://solarnetwork.github.io/solarnode-handbook/users/remote-access/" rel="canonical"/>
-<link href="../networking/" rel="prev"/>
+<link href="../security-tokens/" rel="prev"/>
 <link href="../configuration/" rel="next"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.1.7" name="generator"/>
@@ -278,11 +278,71 @@
         Networking
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../security-tokens/">
+        Security Tokens
+      </a>
+</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Remote Access
+          <span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
         Remote Access
       </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#browser-connection">
+    Browser Connection
+  </a>
+<nav aria-label="Browser Connection" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#choose-your-node-id">
+    Choose your node ID
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#provide-your-credentials">
+    Provide your credentials
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#connect">
+    Connect
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#remote-setup-app">
+    Remote Setup App
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#direct-connection">
+    Direct connection
+  </a>
+<nav aria-label="Direct connection" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#shell-shortcut-function">
+    Shell shortcut function
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../configuration/">
@@ -497,14 +557,189 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#browser-connection">
+    Browser Connection
+  </a>
+<nav aria-label="Browser Connection" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#choose-your-node-id">
+    Choose your node ID
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#provide-your-credentials">
+    Provide your credentials
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#connect">
+    Connect
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#remote-setup-app">
+    Remote Setup App
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#direct-connection">
+    Direct connection
+  </a>
+<nav aria-label="Direct connection" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#shell-shortcut-function">
+    Shell shortcut function
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="remote-access"><span class="enumerate-headings-plugin enumerate-heading-plugin">23.</span> Remote Access<a class="headerlink" href="#remote-access" title="Permanent link">¶</a></h1>
-<p>TODO</p>
+<h1 id="remote-access"><span class="enumerate-headings-plugin enumerate-heading-plugin">24.</span> Remote Access<a class="headerlink" href="#remote-access" title="Permanent link">¶</a></h1>
+<p>SolarSSH is SolarNetwork's method of connecting to SolarNode devices over the internet even when
+those devices are not directly reachable due to network firewalls or routing rules. It uses the
+Secure Shell Protocol (<a href="https://en.wikipedia.org/wiki/Secure_Shell">SSH</a>) to ensure your connection is private and secure.</p>
+<p>SolarSSH does not maintain permanently open SSH connections to SolarNode devices. Instead the
+connections are established on demand, when you need them. This allows you to connect to a SolarNode
+when you need to perform maintenance, but not require SolarNode maintain an open SSH connection to
+SolarSSH.</p>
+<p>In order to use SolarSSH, you will need a <a href="../security-tokens/">User Security Token</a> to use for
+authentication.</p>
+<h2 id="browser-connection"><span class="enumerate-headings-plugin enumerate-heading-plugin">24.1</span> Browser Connection<a class="headerlink" href="#browser-connection" title="Permanent link">¶</a></h2>
+<p>You can use SolarSSH <a href="https://go.solarnetwork.net/solarssh/">right in your browser</a> to connect to any of your nodes.</p>
+<figure>
+<p><img alt="SolarSSH Web" loading="lazy" src="../../images/users/solarssh/solarssh-web-terminal%402x.png" width="965">
+</img></p>
+<figcaption>
+<p>The SolarSSH browser app</p>
+</figcaption>
+</figure>
+<h3 id="choose-your-node-id"><span class="enumerate-headings-plugin enumerate-heading-plugin">24.1.1</span> Choose your node ID<a class="headerlink" href="#choose-your-node-id" title="Permanent link">¶</a></h3>
+<p>Click on the node ID in the page title to change what node you want to connect to.</p>
+<figure>
+<p><img alt="Changing the node ID" loading="lazy" src="../../images/users/solarssh/solarssh-edit-node-id.gif" width="224">
+</img></p>
+<figcaption>
+<p>Changing the SolarSSH node ID</p>
+</figcaption>
+</figure>
+<div class="admonition tip">
+<p class="admonition-title">Bookmark a SolarSSH page for your node ID</p>
+<p>You can append a <code>?nodeId=X</code> to the SolarSSH browser URL
+<a href="https://go.solarnetwork.net/solarssh/">https://go.solarnetwork.net/solarssh/</a>, where <code>X</code> is a node ID, to make the app start with that
+node ID directly. For example to start with node 123, you could bookmark the URL
+<a href="https://go.solarnetwork.net/solarssh/?nodeId=123">https://go.solarnetwork.net/solarssh/?nodeId=123</a>.</p>
+</div>
+<h3 id="provide-your-credentials"><span class="enumerate-headings-plugin enumerate-heading-plugin">24.1.2</span> Provide your credentials<a class="headerlink" href="#provide-your-credentials" title="Permanent link">¶</a></h3>
+<p>Fill in <a href="../security-tokens/">User Security Token</a> credentials for authentication. The node ID you are
+connecting to must be owned by the same account as the security token.</p>
+<h3 id="connect"><span class="enumerate-headings-plugin enumerate-heading-plugin">24.1.3</span> Connect<a class="headerlink" href="#connect" title="Permanent link">¶</a></h3>
+<p>Click the <strong>Connect</strong> button to initiate the SolarSSH connection process. You will be presented with
+a dialog form to provide your SolarNodeOS <a href="../sysadmin/#system-user-account">system account
+credentials</a>. This is only necessary if you want to connect
+to the SolarNodeOS system command line. If you only need to access the SolarNode <a href="../setup-app/">Setup
+App</a>, you can click the <strong>Skip</strong> button to skip this step. Otherwise, click the
+<strong>Login</strong> button to log into the system command line.</p>
+<figure>
+<p><img alt="SolarNodeOS system account credentials form" loading="lazy" src="../../images/users/solarssh/solarssh-web-terminal-shell-credentials-form%402x.png" width="515"/>
+</p>
+<figcaption>
+<p>SolarNodeOS system account credentials form</p>
+</figcaption>
+</figure>
+<p>SolarSSH will then establish the connection to your node. If you provided SolarNodeOS system account
+credentials previously and clicked the <strong>Login</strong> button, you will end up with a system
+command prompt, like this:</p>
+<figure>
+<p><img alt="SolarSSH system command prompt" loading="lazy" src="../../images/users/solarssh/solarssh-web-terminal-shell-loggedin%402x.png" width="965"/>
+</p>
+<figcaption>
+<p>SolarSSH logged-in system command prompt</p>
+</figcaption>
+</figure>
+<h3 id="remote-setup-app"><span class="enumerate-headings-plugin enumerate-heading-plugin">24.1.4</span> Remote Setup App<a class="headerlink" href="#remote-setup-app" title="Permanent link">¶</a></h3>
+<p>Once connected, you can access the remote node's Setup App by clicking the <strong>Setup</strong> button in the
+top-right corner of the window. This will open a new browser tab for the Setup App.</p>
+<figure>
+<p><img alt="Accessing the SolarNode Setup App through a SolarSSH web connection" loading="lazy" src="../../images/users/solarssh/solarssh-web-setup-app%402x.png" width="972"/>
+</p>
+<figcaption>
+<p>Accessing the SolarNode Setup App through a SolarSSH web connection</p>
+</figcaption>
+</figure>
+<h2 id="direct-connection"><span class="enumerate-headings-plugin enumerate-heading-plugin">24.2</span> Direct connection<a class="headerlink" href="#direct-connection" title="Permanent link">¶</a></h2>
+<p>SolarSSH also supports a "direct" connection mode, that allows you to connect using standard <a href="https://en.wikipedia.org/wiki/Comparison_of_SSH_clients">ssh
+client</a> applications. This is a more advanced (and flexible) way of connecting to
+your nodes, and even allows you to access other network services on the same network as the node
+and provides full SSH integration including port forwarding, <code>scp</code>, and <code>sftp</code> support.</p>
+<p>Direct SolarSSH connections require using a SSH client that supports the <a href="https://en.wikibooks.org/wiki/OpenSSH/Cookbook/Proxies_and_Jump_Hosts#Passing_Through_One_or_More_Gateways_Using_ProxyJump">SSH "jump" host</a>
+feature. The "jump" server hosted by SolarNetwork Foundation is available at
+<code>ssh.solarnetwork.net:9022</code>.</p>
+<p>The "jump" connection user is formed by combining a node ID with a <strong>user</strong> security token,
+separated by a <code>:</code> character. The general form of a SolarSSH direct connection "jump" host thus
+looks like this:</p>
+<div class="highlight"><pre><span></span><code>NODE:TOKEN@ssh.solarnetwork.net:9022
+</code></pre></div>
+<p>where <code>NODE</code> is a SolarNode ID and <code>TOKEN</code> is a SolarNetwork user security token.</p>
+<p>The actual SolarNode user can be any OS user (typically <code>solar</code>) and the hostname can be anything.
+A good practice for the hostname is to use one derived from the SolarNode ID, e.g. <code>solarnode-123</code>.</p>
+<p>Using OpenSSH a complete connection command to log in as a <code>solar</code> user looks like this, passing
+the "jump" host via a <code>-J</code> argument:</p>
+<div class="highlight"><pre><span></span><code>ssh -J 'NODE:TOKEN@ssh.solarnetwork.net:9022' solar@solarnode-NODE
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>SolarNetwork security tokens often contain characters that must be
+escaped with a <code>\</code> character for your shell to interpret them correctly. For example, a token
+like <code>9gPa9S;Ux1X3kK)YN6&amp;g</code> might need to have the <code>;)&amp;</code> characters escaped like
+<code>9gPa9S\;Ux1X3kK\)YN6\&amp;g</code>.</p>
+</div>
+<p>You will be first prompted to enter a password, which must be the token secret. You might then
+be prompted for the SolarNode OS user's password. Here's an example screen shot:</p>
+<figure>
+<p><img alt="SolarSSH Direct Terminal" loading="lazy" src="../../images/users/solarssh/solarssh-direct-example%402x.png" width="672"/>
+</p>
+<figcaption>
+<p>Accessing the SolarNode system command line through a SolarSSH direct connection</p>
+</figcaption>
+</figure>
+<h3 id="shell-shortcut-function"><span class="enumerate-headings-plugin enumerate-heading-plugin">24.2.1</span> Shell shortcut function<a class="headerlink" href="#shell-shortcut-function" title="Permanent link">¶</a></h3>
+<p>If you find yourself using SolarSSH connections frequently, a handy <code>bash</code> or <code>zsh</code> shell function
+can help make the connection process easier to remember. Here's an example that give you a
+<code>solarssh</code> command that accepts a SolarNode ID argument, followed by any optional SSH arguments:</p>
+<div class="highlight"><pre><span></span><code><span class="k">function</span><span class="w"> </span>solarssh<span class="w"> </span><span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span><span class="nb">local</span><span class="w"> </span><span class="nv">node_id</span><span class="o">=</span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">"</span><span class="nv">$node_id</span><span class="s2">"</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s1">'Must provide node ID , e.g. 123'</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">    </span><span class="nb">shift</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Enter SN token secret when first prompted for password. Enter node </span><span class="nv">$node_id</span><span class="s2"> password second."</span>
+<span class="w">    </span>ssh<span class="w"> </span>-o<span class="w"> </span><span class="nv">StrictHostKeyChecking</span><span class="o">=</span>no<span class="w"> </span>-o<span class="w"> </span><span class="nv">UserKnownHostsFile</span><span class="o">=</span>/dev/null<span class="w"> </span>-o<span class="w"> </span><span class="nv">LogLevel</span><span class="o">=</span>ERROR<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-J<span class="w"> </span><span class="s2">"</span><span class="nv">$node_id</span><span class="s2">"</span><span class="s1">'SN_TOKEN_HERE@ssh.solarnetwork.net:9022'</span><span class="w"> </span><span class="nv">$@</span><span class="w"> </span>solar@solarnode-<span class="nv">$node_id</span>
+<span class="w">  </span><span class="k">fi</span>
+<span class="o">}</span>
+</code></pre></div>
+<p>Just replace <code>SN_TOKEN_HERE</code> with a user security token. After integrating this into your shell's configuration (e.g. <code>~/.bashrc</code> or <code>~/.zshrc</code>) then you
+could connect to node <code>123</code> like:</p>
+<div class="highlight"><pre><span></span><code>solarssh<span class="w"> </span><span class="m">123</span>
+</code></pre></div>
 </article>
 </div>
 </div>
