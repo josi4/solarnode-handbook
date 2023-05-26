@@ -3,7 +3,9 @@ nav:
     - index.md
     - getting-started.md
     - setup-app
+    - sysadmin
     - networking.md
+    - remote-access.md
     - configuration.md
     - settings.md
     - logging.md
