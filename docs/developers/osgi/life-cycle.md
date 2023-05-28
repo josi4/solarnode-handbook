@@ -19,7 +19,7 @@ The available plugin states are:
 The possible changes in state can be visualized in the following state-change diagram:
 
 <figure markdown>
-  ![OSGi Life Cycle state change diagram](../../../images/developers/osgi/OSGi_Bundle_Life-Cycle.svg)
+  ![OSGi Life Cycle state change diagram](../../images/developers/osgi/OSGi_Bundle_Life-Cycle.svg)
   <figcaption markdown>Faisal.akeel, Public domain, via [Wikimedia Common](https://commons.wikimedia.org/wiki/File:OSGi_Bundle_Life-Cycle.svg)</figcaption>
 </figure>
 
