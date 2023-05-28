@@ -11,19 +11,47 @@ The default password is `solar` but may have been changed by a system administra
 
 !!! warning
 
-	The `solar` user account is not related to the account you log into the SolarNode Setup App with.
+	The `solar` user account is not related to the account you log into the SolarNode
+	[Setup App](../setup-app/index.md) with.
 
-The `solar` user can also become the `root` administrative user by way of the `sudo` command:
+### Change system user account password
 
-```sh title="Gain system administrative privledges with sudo"
-$ sudo su -
+To change the system user account's password, use the `passwd` command.
+
+```sh title="Changing the system user account password"
+$ passwd
+Changing password for solar.
+Current password:
+New password:
+Retype new password:
+passwd: password updated successfully
 ```
 
-You can also execute arbitrary commands directly, for example:
+!!! tip
+
+	Changing the `solar` user's password is **highly recommended** when you first deploy a node.
+
+## Administrator Access
+
+Some commands require administrative permission. The `solar` user can execute arbitrary commands
+with administrative permission by prefixing the command with `sudo`. For example the `reboot` command will
+reboot SolarNodeOS, but requires administrative permission.
 
 ```sh title="Run a command as a system administrator"
 $ sudo reboot
 ```
+
+The `sudo` command will prompt you for the `solar` user's password and then execute the given command
+as the administrator user `root`.
+
+The `solar` user can also become the `root` administrator user by way of the `su` command:
+
+```sh title="Gain system administrative privledges with su"
+$ sudo su -
+```
+
+Once you have become the `root` user you no longer need to use the `sudo` command, as you
+already have administrative permissions.
 
 ## Network Access with SSH
 
