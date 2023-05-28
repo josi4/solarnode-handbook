@@ -1,7 +1,7 @@
 # SolarNode Service
 
-SolarNode is managed as a systemd service. There are some shortcut commands to more easily
-manage the service.
+SolarNode is managed as a [systemd][systemd-man] service. There are some shortcut commands to more
+easily manage the service.
 
 | Command | Description |
 |:--------|:------------|
@@ -25,26 +25,4 @@ a simple `key=value` syntax.
 
 SolarNodeOS ships with a `/etc/solarnode/env.conf.example` file you can use for reference.
 
-### Enabling Java remote debugging
-
-To enable Java remote debugging for SolarNode plugin development or troubleshooting, copy the
-`/etc/solarnode/env.conf.example` file to `/etc/solarnode/env.conf`. The example already includes
-this support, using port `9142` for the debugging port. Then restart the `solarnode` service:
-
-```sh title="Creating a custom SolarNode environment with debugging support"
-$ cp /etc/solarnode/env.conf.example /etc/solarnode/env.conf
-$ sn-restart
-```
-
-Then you can use `ssh` from your development machine to port-forward a local port to the node's
-`9142` port, and then have your favorite IDE establish a remote debugging connection on your local
-port.
-
-For example, on a Linux or macOS machine I could forward port `8000` to a node's port `9142` like this:
-
-```sh title="Creating a port-forwarding SSH connection from a development machine to SolarNode"
-$ ssh -L8000:localhost:9142 solar@solarnode
-```
-
-Once that `ssh` connection is established, your IDE can be used to connect to `localhost:8000` for a
-Java debugging session.
+[systemd-man]: https://manpages.debian.org/bullseye/systemd/systemd.1.en.html
