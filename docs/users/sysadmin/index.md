@@ -1,8 +1,8 @@
 # System Administration
 
-SolarNode runs on SolarNodeOS, a Debian Linux-based operating system. If you are already
-familiar with Debian Linux, or one of the other Linux distributions built from Debian
-like Ubuntu Linux, you will find it pretty easy to get around in SolarNodeOS.
+SolarNode runs on SolarNodeOS, a [Debian Linux][debian]-based operating system. If you are already
+familiar with Debian Linux, or one of the other Linux distributions built from Debian like
+[Ubuntu Linux][ubuntu], you will find it pretty easy to get around in SolarNodeOS.
 
 ## System User Account
 
@@ -58,4 +58,6 @@ already have administrative permissions.
 SolarNodeOS comes with an SSH service active, which allows you to remotely connect and
 access the command line, using any [SSH client][ssh-clients].
 
+[debian]: https://www.debian.org/
 [ssh-clients]: https://en.wikipedia.org/wiki/Comparison_of_SSH_clients
+[ubuntu]: https://ubuntu.com/
