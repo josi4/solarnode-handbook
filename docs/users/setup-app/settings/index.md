@@ -13,11 +13,14 @@ For example imagine you want to collect data from a power meter, solar inverter,
 station, all of which use the Modbus protocol. To do that you would configure three _instances_ of
 the Modbus Device component, one for each device.
 
-Use the **Manage** button for any listed compoennt to add or remove instances of that component.
+Use the **Manage** button for any listed compoennt to [add or remove instances](manage-component.md)
+of that component.
 
 An **instance count badge** appears next to any component with at least one instance configured.
 
-![Settings components list](../../../images/users/setup/setup-components%402x.png){width=740}
+<figure markdown>
+  ![Settings components list](../../../images/users/setup/setup-components%402x.png){width=740}
+</figure>
 
 ## Settings
 
@@ -26,24 +29,32 @@ Other configurable services that are not [Components](#components) appear in the
 Each setting will include a :fontawesome-regular-circle-question: button that will show you a
 brief description of that setting.
 
-![Setting tool tips have helpful information](../../../images/users/setup/setup-settings-toolip%402x.png){width=790}
+<figure markdown>
+  ![Setting tool tips have helpful information](../../../images/users/setup/setup-settings-toolip%402x.png){width=790}
+</figure>
 
 After making any change, an **Active value** label will appear, showing the currently active value
 for that setting.
 
-![Modified settings show the previous value](../../../images/users/setup/setup-setting-changed-value%402x.png){width=566}
+<figure markdown>
+  ![Modified settings show the previous value](../../../images/users/setup/setup-setting-changed-value%402x.png){width=566}
+</figure>
 
 In order to save your changes, you must click the **Save All Changes** button. You may need to scroll
 the page to find it!
 
-![Save all changes button](../../../images/users/setup/setup-save-changes%402x.png){width=734}
+<figure markdown>
+  ![Save all changes button](../../../images/users/setup/setup-save-changes%402x.png){width=734}
+</figure>
 
 ## Backup & Restore
 
 The Backup & Restore section lets you manage SolarNode backups. Each backup contains a snapshot
 of the settings you have configured, the node's certificate, and custom plugins.
 
-![Backup and restore form](../../../images/users/setup/setup-backups%402x.png){width=650}
+<figure markdown>
+  ![Backup and restore form](../../../images/users/setup/setup-backups%402x.png){width=650}
+</figure>
 
 ### File System Backup Service
 
@@ -70,7 +81,9 @@ The configurable settings of the File System Backup Service are:
 The S3 Backup Service creates cloud-based backups in [AWS S3][s3] (or any compatible provider). You
 must configure the credentials and S3 location details to use before any backups can be created.
 
-![S3 Backup settings form](../../../images/users/setup/setup-s3-backup%402x.png){width=460}
+<figure markdown>
+  ![S3 Backup settings form](../../../images/users/setup/setup-s3-backup%402x.png){width=460}
+</figure>
 
 !!! note
 
@@ -100,7 +113,9 @@ and Settings Resources, both of which are backups for the configured settings in
     plugins. See the [Backup & Restore](#backup-restore) section for managing "full" backups
     that _do_ include those items.
 
-![Settings import/export form](../../../images/users/setup/setup-settings-backup%402x.png){width=676}
+<figure markdown>
+  ![Settings import/export form](../../../images/users/setup/setup-settings-backup%402x.png){width=676}
+</figure>
 
 The **Export** button allows you to download a [Settings File][settings-file] with the currently active configuration.
 
