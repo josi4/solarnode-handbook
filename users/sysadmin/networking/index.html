@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://solarnetwork.github.io/solarnode-handbook/users/sysadmin/networking/" rel="canonical"/>
 <link href="../date-time/" rel="prev"/>
-<link href="../solarnode-service/" rel="next"/>
+<link href="../packages/" rel="next"/>
 <link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.1.7" name="generator"/>
 <title>Networking - SolarNode Handbook</title>
@@ -257,8 +257,50 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Networking
+          <span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
         Networking
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#network-configuration">
+    Network configuration
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dhcp-configuration">
+    DHCP configuration
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#static-network-configuration">
+    Static network configuration
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#wifi-network-configuration">
+    WiFi network configuration
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#wifi-auto-access-point-mode">
+    WiFi Auto Access Point mode
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../packages/">
+        Package Maintenance
       </a>
 </li>
 <li class="md-nav__item">
@@ -502,6 +544,37 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#network-configuration">
+    Network configuration
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dhcp-configuration">
+    DHCP configuration
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#static-network-configuration">
+    Static network configuration
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#wifi-network-configuration">
+    WiFi network configuration
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#wifi-auto-access-point-mode">
+    WiFi Auto Access Point mode
+  </a>
+</li>
+</ul>
 </nav>
 </div>
 </div>
@@ -509,8 +582,84 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="networking"><span class="enumerate-headings-plugin enumerate-heading-plugin">19.</span> Networking<a class="headerlink" href="#networking" title="Permanent link">¶</a></h1>
-<p>SolarNodeOS uses the <a href="https://manpages.debian.org/bullseye/systemd/systemd-networkd.8.en.html">systemd-networkd</a> service to manage network devices and their settings.</p>
-<p>TODO</p>
+<p>SolarNodeOS uses the <a href="https://manpages.debian.org/bullseye/systemd/systemd-networkd.8.en.html">systemd-networkd</a> service to manage network devices and their settings.
+A <em>network device</em> relates to a physical network hardware device or a software networking component, as recognized
+and named by the operating system. For example, the first available ethernet device is typically named <code>eth0</code> and
+the first available WiFi device <code>wlan0</code>.</p>
+<h2 id="network-configuration"><span class="enumerate-headings-plugin enumerate-heading-plugin">19.1</span> Network configuration<a class="headerlink" href="#network-configuration" title="Permanent link">¶</a></h2>
+<p>Network configuration is stored in <a href="https://manpages.debian.org/bullseye/systemd/systemd.network.5.en.html"><code>.network</code></a> files in the <code>/etc/systemd/network</code>
+directory. SolarNodeOS comes with default support for ethernet and WiFi network devices.</p>
+<p>The default <code>10-eth.network</code> file configures the default ethernet network <code>eth0</code> to use DHCP to automatically
+obtain a network address, routing information, and DNS servers to use.</p>
+<h2 id="dhcp-configuration"><span class="enumerate-headings-plugin enumerate-heading-plugin">19.2</span> DHCP configuration<a class="headerlink" href="#dhcp-configuration" title="Permanent link">¶</a></h2>
+<p>SolarNodeOS networks are configured to use DHCP by default. If you need to re-configure a network to
+use DHCP, change the configuration to look like this:</p>
+<div class="highlight"><span class="filename">Ethernet network with DHCP configuration</span><pre><span></span><code><span class="k">[Match]</span>
+<span class="na">Name</span><span class="o">=</span><span class="s">eth0</span>
+
+<span class="k">[Network]</span>
+<span class="na">DHCP</span><span class="o">=</span><span class="s">yes</span>
+</code></pre></div>
+<p>Use a <strong>Name</strong> value specific to your network.</p>
+<h2 id="static-network-configuration"><span class="enumerate-headings-plugin enumerate-heading-plugin">19.3</span> Static network configuration<a class="headerlink" href="#static-network-configuration" title="Permanent link">¶</a></h2>
+<p>If you need to use a static network address, instead of DHCP, edit the network configuration file
+(for example, the <code>10-eth.network</code> file for the ethernet network), and change it to look like this:</p>
+<div class="highlight"><span class="filename">Ethernet network with static address configuration</span><pre><span></span><code><span class="k">[Match]</span>
+<span class="na">Name</span><span class="o">=</span><span class="s">eth0</span>
+
+<span class="k">[Network]</span>
+<span class="na">DNS</span><span class="o">=</span><span class="s">1.1.1.1</span>
+
+<span class="k">[Address]</span>
+<span class="na">Address</span><span class="o">=</span><span class="s">192.168.3.10/24</span>
+
+<span class="k">[Route]</span>
+<span class="na">Gateway</span><span class="o">=</span><span class="s">192.168.3.1</span>
+</code></pre></div>
+<p>Use <strong>Name</strong>, <strong>DNS</strong>, <strong>Address</strong>, and <strong>Gateway</strong> values specific to your network.</p>
+<h2 id="wifi-network-configuration"><span class="enumerate-headings-plugin enumerate-heading-plugin">19.4</span> WiFi network configuration<a class="headerlink" href="#wifi-network-configuration" title="Permanent link">¶</a></h2>
+<p>The default <code>20-wlan.network</code> file configures the default WiFi network <code>wlan0</code> to use DHCP to
+automatically obtain a network address, routing information, and DNS servers to use. To configure
+the WiFi network SolarNode should connect to, run this command:</p>
+<div class="highlight"><span class="filename">Configuring the SolarNode WiFi network</span><pre><span></span><code>sudo<span class="w"> </span>dpkg-reconfigure<span class="w"> </span>sn-wifi
+</code></pre></div>
+<p>You will then be prompted to supply the following WiFi settings:</p>
+<ol>
+<li>Country code, e.g. <code>NZ</code></li>
+<li>WiFi network name (SSID)</li>
+<li>WiFi network password</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note about WiFi support</p>
+<p>WiFi support is provided by the <code>sn-wifi</code> package, which may not be installed. See the <a href="../packages/#install-packages">Package
+Maintenance</a> section for information about installing packages.</p>
+</div>
+<h2 id="wifi-auto-access-point-mode"><span class="enumerate-headings-plugin enumerate-heading-plugin">19.5</span> WiFi Auto Access Point mode<a class="headerlink" href="#wifi-auto-access-point-mode" title="Permanent link">¶</a></h2>
+<p>For initial setup of a the WiFi settings on a SolarNode it can be helpful for SolarNode to create
+its own WiFi network, as an access point. The <code>sn-wifi-autoap@wlan0</code> service can be used for this.
+When enabled, it will monitor the WiFi network status, and when the WiFi connection fails for any
+reason it will enable a <code>SolarNode</code> WiFi network using a gateway IP address of <code>192.168.16.1</code>. Thus
+when the SolarNode access point is enabled, you can connect to that network from your own device and
+reach the <a href="../../setup-app/">Setup App</a> at <code>http://192.168.16.1/</code> or the command line via <code>ssh
+solar@192.168.16.1</code>.</p>
+<p>The default <code>21-wlan-ap.network</code> file configures the default WiFi network <code>wlan0</code> to act as an
+Access Point</p>
+<p>This service is not enabled by default. To enable it, run the following:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>sn-wifi-autoap@wlan0
+</code></pre></div>
+<p>Once enabled, if SolarNode cannot connect to the configured WiFi network, it will create its own
+<code>SolarNode</code> network. By default the password for this network is <code>solarnode</code>. The Access Point
+network configuration is defined in the <code>/etc/network/wpa_supplicant-wlan0.conf</code> file, in a
+section like this:</p>
+<div class="highlight"><pre><span></span><code>### access-point mode
+network={
+    ssid="SolarNode"
+    mode=2
+    key_mgmt=WPA-PSK
+    psk="solarnode"
+    frequency=2462
+}
+</code></pre></div>
 </article>
 </div>
 </div>

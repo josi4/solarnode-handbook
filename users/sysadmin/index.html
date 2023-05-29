@@ -261,6 +261,11 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="packages/">
+        Package Maintenance
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="solarnode-service/">
         SolarNode Service
       </a>
@@ -510,6 +515,20 @@
 <a class="md-nav__link" href="#system-user-account">
     System User Account
   </a>
+<nav aria-label="System User Account" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#change-system-user-account-password">
+    Change system user account password
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#administrator-access">
+    Administrator Access
+  </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#network-access-with-ssh">
@@ -532,15 +551,36 @@ like Ubuntu Linux, you will find it pretty easy to get around in SolarNodeOS.</p
 The default password is <code>solar</code> but may have been changed by a system administrator.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The <code>solar</code> user account is not related to the account you log into the SolarNode Setup App with.</p>
+<p>The <code>solar</code> user account is not related to the account you log into the SolarNode
+<a href="../setup-app/">Setup App</a> with.</p>
 </div>
-<p>The <code>solar</code> user can also become the <code>root</code> administrative user by way of the <code>sudo</code> command:</p>
-<div class="highlight"><span class="filename">Gain system administrative privledges with sudo</span><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>-
+<h3 id="change-system-user-account-password"><span class="enumerate-headings-plugin enumerate-heading-plugin">17.1.1</span> Change system user account password<a class="headerlink" href="#change-system-user-account-password" title="Permanent link">¶</a></h3>
+<p>To change the system user account's password, use the <code>passwd</code> command.</p>
+<div class="highlight"><span class="filename">Changing the system user account password</span><pre><span></span><code>$<span class="w"> </span>passwd
+Changing<span class="w"> </span>password<span class="w"> </span><span class="k">for</span><span class="w"> </span>solar.
+Current<span class="w"> </span>password:
+New<span class="w"> </span>password:
+Retype<span class="w"> </span>new<span class="w"> </span>password:
+passwd:<span class="w"> </span>password<span class="w"> </span>updated<span class="w"> </span>successfully
 </code></pre></div>
-<p>You can also execute arbitrary commands directly, for example:</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Changing the <code>solar</code> user's password is <strong>highly recommended</strong> when you first deploy a node.</p>
+</div>
+<h2 id="administrator-access"><span class="enumerate-headings-plugin enumerate-heading-plugin">17.2</span> Administrator Access<a class="headerlink" href="#administrator-access" title="Permanent link">¶</a></h2>
+<p>Some commands require administrative permission. The <code>solar</code> user can execute arbitrary commands
+with administrative permission by prefixing the command with <code>sudo</code>. For example the <code>reboot</code> command will
+reboot SolarNodeOS, but requires administrative permission.</p>
 <div class="highlight"><span class="filename">Run a command as a system administrator</span><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>reboot
 </code></pre></div>
-<h2 id="network-access-with-ssh"><span class="enumerate-headings-plugin enumerate-heading-plugin">17.2</span> Network Access with SSH<a class="headerlink" href="#network-access-with-ssh" title="Permanent link">¶</a></h2>
+<p>The <code>sudo</code> command will prompt you for the <code>solar</code> user's password and then execute the given command
+as the administrator user <code>root</code>.</p>
+<p>The <code>solar</code> user can also become the <code>root</code> administrator user by way of the <code>su</code> command:</p>
+<div class="highlight"><span class="filename">Gain system administrative privledges with su</span><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>-
+</code></pre></div>
+<p>Once you have become the <code>root</code> user you no longer need to use the <code>sudo</code> command, as you
+already have administrative permissions.</p>
+<h2 id="network-access-with-ssh"><span class="enumerate-headings-plugin enumerate-heading-plugin">17.3</span> Network Access with SSH<a class="headerlink" href="#network-access-with-ssh" title="Permanent link">¶</a></h2>
 <p>SolarNodeOS comes with an SSH service active, which allows you to remotely connect and
 access the command line, using any <a href="https://en.wikipedia.org/wiki/Comparison_of_SSH_clients">SSH client</a>.</p>
 </article>

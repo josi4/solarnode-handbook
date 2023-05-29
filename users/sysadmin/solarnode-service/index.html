@@ -6,7 +6,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://solarnetwork.github.io/solarnode-handbook/users/sysadmin/solarnode-service/" rel="canonical"/>
-<link href="../networking/" rel="prev"/>
+<link href="../packages/" rel="prev"/>
 <link href="../solarssh/" rel="next"/>
 <link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.1.7" name="generator"/>
@@ -260,6 +260,11 @@
         Networking
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../packages/">
+        Package Maintenance
+      </a>
+</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
@@ -279,15 +284,6 @@
 <a class="md-nav__link" href="#solarnode-service-environment">
     SolarNode service environment
   </a>
-<nav aria-label="SolarNode service environment" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#enabling-java-remote-debugging">
-    Enabling Java remote debugging
-  </a>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
@@ -537,15 +533,6 @@
 <a class="md-nav__link" href="#solarnode-service-environment">
     SolarNode service environment
   </a>
-<nav aria-label="SolarNode service environment" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#enabling-java-remote-debugging">
-    Enabling Java remote debugging
-  </a>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
@@ -554,9 +541,9 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="solarnode-service"><span class="enumerate-headings-plugin enumerate-heading-plugin">20.</span> SolarNode Service<a class="headerlink" href="#solarnode-service" title="Permanent link">¶</a></h1>
-<p>SolarNode is managed as a systemd service. There are some shortcut commands to more easily
-manage the service.</p>
+<h1 id="solarnode-service"><span class="enumerate-headings-plugin enumerate-heading-plugin">21.</span> SolarNode Service<a class="headerlink" href="#solarnode-service" title="Permanent link">¶</a></h1>
+<p>SolarNode is managed as a <a href="https://manpages.debian.org/bullseye/systemd/systemd.1.en.html">systemd</a> service. There are some shortcut commands to more
+easily manage the service.</p>
 <table>
 <thead>
 <tr>
@@ -585,7 +572,7 @@ manage the service.</p>
 </table>
 <p>The <code>sn-stop</code> command requires administrative permissions, so you may be prompted for your system
 account password (usually the <code>solar</code> user's password).</p>
-<h2 id="solarnode-service-environment"><span class="enumerate-headings-plugin enumerate-heading-plugin">20.1</span> SolarNode service environment<a class="headerlink" href="#solarnode-service-environment" title="Permanent link">¶</a></h2>
+<h2 id="solarnode-service-environment"><span class="enumerate-headings-plugin enumerate-heading-plugin">21.1</span> SolarNode service environment<a class="headerlink" href="#solarnode-service-environment" title="Permanent link">¶</a></h2>
 <p>You can modify the environment variables passed to the SolarNode service, as well as modify
 the Java runtime options used. You may want to do this, for example, to turn on Java
 remote debugging support or to give the SolarNode process more memory.</p>
@@ -593,21 +580,6 @@ remote debugging support or to give the SolarNode process more memory.</p>
 configuration file if it is present. You can define arbitrary environment variables using
 a simple <code>key=value</code> syntax.</p>
 <p>SolarNodeOS ships with a <code>/etc/solarnode/env.conf.example</code> file you can use for reference.</p>
-<h3 id="enabling-java-remote-debugging"><span class="enumerate-headings-plugin enumerate-heading-plugin">20.1.1</span> Enabling Java remote debugging<a class="headerlink" href="#enabling-java-remote-debugging" title="Permanent link">¶</a></h3>
-<p>To enable Java remote debugging for SolarNode plugin development or troubleshooting, copy the
-<code>/etc/solarnode/env.conf.example</code> file to <code>/etc/solarnode/env.conf</code>. The example already includes
-this support, using port <code>9142</code> for the debugging port. Then restart the <code>solarnode</code> service:</p>
-<div class="highlight"><span class="filename">Creating a custom SolarNode environment with debugging support</span><pre><span></span><code>$<span class="w"> </span>cp<span class="w"> </span>/etc/solarnode/env.conf.example<span class="w"> </span>/etc/solarnode/env.conf
-$<span class="w"> </span>sn-restart
-</code></pre></div>
-<p>Then you can use <code>ssh</code> from your development machine to port-forward a local port to the node's
-<code>9142</code> port, and then have your favorite IDE establish a remote debugging connection on your local
-port.</p>
-<p>For example, on a Linux or macOS machine I could forward port <code>8000</code> to a node's port <code>9142</code> like this:</p>
-<div class="highlight"><span class="filename">Creating a port-forwarding SSH connection from a development machine to SolarNode</span><pre><span></span><code>$<span class="w"> </span>ssh<span class="w"> </span>-L8000:localhost:9142<span class="w"> </span>solar@solarnode
-</code></pre></div>
-<p>Once that <code>ssh</code> connection is established, your IDE can be used to connect to <code>localhost:8000</code> for a
-Java debugging session.</p>
 </article>
 </div>
 </div>

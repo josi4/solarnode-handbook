@@ -5,19 +5,19 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://solarnetwork.github.io/solarnode-handbook/users/configuration/" rel="canonical"/>
-<link href="../remote-access/" rel="prev"/>
-<link href="../settings/" rel="next"/>
-<link href="../../assets/images/favicon.png" rel="icon"/>
+<link href="https://solarnetwork.github.io/solarnode-handbook/users/sysadmin/packages/" rel="canonical"/>
+<link href="../networking/" rel="prev"/>
+<link href="../solarnode-service/" rel="next"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.1.7" name="generator"/>
-<title>Configuration - SolarNode Handbook</title>
-<link href="../../assets/stylesheets/main.ded33207.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
+<title>Package Maintenance - SolarNode Handbook</title>
+<link href="../../../assets/stylesheets/main.ded33207.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<link href="../../css/sn.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../../css/sn.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 </head>
 <body data-md-color-accent="indigo" data-md-color-primary="amber" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
@@ -25,7 +25,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#configuration">
+<a class="md-skip" href="#package-maintenance">
           Skip to content
         </a>
 </div>
@@ -33,8 +33,8 @@
 </div>
 <header class="md-header md-header--shadow" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="SolarNode Handbook" class="md-header__button md-logo" data-md-component="logo" href="../.." title="SolarNode Handbook">
-<img alt="logo" src="../../images/solarnode-icon.svg"/>
+<a aria-label="SolarNode Handbook" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="SolarNode Handbook">
+<img alt="logo" src="../../../images/solarnode-icon.svg"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
@@ -49,7 +49,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Configuration
+              Package Maintenance
             
           </span>
 </div>
@@ -105,8 +105,8 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="SolarNode Handbook" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="SolarNode Handbook">
-<img alt="logo" src="../../images/solarnode-icon.svg"/>
+<a aria-label="SolarNode Handbook" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="SolarNode Handbook">
+<img alt="logo" src="../../../images/solarnode-icon.svg"/>
 </a>
     SolarNode Handbook
   </label>
@@ -114,7 +114,7 @@
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle" id="__nav_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../">User Guide</a>
+<a href="../../">User Guide</a>
 <label for="__nav_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -126,14 +126,14 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../getting-started/">
+<a class="md-nav__link" href="../../getting-started/">
         Getting Started
       </a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_1_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../setup-app/">Setup App</a>
+<a href="../../setup-app/">Setup App</a>
 <label for="__nav_1_3">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -145,24 +145,24 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../setup-app/login/">
+<a class="md-nav__link" href="../../setup-app/login/">
         Login
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../setup-app/home/">
+<a class="md-nav__link" href="../../setup-app/home/">
         Home
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../setup-app/certificates/">
+<a class="md-nav__link" href="../../setup-app/certificates/">
         Certificates
       </a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_1_3_5" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../setup-app/settings/">Settings</a>
+<a href="../../setup-app/settings/">Settings</a>
 <label for="__nav_1_3_5">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -174,22 +174,22 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../setup-app/settings/components/">
+<a class="md-nav__link" href="../../setup-app/settings/components/">
         Components
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../setup-app/settings/datum-filters/">
+<a class="md-nav__link" href="../../setup-app/settings/datum-filters/">
         Datum Filters
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../setup-app/settings/logging/">
+<a class="md-nav__link" href="../../setup-app/settings/logging/">
         Logging
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../setup-app/settings/op-modes/">
+<a class="md-nav__link" href="../../setup-app/settings/op-modes/">
         Operational Modes
       </a>
 </li>
@@ -199,7 +199,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_1_3_6" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../setup-app/tools/">Tools</a>
+<a href="../../setup-app/tools/">Tools</a>
 <label for="__nav_1_3_6">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -211,12 +211,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../setup-app/tools/controls/">
+<a class="md-nav__link" href="../../setup-app/tools/controls/">
         Controls
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../setup-app/tools/command-console/">
+<a class="md-nav__link" href="../../setup-app/tools/command-console/">
         Command Console
       </a>
 </li>
@@ -224,83 +224,50 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../setup-app/plugins/">
+<a class="md-nav__link" href="../../setup-app/plugins/">
         Plugins
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../setup-app/profile/">
+<a class="md-nav__link" href="../../setup-app/profile/">
         Profile
       </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_1_4" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_1_4" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../sysadmin/">System Administration</a>
+<a href="../">System Administration</a>
 <label for="__nav_1_4">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_1_4_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="true" aria-labelledby="__nav_1_4_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_1_4">
 <span class="md-nav__icon md-icon"></span>
           System Administration
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../sysadmin/date-time/">
+<a class="md-nav__link" href="../date-time/">
         Date and Time
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../sysadmin/networking/">
-        Networking
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../sysadmin/packages/">
-        Package Maintenance
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../sysadmin/solarnode-service/">
-        SolarNode Service
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../sysadmin/solarssh/">
-        SolarSSH
-      </a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../networking/">
         Networking
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../security-tokens/">
-        Security Tokens
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../remote-access/">
-        Remote Access
-      </a>
-</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
-          Configuration
+          Package Maintenance
           <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
-        Configuration
+        Package Maintenance
       </a>
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">
@@ -309,25 +276,83 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#example">
-    Example
+<a class="md-nav__link" href="#update-package-metadata">
+    Update package metadata
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#list-installed-packages">
+    List installed packages
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#update-packages">
+    Update packages
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#search-for-packages">
+    Search for packages
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#install-packages">
+    Install packages
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#remove-packages">
+    Remove packages
   </a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../settings/">
+<a class="md-nav__link" href="../solarnode-service/">
+        SolarNode Service
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../solarssh/">
+        SolarSSH
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../networking/">
+        Networking
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../security-tokens/">
+        Security Tokens
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../remote-access/">
+        Remote Access
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../configuration/">
+        Configuration
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../settings/">
         Settings Files
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../logging/">
+<a class="md-nav__link" href="../../logging/">
         Logging
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../placeholders/">
+<a class="md-nav__link" href="../../placeholders/">
         Placeholders
       </a>
 </li>
@@ -337,7 +362,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../developers/">Developer Guide</a>
+<a href="../../../developers/">Developer Guide</a>
 <label for="__nav_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -351,7 +376,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../developers/osgi/">Plugins</a>
+<a href="../../../developers/osgi/">Plugins</a>
 <label for="__nav_2_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -363,27 +388,27 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../developers/osgi/manifest/">
+<a class="md-nav__link" href="../../../developers/osgi/manifest/">
         Manifest
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../developers/osgi/life-cycle/">
+<a class="md-nav__link" href="../../../developers/osgi/life-cycle/">
         Life cycle
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../developers/osgi/configuration-admin/">
+<a class="md-nav__link" href="../../../developers/osgi/configuration-admin/">
         Configuration Admin
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../developers/osgi/blueprint/">
+<a class="md-nav__link" href="../../../developers/osgi/blueprint/">
         Blueprint
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../developers/osgi/blueprint-compendium/">
+<a class="md-nav__link" href="../../../developers/osgi/blueprint-compendium/">
         Blueprint Compendium
       </a>
 </li>
@@ -393,7 +418,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../developers/settings/">Settings</a>
+<a href="../../../developers/settings/">Settings</a>
 <label for="__nav_2_3">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -405,27 +430,27 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../developers/settings/provider/">
+<a class="md-nav__link" href="../../../developers/settings/provider/">
         Settings Provider
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../developers/settings/specifier/">
+<a class="md-nav__link" href="../../../developers/settings/specifier/">
         Setting Specifier
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../developers/settings/resource-handler/">
+<a class="md-nav__link" href="../../../developers/settings/resource-handler/">
         Setting Resource Handler
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../developers/settings/singleton/">
+<a class="md-nav__link" href="../../../developers/settings/singleton/">
         Singleton Service
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../developers/settings/factory/">
+<a class="md-nav__link" href="../../../developers/settings/factory/">
         Factory Service
       </a>
 </li>
@@ -445,67 +470,67 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../developers/services/backup-manager/">
+<a class="md-nav__link" href="../../../developers/services/backup-manager/">
         Backup Manager
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../developers/services/closeable-service/">
+<a class="md-nav__link" href="../../../developers/services/closeable-service/">
         Closeable Service
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../developers/services/datum-data-source-poll-job/">
+<a class="md-nav__link" href="../../../developers/services/datum-data-source-poll-job/">
         Datum Data Source Poll Job
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../developers/services/datum-data-source/">
+<a class="md-nav__link" href="../../../developers/services/datum-data-source/">
         Datum Data Source
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../developers/services/datum-db/">
+<a class="md-nav__link" href="../../../developers/services/datum-db/">
         Datum Database
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../developers/services/datum-queue/">
+<a class="md-nav__link" href="../../../developers/services/datum-queue/">
         Datum Queue
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../developers/services/job-scheduler/">
+<a class="md-nav__link" href="../../../developers/services/job-scheduler/">
         Job Scheduler
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../developers/services/placeholder-service/">
+<a class="md-nav__link" href="../../../developers/services/placeholder-service/">
         Placeholder Service
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../developers/services/settings-db/">
+<a class="md-nav__link" href="../../../developers/services/settings-db/">
         Settings Database
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../developers/services/settings-service/">
+<a class="md-nav__link" href="../../../developers/services/settings-service/">
         Settings Service
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../developers/services/sql-database/">
+<a class="md-nav__link" href="../../../developers/services/sql-database/">
         SQL Database
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../developers/services/task-executor/">
+<a class="md-nav__link" href="../../../developers/services/task-executor/">
         Task Executor
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../developers/services/task-scheduler/">
+<a class="md-nav__link" href="../../../developers/services/task-scheduler/">
         Task Scheduler
       </a>
 </li>
@@ -530,8 +555,33 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#example">
-    Example
+<a class="md-nav__link" href="#update-package-metadata">
+    Update package metadata
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#list-installed-packages">
+    List installed packages
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#update-packages">
+    Update packages
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#search-for-packages">
+    Search for packages
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#install-packages">
+    Install packages
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#remove-packages">
+    Remove packages
   </a>
 </li>
 </ul>
@@ -541,29 +591,63 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="configuration"><span class="enumerate-headings-plugin enumerate-heading-plugin">26.</span> Configuration<a class="headerlink" href="#configuration" title="Permanent link">¶</a></h1>
-<p>Some SolarNode components can be configured from properties files. This type of configuration is
-meant to be changed just once, when a SolarNode is first deployed, to alter some default
-configuration value.</p>
-<div class="admonition warning">
-<p class="admonition-title">Not to be confused with Settings</p>
-<p>This type of configuration differs from what the <a href="../setup-app/settings/">Settings</a> page
-in the Setup App provides a UI managing. This configuration might be created by system
-administrators when creating a custom SolarNodeOS image for their needs, while Settings are
-meant to be managed by end users.</p>
+<h1 id="package-maintenance"><span class="enumerate-headings-plugin enumerate-heading-plugin">20.</span> Package Maintenance<a class="headerlink" href="#package-maintenance" title="Permanent link">¶</a></h1>
+<p>SolarNodeOS supports a <a href="https://github.com/SolarNetwork/solarnetwork/wiki/SolarNodeOS">wide variety of software packages</a>. You can install new packages as
+well as apply package updates as they become available. The <a href="https://manpages.debian.org/bullseye/apt/apt.8.en.html">apt</a> command performs these tasks.</p>
+<h2 id="update-package-metadata"><span class="enumerate-headings-plugin enumerate-heading-plugin">20.1</span> Update package metadata<a class="headerlink" href="#update-package-metadata" title="Permanent link">¶</a></h2>
+<p>For SolarNodeOS to know what packages, or package updates, are available, you need to periodically
+update the available package information. This is done with the <code>apt update</code> command:</p>
+<div class="highlight"><span class="filename">Update package information</span><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="c1"># (1)!</span>
+</code></pre></div>
+<ol>
+<li>The <code>sudo</code> command runs other commands with <a href="../#administrator-access">administrative privledges</a>.
+   It will prompt you for your user account password (typically the <code>solar</code> user).</li>
+</ol>
+<h2 id="list-installed-packages"><span class="enumerate-headings-plugin enumerate-heading-plugin">20.2</span> List installed packages<a class="headerlink" href="#list-installed-packages" title="Permanent link">¶</a></h2>
+<p>Use the <code>apt list</code> command to list the installed packages:</p>
+<div class="highlight"><span class="filename">Listing the installed packages</span><pre><span></span><code>apt<span class="w"> </span>list<span class="w"> </span>--installed
+</code></pre></div>
+<h2 id="update-packages"><span class="enumerate-headings-plugin enumerate-heading-plugin">20.3</span> Update packages<a class="headerlink" href="#update-packages" title="Permanent link">¶</a></h2>
+<p>To see if there are any package updates available, run <code>apt list</code> like this:</p>
+<div class="highlight"><span class="filename">List packages with updates available</span><pre><span></span><code>apt<span class="w"> </span>list<span class="w"> </span>--upgradable
+</code></pre></div>
+<p>If there are updates available, that will show them. You can apply <strong>all</strong> package updates with the
+<code>apt upgrade</code> command, like this:</p>
+<div class="highlight"><span class="filename">Upgrade all packages</span><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade
+</code></pre></div>
+<p>If you want to install an update for a specific package, use the <a href="#install-packages"><code>apt install</code></a>
+command instead.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The <code>apt upgrade</code> command will update existing packages and install packages that are required
+by those packages, but it will never remove an existing package. Sometimes you will want to
+allow packages to be removed during the upgrade process; to do that use the <code>apt full-upgrade</code>
+command.</p>
 </div>
-<p>Configuration <a href="https://en.wikipedia.org/wiki/.properties">properties files</a> are read from the <code>/etc/solarnode/services</code>
-directory and named like <code>NAMESPACE.cfg</code> , where <code>NAMESPACE</code> represents a <em>configuration namespace</em>.</p>
-<div class="admonition note">
-<p class="admonition-title">Configuration location</p>
-<p>The <code>/etc/solarnode/services</code> location is the default location in SolarNodeOS. It might be
-another location in other SolarNode deployments.</p>
-</div>
-<h2 id="example"><span class="enumerate-headings-plugin enumerate-heading-plugin">26.1</span> Example<a class="headerlink" href="#example" title="Permanent link">¶</a></h2>
-<p>Imagine a component uses the configuration namespace <code>com.example.service</code> and supports a
-configurable property named <code>max-threads</code> that accepts an integer value you would like to configure
-as <code>4</code>. You would create a <code>com.example.service.cfg</code> file like:</p>
-<div class="highlight"><span class="filename">/etc/solarnode/services/com.example.service.cfg</span><pre><span></span><code><span class="na">max-threads</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">4</span>
+<h2 id="search-for-packages"><span class="enumerate-headings-plugin enumerate-heading-plugin">20.4</span> Search for packages<a class="headerlink" href="#search-for-packages" title="Permanent link">¶</a></h2>
+<p>Use the <code>apt search</code> command to search for packages. By default this will match package names and
+their descriptions. You can search just for package names by including a <code>--names-only</code> argument.</p>
+<div class="highlight"><span class="filename">Search for packages</span><pre><span></span><code><span class="c1"># search for "name" across package names and descriptions</span>
+apt<span class="w"> </span>search<span class="w"> </span>name
+
+<span class="c1"># search for "name" across package names only</span>
+apt<span class="w"> </span>search<span class="w"> </span>--names-only<span class="w"> </span>name
+
+<span class="c1"># multiple search terms are logically "and"-ed together</span>
+apt<span class="w"> </span>search<span class="w"> </span>name1<span class="w"> </span>name2
+</code></pre></div>
+<h2 id="install-packages"><span class="enumerate-headings-plugin enumerate-heading-plugin">20.5</span> Install packages<a class="headerlink" href="#install-packages" title="Permanent link">¶</a></h2>
+<p>The <code>apt install</code> command will install an available package, or an individual package update.</p>
+<div class="highlight"><span class="filename">Install package</span><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>mypackage
+</code></pre></div>
+<h2 id="remove-packages"><span class="enumerate-headings-plugin enumerate-heading-plugin">20.6</span> Remove packages<a class="headerlink" href="#remove-packages" title="Permanent link">¶</a></h2>
+<p>You can remove packages with the <code>apt remove</code> command. That command will preserve any system
+configuration associated with the package(s); if you would like to also remove that you can
+use the <code>apt purge</code> command.</p>
+<div class="highlight"><span class="filename">Removing packages</span><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>remove<span class="w"> </span>mypackage
+
+<span class="c1"># use `purge` to also remove configuration</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>purge<span class="w"> </span>mypackage
 </code></pre></div>
 </article>
 </div>
@@ -587,8 +671,8 @@ as <code>4</code>. You would create a <code>com.example.service.cfg</code> file 
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.code.copy", "navigation.indexes", "navigation.instant", "navigation.path", "navigation.tracking", "toc.follow"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../assets/javascripts/bundle.51198bba.min.js"></script>
-<script src="../../js/open_in_new_tab.js"></script>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "content.code.copy", "navigation.indexes", "navigation.instant", "navigation.path", "navigation.tracking", "toc.follow"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../../assets/javascripts/bundle.51198bba.min.js"></script>
+<script src="../../../js/open_in_new_tab.js"></script>
 </body>
 </html>
