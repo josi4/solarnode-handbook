@@ -3,11 +3,13 @@ nav:
     - index.md
     - getting-started.md
     - setup-app
+    - datum-filters
     - sysadmin
     - networking.md
     - security-tokens.md
     - remote-access.md
+    - expressions.md
+    - placeholders.md
     - configuration.md
     - settings.md
     - logging.md
-    - placeholders.md

@@ -94,7 +94,7 @@ Many plugins provide _component factories_ which allow you to configure any numb
 that component. Each component _instance_ is assigned a unique _identifier_ when it is created. In
 the SolarNode setup app, the component instance identifiers appear throughout the UI:
 
-![Component identifiers in the SolarNode setup app](../images/users/component-instance-identifiers.png){width=736}
+![Component identifiers in the SolarNode setup app](../images/users/component-instance-identifiers%402x.png){width=736}
 
 In the previous [example CSV](#settings-csv-example) the **Modbus I/O** plugin allows you to
 configure any number of Modbus connection components, each with their own specific settings. That is
