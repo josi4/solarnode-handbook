@@ -39,17 +39,17 @@ At the end of processing, the datum is either
 1. uploaded to SolarNet immediately, or
 2. saved locally, to be uploaded at some point in the future
 
-Most of the time datum are uploaded to SolarNet immediately after processing. If the network is down, or SolarNode is
-configured to only upload datum in batches, then datum are saved locally in SolarNode, and a periodic job will
-attempt to upload them later on, in batches.
+Most of the time datum are uploaded to SolarNet immediately after processing. If the network is
+down, or SolarNode is configured to only upload datum in batches, then datum are saved locally in
+SolarNode, and a periodic job will attempt to upload them later on, in batches.
 
 See the Setup App [Datum Queue](../setup-app/settings/datum-filters.md#datum-queue) section for
 information on how to configure the Datum Queue.
 
 !!! tip "When to configure filters on the Datum Queue, as opposed to other places?"
 
-	The Datum Queue is a great place to configure filters that must be processed at most once per datum,
-	and do not depend on what time the datum is uploaded to SolarNet.
+	The Datum Queue is a great place to configure filters that must be processed at most once per
+	datum, and do not depend on what time the datum is uploaded to SolarNet.
 
 ## Global Datum Filters
 
@@ -68,15 +68,9 @@ dircectly or indirectly with a [Datum Filter Chain](../../datum-filters/chain.md
 
 ## Global Datum Filter Chain
 
-<figure markdown>
-  ![Global Datum Filter Chain](../../images/users/datum-filters/global-filter-chain-settings%402x.png){width=747 loading=lazy}
-</figure>
-
+The Global Datum Filter Chain provides a way to apply explicit [User Datum Filters](#user-datum-filters)
+to datum just before posting to SolarNetwork.
 
 ## SolarFlux Datum Filters
 
 TODO
-
-<figure markdown>
-  ![SolarNode Datum Filters screen](../../images/users/setup/setup-datum-filters%402x.png){width=837}
-</figure>
