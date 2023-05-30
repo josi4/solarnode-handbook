@@ -21,7 +21,7 @@ There are four main places where datum filters can be applied:
 1. On the [Datum Queue](#datum-queue), immediately after each datum is captured
 2. As a [Global Datum Filter](#global-datum-filters), just before uploading to SolarNet
 3. On the [Global Datum Filter Chain](#global-datum-filter-chain), just before uploading to SolarNet
-4. As a [SolarFlux Datum Filter](#solarflux-datum-filter), just before uploading to SolarFlux
+4. As a [SolarFlux Datum Filter](#solarflux-datum-filters), just before uploading to SolarFlux
 
 ## Datum Queue
 
@@ -60,16 +60,19 @@ dircectly or indirectly with a [Datum Filter Chain](chain.md).
 
 !!! note
 
-	Some filters support both Global and [User](#user-datum-filters) based filter configuration, and
-	often you can achieve the same overall result in multiple ways. Global filters are convenient
-	for the subset of filters that support Global configuration, but for complex filtering often it
-	can be easier to configure all filters as User filters, using the [Global Datum Filter
-	Chain](#global-datum-filter-chain) as needed.
+	Some filters support both [Global](../setup-app/settings/datum-filters.md#global-datum-filters)
+	and [User](../setup-app/settings/datum-filters.md#user-datum-filters) based filter
+	configuration, and often you can achieve the same overall result in multiple ways. Global
+	filters are convenient for the subset of filters that support Global configuration, but for
+	complex filtering often it can be easier to configure all filters as User filters, using the
+	[Global Datum Filter Chain](../setup-app/settings/datum-filters.md#global-datum-filter-chain) as
+	needed.
 
 ## Global Datum Filter Chain
 
-The Global Datum Filter Chain provides a way to apply explicit [User Datum Filters](#user-datum-filters)
-to datum just before posting to SolarNetwork.
+The Global Datum Filter Chain provides a way to apply explicit [User Datum
+Filters](../setup-app/settings/datum-filters.md#user-datum-filters) to datum just before posting to
+SolarNetwork.
 
 ## SolarFlux Datum Filters
 
