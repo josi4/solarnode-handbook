@@ -9,7 +9,7 @@ are some examples of the things they can do:
 * Split a datum so some properties are moved to another datum stream
 * Join the properties of multiple datum streams into a single datum
 * Inject properties from external services
-* Derive new properties from dynamic [expressions](../../expressions.md)
+* Derive new properties from dynamic [expressions](../expressions.md)
 
 !!! tip "Datum Filters do not create datum"
 
@@ -56,7 +56,7 @@ information on how to configure the Datum Queue.
 Global Datum Filters are applied to datum just before posting to SolarNetwork. Once an instance is
 created, it is automatically active and will be applied to datum. This differs from [User Datum
 Filters](#user-datum-filters), which must be explicitly added to a service to be used, either
-dircectly or indirectly with a [Datum Filter Chain](../../datum-filters/chain.md).
+dircectly or indirectly with a [Datum Filter Chain](chain.md).
 
 !!! note
 
