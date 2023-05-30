@@ -1,3 +1,29 @@
 # Filter Chain
 
-TODO
+The **Datum Filter Chain** is a [User Datum Filter][udf] that you configure with a list, or chain,
+of _other_ User Datum Filters. When the Filter Chain executes, it executes each of the configured
+Datum Filters, in the order defined.  This filter can be used like any other Datum Filter, allowing
+multiple filters to be applied in a defined order.
+
+<figure markdown>
+  ![Datum Filter Chain diagram](../../images/users/datum-filters/datum-filter-chain.svg){width=480}
+  <caption>A Filter Chain acts like an ordered group of Datum Filters</caption>
+</figure>
+
+!!! tip
+
+	Some services support configuring only a **single** Datum Filter setting. You can use a Filter
+	Chain to apply multiple filters in those services.
+
+## Settings
+
+<figure markdown>
+  ![Filter Chain component settings](../../images/users/datum-filters/datum-filter-chain-settings%402x.png){width=736 loading=lazy}
+</figure>
+
+| Setting | Description |
+|:--------|:------------|
+| **Available Filters** | A read-only list of **Service Name** values of [User Datum Filter][udf] components that have been configured. You can copy any value from this list and paste it into the **Datum Filters** list to include that filter in the chain. |
+| **Datum Filters** | The list of **Service Name** values of [User Datum Filter][udf] components to apply to datum. |
+
+[udf]: ../setup-app/settings/datum-filters.md#user-datum-filters

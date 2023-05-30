@@ -3,7 +3,9 @@ nav:
     - index.md
     - getting-started.md
     - setup-app
+    - datum.md
     - datum-filters
+    - solarflux.md
     - sysadmin
     - networking.md
     - security-tokens.md
