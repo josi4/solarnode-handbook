@@ -21,9 +21,15 @@ multiple filters to be applied in a defined order.
   ![Filter Chain component settings](../../images/users/datum-filters/datum-filter-chain-settings%402x.png){width=736 loading=lazy}
 </figure>
 
+Each filter configuration contains the following overall settings:
+
 | Setting | Description |
 |:--------|:------------|
-| **Available Filters** | A read-only list of **Service Name** values of [User Datum Filter][udf] components that have been configured. You can copy any value from this list and paste it into the **Datum Filters** list to include that filter in the chain. |
-| **Datum Filters** | The list of **Service Name** values of [User Datum Filter][udf] components to apply to datum. |
+| Available Filters | A read-only list of **Service Name** values of [User Datum Filter][udf] components that have been configured. You can copy any value from this list and paste it into the **Datum Filters** list to include that filter in the chain. |
+| Service Name      | A unique ID for the filter, to be referenced by other components. |
+| Service Group     | An optional service group name to assign. |
+| Required Mode     | If configured, an [operational mode][opmodes] that must be active for this filter to be applied. |
+| Datum Filters     | The list of **Service Name** values of [User Datum Filter][udf] components to apply to datum. |
 
+[opmodes]: ../op-modes.md
 [udf]: ../setup-app/settings/datum-filters.md#user-datum-filters
