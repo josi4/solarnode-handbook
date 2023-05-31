@@ -382,9 +382,122 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Expressions
+          <span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
         Expressions
       </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#datum-expressions">
+    Datum Expressions
+  </a>
+<nav aria-label="Datum Expressions" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#datum-property-variables">
+    Datum property variables
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#other-variables">
+    Other variables
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#functions">
+    Functions
+  </a>
+<nav aria-label="Functions" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#bit-functions">
+    Bit functions
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#datum-stream-functions">
+    Datum stream functions
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#math-functions">
+    Math functions
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#operational-functions">
+    Operational functions
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#property-functions">
+    Property functions
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#expression-examples">
+    Expression examples
+  </a>
+<nav aria-label="Expression examples" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#datum-stream-history">
+    Datum stream history
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#other-datum-stream-history">
+    Other datum stream history
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#datum-metadata">
+    Datum metadata
+  </a>
+<nav aria-label="Datum metadata" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#datum-metadata-properties">
+    Datum metadata properties
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#datum-metadata-general-info-functions">
+    Datum metadata general info functions
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#datum-metadata-property-info-functions">
+    Datum metadata property info functions
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#datum-metadata-global-functions">
+    Datum metadata global functions
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../placeholders/">
@@ -599,6 +712,113 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#datum-expressions">
+    Datum Expressions
+  </a>
+<nav aria-label="Datum Expressions" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#datum-property-variables">
+    Datum property variables
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#other-variables">
+    Other variables
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#functions">
+    Functions
+  </a>
+<nav aria-label="Functions" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#bit-functions">
+    Bit functions
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#datum-stream-functions">
+    Datum stream functions
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#math-functions">
+    Math functions
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#operational-functions">
+    Operational functions
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#property-functions">
+    Property functions
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#expression-examples">
+    Expression examples
+  </a>
+<nav aria-label="Expression examples" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#datum-stream-history">
+    Datum stream history
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#other-datum-stream-history">
+    Other datum stream history
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#datum-metadata">
+    Datum metadata
+  </a>
+<nav aria-label="Datum metadata" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#datum-metadata-properties">
+    Datum metadata properties
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#datum-metadata-general-info-functions">
+    Datum metadata general info functions
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#datum-metadata-property-info-functions">
+    Datum metadata property info functions
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#datum-metadata-global-functions">
+    Datum metadata global functions
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
 </nav>
 </div>
 </div>
@@ -606,7 +826,769 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="expressions"><span class="enumerate-headings-plugin enumerate-heading-plugin">41.</span> Expressions<a class="headerlink" href="#expressions" title="Permanent link">¶</a></h1>
-<p>TODO</p>
+<p>Many SolarNode components support a general "expressions" framework that can be used to calculate
+values using a scripting language. SolarNode comes with the <a href="https://github.com/SolarNetwork/solarnetwork/wiki/Spring-Expression-Language">Spel</a> scripting language by
+default, so this guide describes that language.</p>
+<p>A common use case for expressions is to derive <a href="../datum/">datum</a> property values out of the raw
+property values captured from a device. In the SolarNode <a href="../setup-app/">Setup App</a> a typical
+datum data source component might present a configurable list of expression settings like this:</p>
+<figure>
+<p><img alt="Example expression settings" loading="lazy" src="../../images/users/expression-example-settings%402x.png" width="706"/></p>
+</figure>
+<p>In this example, each time the data source captures a datum from the device it is communicating with
+it will add a new <code>watts</code> property by multiplying the captured <code>amps</code> and <code>volts</code> property values.
+In essence the expression is like this code:</p>
+<div class="highlight"><pre><span></span><code>watts = amps × volts
+</code></pre></div>
+<h2 id="datum-expressions"><span class="enumerate-headings-plugin enumerate-heading-plugin">41.1</span> Datum Expressions<a class="headerlink" href="#datum-expressions" title="Permanent link">¶</a></h2>
+<p>Many SolarNode expressions are evaluated in the context of a <a href="../datum/">datum</a>, typically one captured
+from a device SolarNode is collecting data from. In this context, the expression supports accessing
+datum properties directly as expression variables, and some helpful functions are provided.</p>
+<h3 id="datum-property-variables"><span class="enumerate-headings-plugin enumerate-heading-plugin">41.1.1</span> Datum property variables<a class="headerlink" href="#datum-property-variables" title="Permanent link">¶</a></h3>
+<p>All datum properties with <em>simple</em> names can be referred to directly as variables. Here <em>simple</em>
+just means a name that is also a <a href="https://github.com/SolarNetwork/solarnetwork/wiki/Spring-Expression-Language#variable-names">legal variable name</a>. The <a href="../datum/#datum-property-classifications">property
+classifications</a> do not matter in this context: the expression will look for
+properties in all classifications.</p>
+<p>For example, given a datum like this:</p>
+<div class="highlight"><span class="filename">Example datum representation in JSON</span><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"i"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"watts"</span><span class="w">     </span><span class="p">:</span><span class="w"> </span><span class="mi">123</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"a"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"wattHours"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">987654321</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"s"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"mode"</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="s2">"auto"</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The expression can use the variables <code>watts</code>, <code>wattHours</code>, and <code>mode</code>.</p>
+<h3 id="other-variables"><span class="enumerate-headings-plugin enumerate-heading-plugin">41.1.2</span> Other variables<a class="headerlink" href="#other-variables" title="Permanent link">¶</a></h3>
+<p>A datum expression will also provide the following variables:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>datum</code></td>
+<td align="left"><code>Datum</code></td>
+<td align="left">A <a href="https://github.com/SolarNetwork/solarnetwork-common/blob/develop/net.solarnetwork.common/src/net/solarnetwork/domain/datum/Datum.java"><code>Datum</code></a> object, in case you need direct access to the functions provided there.</td>
+</tr>
+<tr>
+<td align="left"><code>meta</code></td>
+<td align="left"><code>DatumMetadataOperations</code></td>
+<td align="left">Get <a href="#datum-metadata">datum metadata</a> for the current source ID.</td>
+</tr>
+<tr>
+<td align="left"><code>parameters</code></td>
+<td align="left"><code>Map&lt;String,Object&gt;</code></td>
+<td align="left">Simple map-based access to all parameters passed to the expression. The available parameters depend on the context of the expression evaluation, but often include things like <a href="../placeholders/">placeholder</a> values or parameters generated by previously evaluated expressions. These values are also available directly as variables, this is rarely needed but can be helpful for accessing dynamically-calculated property names or properties with names that are not legal variable names.</td>
+</tr>
+<tr>
+<td align="left"><code>props</code></td>
+<td align="left"><code>Map&lt;String,Object&gt;</code></td>
+<td align="left">Simple map based access to all properties in <code>datum</code>. As datum properties are also available directly as variables, this is rarely needed but can be helpful for accessing dynamically-calculated property names or properties with names that are not legal variable names.</td>
+</tr>
+<tr>
+<td align="left"><code>sourceId</code></td>
+<td align="left"><code>String</code></td>
+<td align="left">The source ID of the current datum.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="functions"><span class="enumerate-headings-plugin enumerate-heading-plugin">41.1.3</span> Functions<a class="headerlink" href="#functions" title="Permanent link">¶</a></h3>
+<p>Some functions are provided to help with datum-related expressions.</p>
+<h4 id="bit-functions"><span class="enumerate-headings-plugin enumerate-heading-plugin">41.1.3.1</span> Bit functions<a class="headerlink" href="#bit-functions" title="Permanent link">¶</a></h4>
+<p>The following functions help with bitwise integer manipulation operations:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Function</th>
+<th align="left">Arguments</th>
+<th align="left">Result</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>and(n1,n2)</code></td>
+<td align="left"><code>Number</code>, <code>Number</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left">Bitwise and, i.e. <code>(n1 &amp; n2)</code></td>
+</tr>
+<tr>
+<td align="left"><code>andNot(n1,n2)</code></td>
+<td align="left"><code>Number</code>, <code>Number</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left">Bitwise and-not, i.e. <code>(n1 &amp; ~n2)</code></td>
+</tr>
+<tr>
+<td align="left"><code>narrow(n,s)</code></td>
+<td align="left"><code>Number</code>, <code>Number</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left">Return <code>n</code> as a reduced-size but equivalent number of a minimum power-of-two byte size <code>s</code></td>
+</tr>
+<tr>
+<td align="left"><code>narrow8(n)</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left">Return <code>n</code> as a reduced-size but equivalent number narrowed to a minimum of 8-bits</td>
+</tr>
+<tr>
+<td align="left"><code>narrow16(n)</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left">Return <code>n</code> as a reduced-size but equivalent number narrowed to a minimum of 16-bits</td>
+</tr>
+<tr>
+<td align="left"><code>narrow32(n)</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left">Return <code>n</code> as a reduced-size but equivalent number narrowed to a minimum of 32-bits</td>
+</tr>
+<tr>
+<td align="left"><code>narrow64(n)</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left">Return <code>n</code> as a reduced-size but equivalent number narrowed to a minimum of 64-bits</td>
+</tr>
+<tr>
+<td align="left"><code>not(n)</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left">Bitwise not, i.e. <code>(~n)</code></td>
+</tr>
+<tr>
+<td align="left"><code>or(n1,n2)</code></td>
+<td align="left"><code>Number</code>, <code>Number</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left">Bitwise or, i.e. <code>(n1 | n2)</code></td>
+</tr>
+<tr>
+<td align="left"><code>shiftLeft(n,c)</code></td>
+<td align="left"><code>Number</code>, <code>Number</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left">Bitwise shift left, i.e. <code>(n &lt;&lt; c)</code></td>
+</tr>
+<tr>
+<td align="left"><code>shiftRight(n,c)</code></td>
+<td align="left"><code>Number</code>, <code>Number</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left">Bitwise shift left, i.e. <code>(n &gt;&gt; c)</code></td>
+</tr>
+<tr>
+<td align="left"><code>testBit(n,i)</code></td>
+<td align="left"><code>Number</code>, <code>Number</code></td>
+<td align="left"><code>boolean</code></td>
+<td align="left">Test if bit <code>i</code> is set in integer <code>n</code>, i.e. <code>((n &amp; (1 &lt;&lt; i)) != 0)</code></td>
+</tr>
+<tr>
+<td align="left"><code>xor(n1,n2)</code></td>
+<td align="left"><code>Number</code>, <code>Number</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left">Bitwise xor, i.e. <code>(n1 ^ n2)</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>All number arguments will be converted to <code>BigInteger</code> values for the bitwise operations, and
+ <code>BigInteger</code> values are returned.</p>
+</div>
+<h4 id="datum-stream-functions"><span class="enumerate-headings-plugin enumerate-heading-plugin">41.1.3.2</span> Datum stream functions<a class="headerlink" href="#datum-stream-functions" title="Permanent link">¶</a></h4>
+<p>The following functions deal with datum streams. The <code>latest()</code> and <code>offset()</code> functions give you
+access to recently-captured datum from any SolarNode source, so you can refer to any datum stream
+being generated in SolarNode. They return another datum expression root object, which means you have
+access to all the variables and functions documented on this page with them as well.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Function</th>
+<th align="left">Arguments</th>
+<th align="left">Result</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>hasLatest(source)</code></td>
+<td align="left"><code>String</code></td>
+<td align="left"><code>boolean</code></td>
+<td align="left">Returns <code>true</code> if a datum with source ID <code>source</code> is available via the <code>latest(source)</code> function.</td>
+</tr>
+<tr>
+<td align="left"><code>hasLatestMatching(pattern)</code></td>
+<td align="left"><code>String</code></td>
+<td align="left"><code>Collection&lt;DatumExpressionRoot&gt;</code></td>
+<td align="left">Returns <code>true</code> if <code>latestMatching(pattern)</code> returns a non-empty collection.</td>
+</tr>
+<tr>
+<td align="left"><code>hasLatestOtherMatching(pattern)</code></td>
+<td align="left"><code>String</code></td>
+<td align="left"><code>Collection&lt;DatumExpressionRoot&gt;</code></td>
+<td align="left">Returns <code>true</code> if <code>latestOthersMatching(pattern)</code> returns a non-empty collection.</td>
+</tr>
+<tr>
+<td align="left"><code>hasMeta()</code></td>
+<td align="left"></td>
+<td align="left"><code>boolean</code></td>
+<td align="left">Returns <code>true</code> if metadata for the current source ID is available.</td>
+</tr>
+<tr>
+<td align="left"><code>hasMeta(source)</code></td>
+<td align="left"><code>String</code></td>
+<td align="left"><code>boolean</code></td>
+<td align="left">Returns <code>true</code> if <code>datumMeta(source)</code> would return a non-null value.</td>
+</tr>
+<tr>
+<td align="left"><code>hasOffset(offset)</code></td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>boolean</code></td>
+<td align="left">Returns <code>true</code> if a datum is available via the <code>offset(offset)</code> function.</td>
+</tr>
+<tr>
+<td align="left"><code>hasOffset(source,offset)</code></td>
+<td align="left"><code>String</code>, <code>int</code></td>
+<td align="left"><code>boolean</code></td>
+<td align="left">Returns <code>true</code> if a datum with source ID <code>source</code> is available via the <code>offset(source,int)</code> function.</td>
+</tr>
+<tr>
+<td align="left"><code>latest(source)</code></td>
+<td align="left"><code>String</code></td>
+<td align="left"><code>DatumExpressionRoot</code></td>
+<td align="left">Provides access to the latest available datum matching the given source ID, or <code>null</code> if not available. This is a shortcut for calling <code>offset(source,0)</code>.</td>
+</tr>
+<tr>
+<td align="left"><code>latestMatching(pattern)</code></td>
+<td align="left"><code>String</code></td>
+<td align="left"><code>Collection&lt;DatumExpressionRoot&gt;</code></td>
+<td align="left">Return a collection of the latest available datum matching a given source ID <a href="https://github.com/SolarNetwork/solarnetwork/wiki/SolarNet-API-global-objects#wildcard-patterns">wildcard pattern</a>.</td>
+</tr>
+<tr>
+<td align="left"><code>latestOthersMatching(pattern)</code></td>
+<td align="left"><code>String</code></td>
+<td align="left"><code>Collection&lt;DatumExpressionRoot&gt;</code></td>
+<td align="left">Return a collection of the latest available datum matching a given source ID <a href="https://github.com/SolarNetwork/solarnetwork/wiki/SolarNet-API-global-objects#wildcard-patterns">wildcard pattern</a>, excluding the current datum if its source ID happens to match the pattern.</td>
+</tr>
+<tr>
+<td align="left"><code>meta(source)</code></td>
+<td align="left"><code>String</code></td>
+<td align="left"><code>DatumMetadataOperations</code></td>
+<td align="left">Get <a href="#datum-metadata">datum metadata</a> for a specific source ID.</td>
+</tr>
+<tr>
+<td align="left"><code>metaMatching(pattern)</code></td>
+<td align="left"><code>String</code></td>
+<td align="left"><code>Collection&lt;DatumMetadataOperations&gt;</code></td>
+<td align="left">Find <a href="#datum-metadata">datum metadata</a> for sources matching a given source ID <a href="https://github.com/SolarNetwork/solarnetwork/wiki/SolarNet-API-global-objects#wildcard-patterns">wildcard pattern</a>.</td>
+</tr>
+<tr>
+<td align="left"><code>offset(offset)</code></td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>DatumExpressionRoot</code></td>
+<td align="left">Provides access to a datum from the same stream as the current datum, offset by <code>offset</code> in time, or <code>null</code> if not available. Offset <code>1</code> means the datum just before this datum, and so on.</td>
+</tr>
+<tr>
+<td align="left"><code>offset(source,offset)</code></td>
+<td align="left"><code>String</code>, <code>int</code></td>
+<td align="left"><code>DatumExpressionRoot</code></td>
+<td align="left">Provides access to an offset from the latest available datum matching the given source ID, or <code>null</code> if not available. Offset <code>0</code> represents the "latest" datum, <code>1</code> the one before that, and so on. SolarNode only maintains a limited history for each source, do do not rely on more than a few datum to be available via this method. This history is also cleared when SolarNode restarts.</td>
+</tr>
+<tr>
+<td align="left"><code>selfAndLatestMatching(pattern)</code></td>
+<td align="left"><code>String</code></td>
+<td align="left"><code>Collection&lt;DatumExpressionRoot&gt;</code></td>
+<td align="left">Return a collection of the latest available datum matching a given source ID <a href="https://github.com/SolarNetwork/solarnetwork/wiki/SolarNet-API-global-objects#wildcard-patterns">wildcard pattern</a>, including the current datum. The current datum will always be the first datum returned.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="math-functions"><span class="enumerate-headings-plugin enumerate-heading-plugin">41.1.3.3</span> Math functions<a class="headerlink" href="#math-functions" title="Permanent link">¶</a></h4>
+<p>Expressions support basic <a href="https://github.com/SolarNetwork/solarnetwork/wiki/Spring-Expression-Language-Syntax#mathematical-operators">math operators</a> like <code>+</code> for addition and <code>*</code> for
+multiplication. The following functions help with other math operations:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Function</th>
+<th align="left">Arguments</th>
+<th align="left">Result</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>avg(collection)</code></td>
+<td align="left"><code>Collection&lt;Number&gt;</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left">Calculate the average (mean) of a collection of numbers. Useful when combined with the <code>group(pattern)</code> function.</td>
+</tr>
+<tr>
+<td align="left"><code>ceil(n)</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left">Round a number larger, to the nearest integer.</td>
+</tr>
+<tr>
+<td align="left"><code>ceil(n,significance)</code></td>
+<td align="left"><code>Number</code>, <code>Number</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left">Round a number larger, to the nearest integer multiple of <code>significance</code>.</td>
+</tr>
+<tr>
+<td align="left"><code>down(n)</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left">Round numbers towards zero, to the nearest integer.</td>
+</tr>
+<tr>
+<td align="left"><code>down(n,significance)</code></td>
+<td align="left"><code>Number</code>, <code>Number</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left">Round numbers towards zero, to the nearest integer multiple of <code>significance</code>.</td>
+</tr>
+<tr>
+<td align="left"><code>floor(n)</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left">Round a number smaller, to the nearest integer.</td>
+</tr>
+<tr>
+<td align="left"><code>floor(n,significance)</code></td>
+<td align="left"><code>Number</code>, <code>Number</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left">Round a number smaller, to the nearest integer multiple of <code>significance</code>.</td>
+</tr>
+<tr>
+<td align="left"><code>max(collection)</code></td>
+<td align="left"><code>Collection&lt;Number&gt;</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left">Return the largest value from a set of numbers.</td>
+</tr>
+<tr>
+<td align="left"><code>max(n1,n2)</code></td>
+<td align="left"><code>Number</code>, <code>Number</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left">Return the larger of two numbers.</td>
+</tr>
+<tr>
+<td align="left"><code>min(collection)</code></td>
+<td align="left"><code>Collection&lt;Number&gt;</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left">Return the smallest value from a set of numbers.</td>
+</tr>
+<tr>
+<td align="left"><code>min(n1,n2)</code></td>
+<td align="left"><code>Number</code>, <code>Number</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left">Return the smaler of two numbers.</td>
+</tr>
+<tr>
+<td align="left"><code>mround(n,significance)</code></td>
+<td align="left"><code>Number</code>, <code>Number</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left">Round a number to the nearest integer multiple of <code>significance</code>.</td>
+</tr>
+<tr>
+<td align="left"><code>round(n)</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left">Round a number to the nearest integer.</td>
+</tr>
+<tr>
+<td align="left"><code>round(n,digits)</code></td>
+<td align="left"><code>Number</code>, <code>Number</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left">Round a number to the nearest number with <code>digits</code> decimal digits.</td>
+</tr>
+<tr>
+<td align="left"><code>roundDown(n,digits)</code></td>
+<td align="left"><code>Number</code>, <code>Number</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left">Round a number towards zero to the nearest number with <code>digits</code> decimal digits.</td>
+</tr>
+<tr>
+<td align="left"><code>roundUp(n,digits)</code></td>
+<td align="left"><code>Number</code>, <code>Number</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left">Round a number away from zero to the nearest number with <code>digits</code> decimal digits.</td>
+</tr>
+<tr>
+<td align="left"><code>sum(collection)</code></td>
+<td align="left"><code>Collection&lt;Number&gt;</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left">Calculate the sum of a collection of numbers. Useful when combined with the <code>group(pattern)</code> function.</td>
+</tr>
+<tr>
+<td align="left"><code>up(n)</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left">Round numbers away from zero, to the nearest integer.</td>
+</tr>
+<tr>
+<td align="left"><code>up(n,significance)</code></td>
+<td align="left"><code>Number</code>, <code>Number</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left">Round numbers away from zero, to the nearest integer multiple of <code>significance</code>.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="operational-functions"><span class="enumerate-headings-plugin enumerate-heading-plugin">41.1.3.4</span> Operational functions<a class="headerlink" href="#operational-functions" title="Permanent link">¶</a></h4>
+<p>The following functions deal with general SolarNode operations:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Function</th>
+<th align="left">Arguments</th>
+<th align="left">Result</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>isOpMode(mode)</code></td>
+<td align="left"><code>String</code></td>
+<td align="left"><code>boolean</code></td>
+<td align="left">Returns <code>true</code> if the <code>mode</code> operational mode is active.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="property-functions"><span class="enumerate-headings-plugin enumerate-heading-plugin">41.1.3.5</span> Property functions<a class="headerlink" href="#property-functions" title="Permanent link">¶</a></h4>
+<p>The following functions help with expression properties (variables):</p>
+<table>
+<thead>
+<tr>
+<th align="left">Function</th>
+<th align="left">Arguments</th>
+<th align="left">Result</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>has(name)</code></td>
+<td align="left"><code>String</code></td>
+<td align="left"><code>boolean</code></td>
+<td align="left">Returns <code>true</code> if a property named <code>name</code> is defined. Can be used to prevent expression errors on datum property variables that are missing.</td>
+</tr>
+<tr>
+<td align="left"><code>group(pattern)</code></td>
+<td align="left"><code>String</code></td>
+<td align="left"><code>Collection&lt;Number&gt;</code></td>
+<td align="left">Creates a collection out of numbered properties whose <code>name</code> matches the given regular expression <code>pattern</code>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="expression-examples"><span class="enumerate-headings-plugin enumerate-heading-plugin">41.2</span> Expression examples<a class="headerlink" href="#expression-examples" title="Permanent link">¶</a></h2>
+<p>Let's assume a captured datum like this, expressed as JSON:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"i"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"amps"</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="mf">4.2</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"volts"</span><span class="w">     </span><span class="p">:</span><span class="w"> </span><span class="mf">240.0</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"a"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"reading"</span><span class="w">   </span><span class="p">:</span><span class="w"> </span><span class="mi">38009138</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"s"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"state"</span><span class="w">     </span><span class="p">:</span><span class="w"> </span><span class="s2">"Ok"</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Then here are some example <a href="https://github.com/SolarNetwork/solarnetwork/wiki/Spring-Expression-Language">Spel</a> expressions and the results they would produce:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Expression</th>
+<th align="left">Result</th>
+<th align="left">Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>state</code></td>
+<td align="left"><code>Ok</code></td>
+<td align="left">Returns the <code>state</code> status property directly, which is <code>Ok</code>.</td>
+</tr>
+<tr>
+<td align="left"><code>datum.s['state']</code></td>
+<td align="left"><code>Ok</code></td>
+<td align="left">Returns the <code>state</code> status property explicitly.</td>
+</tr>
+<tr>
+<td align="left"><code>props['state']</code></td>
+<td align="left"><code>Ok</code></td>
+<td align="left">Same result as <code>datum.s['state']</code> but using the short-cut <code>props</code> accessor.</td>
+</tr>
+<tr>
+<td align="left"><code>amps * volts</code></td>
+<td align="left"><code>1008.0</code></td>
+<td align="left">Returns the result of multiplying the <code>amps</code> and <code>volts</code> properties together: <code>4.2 × 240.0 = 1008.0</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="datum-stream-history"><span class="enumerate-headings-plugin enumerate-heading-plugin">41.2.1</span> Datum stream history<a class="headerlink" href="#datum-stream-history" title="Permanent link">¶</a></h3>
+<p>Building on the previous example datum, let's assume an <strong>earlier</strong> datum for the same source ID had
+been collected with these properties (the classifications have been omitted for brevity):</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"amps"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="mf">3.1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"volts"</span><span class="w">   </span><span class="p">:</span><span class="w"> </span><span class="mf">241.0</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"reading"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">38009130</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"state"</span><span class="w">   </span><span class="p">:</span><span class="w"> </span><span class="s2">"Ok"</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Then here are some example expressions and the results they would produce given the original datum
+example:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Expression</th>
+<th align="left">Result</th>
+<th align="left">Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>hasOffset(1)</code></td>
+<td align="left"><code>true</code></td>
+<td align="left">Returns <code>true</code> because of the earlier datum that is available.</td>
+</tr>
+<tr>
+<td align="left"><code>hasOffset(2)</code></td>
+<td align="left"><code>false</code></td>
+<td align="left">Returns <code>false</code> because only one earlier datum is available.</td>
+</tr>
+<tr>
+<td align="left"><code>amps - offset(1).amps</code></td>
+<td align="left"><code>1.1</code></td>
+<td align="left">Computes the difference between the current and previous <code>amps</code> properties, which is <code>4.2 - 3.1 = 1.1</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other-datum-stream-history"><span class="enumerate-headings-plugin enumerate-heading-plugin">41.2.2</span> Other datum stream history<a class="headerlink" href="#other-datum-stream-history" title="Permanent link">¶</a></h3>
+<p>Other datum stream histories collected by SolarNode can also be accessed via the
+<code>offset(source,offset)</code> function. Let's assume SolarNode is collecting a datum stream for the source
+ID <code>solar</code>, and had amassed the following history, in newest-to-oldest order:</p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span><span class="nt">"amps"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">6.0</span><span class="p">,</span><span class="w"> </span><span class="nt">"volts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">240.0</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="nt">"amps"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">5.9</span><span class="p">,</span><span class="w"> </span><span class="nt">"volts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">239.9</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+<p>Then here are some example expressions and the results they would produce given the original datum
+example:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Expression</th>
+<th align="left">Result</th>
+<th align="left">Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>hasLatest('solar')</code></td>
+<td align="left"><code>true</code></td>
+<td align="left">Returns <code>true</code> because of a datum for source <code>solar</code> is available.</td>
+</tr>
+<tr>
+<td align="left"><code>hasOffset('solar',2)</code></td>
+<td align="left"><code>false</code></td>
+<td align="left">Returns <code>false</code> because only one earlier datum from the latest with source <code>solar</code> is available.</td>
+</tr>
+<tr>
+<td align="left"><code>(amps * volts) - (latest('solar').amps * latest('solar').volts)</code></td>
+<td align="left"><code>432.0</code></td>
+<td align="left">Computes the difference in energy between the latest <code>solar</code> datum and the current datum, which is <code>(6.0 × 240.0) - (4.2 × 240.0) = 432.0</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>If we add another datum stream for the source ID <code>solar1</code> like this:</p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span><span class="nt">"amps"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="nt">"volts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">240.0</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+<p>If we also add another datum stream for the source ID <code>solar2</code> like this:</p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span><span class="nt">"amps"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span><span class="p">,</span><span class="w"> </span><span class="nt">"volts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">240.0</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+<p>Then here are some example expressions and the results they would produce given the previous datum
+examples:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Expression</th>
+<th align="left">Result</th>
+<th align="left">Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>sum(latestMatching('solar*').?[amps&gt;1].![amps * volts])</code></td>
+<td align="left"><code>2160</code></td>
+<td align="left">Returns the sum power of the latest <code>solar</code> and <code>solar2</code> datum. The <code>solar1</code> power is omitted because its <code>amps</code> property is not greater than <code>1</code>, so we end up with <code>(6 * 240) + (3 * 240) = 2160</code>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="datum-metadata"><span class="enumerate-headings-plugin enumerate-heading-plugin">41.3</span> Datum metadata<a class="headerlink" href="#datum-metadata" title="Permanent link">¶</a></h2>
+<p>Some functions return <a href="https://github.com/SolarNetwork/solarnetwork-common/blob/develop/net.solarnetwork.common/src/net/solarnetwork/domain/datum/DatumMetadataOperations.java"><code>DatumMetadataOperations</code></a> objects. These objects
+provide <a href="https://github.com/SolarNetwork/solarnetwork/wiki/SolarNet-API-global-objects#metadata">metadata</a> for things like a specific source ID on SolarNode.</p>
+<h3 id="datum-metadata-properties"><span class="enumerate-headings-plugin enumerate-heading-plugin">41.3.1</span> Datum metadata properties<a class="headerlink" href="#datum-metadata-properties" title="Permanent link">¶</a></h3>
+<p>The properties available on datum metadata objects are:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>empty</code></td>
+<td align="left"><code>boolean</code></td>
+<td align="left">Is <code>true</code> if the metadata does not contain any values.</td>
+</tr>
+<tr>
+<td align="left"><code>info</code></td>
+<td align="left"><code>Map&lt;String,Object&gt;</code></td>
+<td align="left">Simple map based access to the general metadata (e.g. the keys of the <a href="https://github.com/SolarNetwork/solarnetwork/wiki/SolarNet-API-global-objects#metadata"><code>m</code> metadata</a> map).</td>
+</tr>
+<tr>
+<td align="left"><code>infoKeys</code></td>
+<td align="left"><code>Set&lt;String&gt;</code></td>
+<td align="left">The set of general metadata keys available (e.g. the keys of the <a href="https://github.com/SolarNetwork/solarnetwork/wiki/SolarNet-API-global-objects#metadata"><code>m</code> metadata</a> map).</td>
+</tr>
+<tr>
+<td align="left"><code>propertyInfoKeys</code></td>
+<td align="left"><code>Set&lt;String&gt;</code></td>
+<td align="left">The set of property metadata keys available (e.g. the keys of the <a href="https://github.com/SolarNetwork/solarnetwork/wiki/SolarNet-API-global-objects#metadata"><code>pm</code> metadata</a> map).</td>
+</tr>
+<tr>
+<td align="left"><code>tags</code></td>
+<td align="left"><code>Set&lt;String&gt;</code></td>
+<td align="left">A set of tags associated with the metadata.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="datum-metadata-general-info-functions"><span class="enumerate-headings-plugin enumerate-heading-plugin">41.3.2</span> Datum metadata general info functions<a class="headerlink" href="#datum-metadata-general-info-functions" title="Permanent link">¶</a></h3>
+<p>The following functions available on datum metadata objects support access to the general
+metadata (e.g. the <a href="https://github.com/SolarNetwork/solarnetwork/wiki/SolarNet-API-global-objects#metadata"><code>m</code> metadata</a> map):</p>
+<table>
+<thead>
+<tr>
+<th align="left">Function</th>
+<th align="left">Arguments</th>
+<th align="left">Result</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>getInfo(key)</code></td>
+<td align="left"><code>String</code></td>
+<td align="left"><code>Object</code></td>
+<td align="left">Get the general metadata value for a specific key.</td>
+</tr>
+<tr>
+<td align="left"><code>getInfoNumber(key)</code></td>
+<td align="left"><code>String</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left">Get a general metadata value for a specific key as a <code>Number</code>. Other more specific number value functions are also available such as <code>getInfoInteger(key)</code> or <code>getInfoBigDecimal(key)</code>.</td>
+</tr>
+<tr>
+<td align="left"><code>getInfoString(key)</code></td>
+<td align="left"><code>String</code></td>
+<td align="left"><code>String</code></td>
+<td align="left">Get a general metadata value for a specific key as a <code>String</code>.</td>
+</tr>
+<tr>
+<td align="left"><code>hasInfo(key)</code></td>
+<td align="left"><code>String</code></td>
+<td align="left"><code>boolean</code></td>
+<td align="left">Returns <code>true</code> if a non-null general metadata value exists for the given key.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="datum-metadata-property-info-functions"><span class="enumerate-headings-plugin enumerate-heading-plugin">41.3.3</span> Datum metadata property info functions<a class="headerlink" href="#datum-metadata-property-info-functions" title="Permanent link">¶</a></h3>
+<p>The following functions available on datum metadata objects support access to the property
+metadata (e.g. the <a href="https://github.com/SolarNetwork/solarnetwork/wiki/SolarNet-API-global-objects#metadata"><code>pm</code> metadata</a> map):</p>
+<table>
+<thead>
+<tr>
+<th align="left">Function</th>
+<th align="left">Arguments</th>
+<th align="left">Result</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>getPropertyInfo(prop)</code></td>
+<td align="left"><code>String</code></td>
+<td align="left"><code>Map&lt;String,Object&gt;</code></td>
+<td align="left">Get the property metadata for a specific property.</td>
+</tr>
+<tr>
+<td align="left"><code>getInfoNumber(prop,key)</code></td>
+<td align="left"><code>String</code>, <code>String</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left">Get a property metadata value for a specific property and key as a <code>Number</code>. Other more specific number value functions are also available such as <code>getInfoInteger(prop,key)</code> or <code>getInfoBigDecimal(prop,key)</code>.</td>
+</tr>
+<tr>
+<td align="left"><code>getInfoString(prop,key)</code></td>
+<td align="left"><code>String</code>, <code>String</code></td>
+<td align="left"><code>String</code></td>
+<td align="left">Get a property metadata value for a specific property and key as a <code>String</code>.</td>
+</tr>
+<tr>
+<td align="left"><code>hasInfo(prop,key)</code></td>
+<td align="left"><code>String</code>, <code>String</code></td>
+<td align="left"><code>String</code></td>
+<td align="left">Returns <code>true</code> if a non-null property metadata value exists for the given property and key.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="datum-metadata-global-functions"><span class="enumerate-headings-plugin enumerate-heading-plugin">41.3.4</span> Datum metadata global functions<a class="headerlink" href="#datum-metadata-global-functions" title="Permanent link">¶</a></h3>
+<p>The following functions available on datum metadata objects support access to both general and property metadata:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Function</th>
+<th align="left">Arguments</th>
+<th align="left">Result</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>differsFrom(metadata)</code></td>
+<td align="left"><code>DatumMetadataOperations</code></td>
+<td align="left"><code>boolean</code></td>
+<td align="left">Returns <code>true</code> if the given metadata has any different values than the receiver.</td>
+</tr>
+<tr>
+<td align="left"><code>hasTag(tag)</code></td>
+<td align="left"><code>String</code></td>
+<td align="left"><code>boolean</code></td>
+<td align="left">Returns <code>true</code> if the given tag is available.</td>
+</tr>
+<tr>
+<td align="left"><code>metadataAtPath(path)</code></td>
+<td align="left"><code>String</code></td>
+<td align="left"><code>Object</code></td>
+<td align="left">Get the metadata value at a <a href="https://github.com/SolarNetwork/solarnetwork/wiki/SolarNet-API-global-objects#metadata-filter-key-paths">metadata key path</a>.</td>
+</tr>
+<tr>
+<td align="left"><code>hasMetadataAtPath(path)</code></td>
+<td align="left"><code>String</code></td>
+<td align="left"><code>boolean</code></td>
+<td align="left">Returns <code>true</code> if <code>metadataAtPath(path)</code> would return a non-null value.</td>
+</tr>
+</tbody>
+</table>
 </article>
 </div>
 </div>
