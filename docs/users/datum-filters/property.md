@@ -24,7 +24,7 @@ This filter is provided by the [Standard Datum Filters][sdf] plugin.
 ## Settings
 
 <figure markdown>
-  ![Parameter Expression filter component settings](../../images/users/datum-filters/property-filter-settings%402x.png){width=610 loading=lazy}
+  ![Property filter component settings](../../images/users/datum-filters/property-filter-settings%402x.png){width=610 loading=lazy}
 </figure>
 
 Each filter configuration contains the following overall settings:
@@ -50,26 +50,20 @@ Each property inclusion setting contains the following settings:
 
 ## Settings notes
 
-<dl>
-	<dt>Source ID</dt>
-	<dd>This is a case-insensitive regular expression pattern to match against datum source ID values.
-	<b>Only</b> datum with matching source ID values will be filtered. This is required.</dd>
-	<dt>Property Includes</dt>
-	<dd>This is a list of case-insensitive regular expressions to match against datum
-	<b>property names</b>. If any inclusion patterns are configured then <b>only</b> properties
-	matching one of these patterns will be included in datum. Any property name that
-	does not match one of these patterns will be removed.</dd>
-	<dt>Limit Seconds</dt>
-	<dd>The minimum number of seconds to limit properties that match the configured
-	property inclusion pattern. If properties are produced faster than this rate, they
-	will be filtered out. Leave empty (or <code>0</code>) for no throttling.</dd>
-	<dt>Property Excludes</dt>
-	<dd>This is a list of case-insensitive regular expressions to match against datum
-	<b>property names</b>. If any exclusion expressions are configured then <b>any</b>
-	property that matches one of these expressions will be removed. Exclusion epxressions
-	are processed <b>after</b> inclusion expressions when both are configured.</dd>
-</dl>
-
+ * **Source ID** — This is a case-insensitive [regular expression][regex] to match against datum
+   source ID values. If omitted then datum for **all** source ID values will be filtered, otherwise
+   only datum with **matching** source ID values will be filtered.
+* **Property Includes** — This is a list of case-insensitive regular expressions to match against
+	datum **property names**. If any inclusion patterns are configured then **only** properties
+	matching one of these patterns will be included in datum. Any property name that does not match
+	one of these patterns will be removed.
+* **Limit Seconds** — The minimum number of seconds to limit properties that match the configured
+	property inclusion pattern. If properties are produced faster than this rate, they will be
+	filtered out. Leave empty (or `0`) for no throttling.
+* **Property Excludes** — This is a list of case-insensitive regular expressions to match against
+	datum **property names**. If any exclusion expressions are configured then **any** property that
+	matches one of these expressions will be removed. Exclusion epxressions are processed **after**
+	inclusion expressions when both are configured.
 
 [opmodes]: ../op-modes.md
 [placeholders]: ../placeholders.md
