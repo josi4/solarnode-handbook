@@ -287,9 +287,31 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Property
+          <span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
         Property
       </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#settings">
+    Settings
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#settings-notes">
+    Settings notes
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../split/">
@@ -599,6 +621,22 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#settings">
+    Settings
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#settings-notes">
+    Settings notes
+  </a>
+</li>
+</ul>
 </nav>
 </div>
 </div>
@@ -606,7 +644,99 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="property-datum-filter"><span class="enumerate-headings-plugin enumerate-heading-plugin">25.</span> Property Datum Filter<a class="headerlink" href="#property-datum-filter" title="Permanent link">¶</a></h1>
-<p>TODO</p>
+<p>The <a href="https://github.com/SolarNetwork/solarnetwork-node/blob/develop/net.solarnetwork.node.datum.filter.standard/README-Property.md">Property Datum Filter</a> provides a way to remove <strong>properties</strong> of datum. This can help if
+some component generates properties that you don't actually need to use.</p>
+<p>For example you might have a plugin that collects data from an AC power meter that capture power,
+energy, quality, and other properties each time a sample is taken. If you are only interested in
+capturing the power and energy properties you could use this component to remove all the others.</p>
+<p>This component can also throttle individual properties over time, so that individual properties are
+posted less frequently than the rate the whole datum it is a part of is sampled at. For example a
+plugin for an AC power meter might collect datum once per minute, and you want to collect the energy
+properties of the datum every minute but the quality properties only once every 10 minutes.</p>
+<p>The general idea for filtering properties is to configure rules that define which datum <strong>sources</strong>
+you want to filter, along with a list of <strong>properties</strong> to <em>include</em> and/or a list to <em>exclude</em>. All
+matching is done using regular expressions, which can help make your rules concise.</p>
+<p>This filter is provided by the <a href="https://github.com/SolarNetwork/solarnetwork-node/blob/develop/net.solarnetwork.node.datum.filter.standard/">Standard Datum Filters</a> plugin.</p>
+<h2 id="settings"><span class="enumerate-headings-plugin enumerate-heading-plugin">25.1</span> Settings<a class="headerlink" href="#settings" title="Permanent link">¶</a></h2>
+<figure>
+<p><img alt="Property filter component settings" loading="lazy" src="../../../images/users/datum-filters/property-filter-settings%402x.png" width="610"/></p>
+</figure>
+<p>Each filter configuration contains the following overall settings:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Setting</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Service Name</td>
+<td align="left">A unique ID for the filter, to be referenced by other components.</td>
+</tr>
+<tr>
+<td align="left">Service Group</td>
+<td align="left">An optional service group name to assign.</td>
+</tr>
+<tr>
+<td align="left">Source ID</td>
+<td align="left">The source ID(s) to filter.</td>
+</tr>
+<tr>
+<td align="left">Required Mode</td>
+<td align="left">If configured, an <a href="../../op-modes/">operational mode</a> that must be active for this filter to be applied.</td>
+</tr>
+<tr>
+<td align="left">Required Tag</td>
+<td align="left">Only apply the filter on datum with the given tag. A tag may be prefixed with <code>!</code> to invert the logic so that the filter only applies to datum <strong>without</strong> the given tag. Multiple tags can be defined using a <code>,</code> delimiter, in which case <strong>at least one</strong> of the configured tags must match to apply the filter.</td>
+</tr>
+<tr>
+<td align="left">Property Includes</td>
+<td align="left">A list of property names to include, removing all others.</td>
+</tr>
+<tr>
+<td align="left">Property Excludes</td>
+<td align="left">A list of property names to exclude.</td>
+</tr>
+</tbody>
+</table>
+<p>Use the <kbd>+</kbd> and <kbd>-</kbd> buttons to add/remove property include/exclude patterns.</p>
+<p>Each property inclusion setting contains the following settings:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Setting</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Name</td>
+<td align="left">The property name pattern to include.</td>
+</tr>
+<tr>
+<td align="left">Limit Seconds</td>
+<td align="left">A throttle limit, in seconds, to apply to included properties.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="settings-notes"><span class="enumerate-headings-plugin enumerate-heading-plugin">25.2</span> Settings notes<a class="headerlink" href="#settings-notes" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Source ID</strong> — This is a case-insensitive [regular expression][regex] to match against datum
+   source ID values. If omitted then datum for <strong>all</strong> source ID values will be filtered, otherwise
+   only datum with <strong>matching</strong> source ID values will be filtered.</li>
+<li><strong>Property Includes</strong> — This is a list of case-insensitive regular expressions to match against
+    datum <strong>property names</strong>. If any inclusion patterns are configured then <strong>only</strong> properties
+    matching one of these patterns will be included in datum. Any property name that does not match
+    one of these patterns will be removed.</li>
+<li><strong>Limit Seconds</strong> — The minimum number of seconds to limit properties that match the configured
+    property inclusion pattern. If properties are produced faster than this rate, they will be
+    filtered out. Leave empty (or <code>0</code>) for no throttling.</li>
+<li><strong>Property Excludes</strong> — This is a list of case-insensitive regular expressions to match against
+    datum <strong>property names</strong>. If any exclusion expressions are configured then <strong>any</strong> property that
+    matches one of these expressions will be removed. Exclusion epxressions are processed <strong>after</strong>
+    inclusion expressions when both are configured.</li>
+</ul>
 </article>
 </div>
 </div>
