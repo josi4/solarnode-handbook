@@ -25,7 +25,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#expression">
+<a class="md-skip" href="#expression-datum-filter">
           Skip to content
         </a>
 </div>
@@ -236,16 +236,21 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../datum/">
+        Datum
+      </a>
+</li>
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_1_4" type="checkbox"/>
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_1_5" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
 <a href="../">Datum Filters</a>
-<label for="__nav_1_4">
+<label for="__nav_1_5">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_1_4_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_1_4">
+<nav aria-expanded="true" aria-labelledby="__nav_1_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_1_5">
 <span class="md-nav__icon md-icon"></span>
           Datum Filters
         </label>
@@ -262,9 +267,41 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Expression
+          <span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
         Expression
       </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#settings">
+    Settings
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#expression-settings">
+    Expression settings
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#expressions">
+    Expressions
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#expression-examples">
+    Expression examples
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../join/">
@@ -314,16 +351,21 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../solarflux/">
+        SolarFlux
+      </a>
+</li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_1_5" type="checkbox"/>
+<input class="md-nav__toggle md-toggle" id="__nav_1_7" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
 <a href="../../sysadmin/">System Administration</a>
-<label for="__nav_1_5">
+<label for="__nav_1_7">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_1_5_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_1_5">
+<nav aria-expanded="false" aria-labelledby="__nav_1_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_1_7">
 <span class="md-nav__icon md-icon"></span>
           System Administration
         </label>
@@ -589,14 +631,227 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#settings">
+    Settings
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#expression-settings">
+    Expression settings
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#expressions">
+    Expressions
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#expression-examples">
+    Expression examples
+  </a>
+</li>
+</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="expression"><span class="enumerate-headings-plugin enumerate-heading-plugin">20.</span> Expression<a class="headerlink" href="#expression" title="Permanent link">¶</a></h1>
-<p>TODO</p>
+<h1 id="expression-datum-filter"><span class="enumerate-headings-plugin enumerate-heading-plugin">21.</span> Expression Datum Filter<a class="headerlink" href="#expression-datum-filter" title="Permanent link">¶</a></h1>
+<p>The <a href="https://github.com/SolarNetwork/solarnetwork-node/blob/develop/net.solarnetwork.node.datum.filter.standard/README-Expression.md">Expression Datum Filter</a> provides a way to generate new properties by evaluating
+<a href="../../expressions/">expressions</a> against existing properties.</p>
+<p>This filter is provided by the <a href="https://github.com/SolarNetwork/solarnetwork-node/blob/develop/net.solarnetwork.node.datum.filter.standard/">Standard Datum Filters</a> plugin.</p>
+<h2 id="settings"><span class="enumerate-headings-plugin enumerate-heading-plugin">21.1</span> Settings<a class="headerlink" href="#settings" title="Permanent link">¶</a></h2>
+<figure>
+<p><img alt="Expression filter component settings" loading="lazy" src="../../../images/users/datum-filters/expression-filter-settings%402x.png" width="618"/></p>
+</figure>
+<p>Each filter configuration contains the following overall settings:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Setting</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Service Name</td>
+<td align="left">A unique ID for the filter, to be referenced by other components.</td>
+</tr>
+<tr>
+<td align="left">Service Group</td>
+<td align="left">An optional service group name to assign.</td>
+</tr>
+<tr>
+<td align="left">Source ID</td>
+<td align="left">The source ID(s) to filter.</td>
+</tr>
+<tr>
+<td align="left">Required Mode</td>
+<td align="left">If configured, an <a href="../../op-modes/">operational mode</a> that must be active for this filter to be applied.</td>
+</tr>
+<tr>
+<td align="left">Required Tag</td>
+<td align="left">Only apply the filter on datum with the given tag. A tag may be prefixed with <code>!</code> to invert the logic so that the filter only applies to datum <strong>without</strong> the given tag. Multiple tags can be defined using a <code>,</code> delimiter, in which case <strong>at least one</strong> of the configured tags must match to apply the filter.</td>
+</tr>
+<tr>
+<td align="left">Expressions</td>
+<td align="left">A list of expression configurations that are evaluated to derive datum property values from other property values.</td>
+</tr>
+</tbody>
+</table>
+<p>Use the <kbd>+</kbd> and <kbd>-</kbd> buttons to add/remove expression configurations.</p>
+<h2 id="expression-settings"><span class="enumerate-headings-plugin enumerate-heading-plugin">21.2</span> Expression settings<a class="headerlink" href="#expression-settings" title="Permanent link">¶</a></h2>
+<p>Each expression configuration contains the following settings:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Setting</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Property</td>
+<td align="left">The datum property to store the expression result in.</td>
+</tr>
+<tr>
+<td align="left">Property Type</td>
+<td align="left">The datum property type to use.</td>
+</tr>
+<tr>
+<td align="left">Expression</td>
+<td align="left">The expression to evaluate. See <a href="#expressions">below</a> for more info.</td>
+</tr>
+<tr>
+<td align="left">Expression Language</td>
+<td align="left">The <a href="../../expressions/">expression language</a> to write <strong>Expression</strong> in.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="expressions"><span class="enumerate-headings-plugin enumerate-heading-plugin">21.3</span> Expressions<a class="headerlink" href="#expressions" title="Permanent link">¶</a></h2>
+<p>See the <a href="https://github.com/SolarNetwork/solarnetwork/wiki/SolarNode-Expressions">SolarNode Expressions</a> guide for general expressions reference. The root object
+is a <a href="https://github.com/SolarNetwork/solarnetwork-common/blob/develop/net.solarnetwork.common/src/net/solarnetwork/domain/DatumExpressionRoot.java"><code>DatumExpressionRoot</code></a> that lets you treat all datum properties, and
+filter parameters, as expression variables directly, along with the following properties:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>datum</code></td>
+<td align="left"><code>Datum</code></td>
+<td align="left">A <a href="https://github.com/SolarNetwork/solarnetwork-common/blob/develop/net.solarnetwork.common/src/net/solarnetwork/domain/datum/Datum.java"><code>Datum</code></a> object, populated with data from all property and virtual meter configurations.</td>
+</tr>
+<tr>
+<td align="left"><code>props</code></td>
+<td align="left"><code>Map&lt;String,Object&gt;</code></td>
+<td align="left">Simple Map based access to the properties in <code>datum</code>, and transform parameters, to simplify expressions.</td>
+</tr>
+</tbody>
+</table>
+<p>The following methods are available:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Function</th>
+<th align="left">Arguments</th>
+<th align="left">Result</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>has(name)</code></td>
+<td align="left"><code>String</code></td>
+<td align="left"><code>boolean</code></td>
+<td align="left">Returns <code>true</code> if a property named <code>name</code> is defined.</td>
+</tr>
+<tr>
+<td align="left"><code>hasLatest(source)</code></td>
+<td align="left"><code>String</code></td>
+<td align="left"><code>boolean</code></td>
+<td align="left">Returns <code>true</code> if a datum with source ID <code>source</code> is available via the <code>latest(source)</code> function.</td>
+</tr>
+<tr>
+<td align="left"><code>latest(source)</code></td>
+<td align="left"><code>String</code></td>
+<td align="left"><a href="https://github.com/SolarNetwork/solarnetwork-common/blob/develop/net.solarnetwork.common/src/net/solarnetwork/domain/DatumExpressionRoot.java"><code>DatumExpressionRoot</code></a> for the latest available datum matching the given source ID, or <code>null</code> if not available.</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="expression-examples"><span class="enumerate-headings-plugin enumerate-heading-plugin">21.4</span> Expression examples<a class="headerlink" href="#expression-examples" title="Permanent link">¶</a></h2>
+<p>Assuming a datum sample with properties like the following:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>current</code></td>
+<td align="left"><code>7.6</code></td>
+</tr>
+<tr>
+<td align="left"><code>voltage</code></td>
+<td align="left"><code>240.1</code></td>
+</tr>
+<tr>
+<td align="left"><code>status</code></td>
+<td align="left"><code>Error</code></td>
+</tr>
+</tbody>
+</table>
+<p>Then here are some example expressions and the results they would produce:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Expression</th>
+<th align="left">Result</th>
+<th align="left">Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>voltage * current</code></td>
+<td align="left"><code>1824.76</code></td>
+<td align="left">Simple multiplication of two properties.</td>
+</tr>
+<tr>
+<td align="left"><code>props['voltage'] * props['current']</code></td>
+<td align="left"><code>1824.76</code></td>
+<td align="left">Another way to write the previous expression. Can be useful if the property names contain non-alphanumeric characters, like spaces.</td>
+</tr>
+<tr>
+<td align="left"><code>has('frequency') ? 1 : null</code></td>
+<td align="left"><code>null</code></td>
+<td align="left">Uses the <code>?:</code> <em>if/then/else</em> operator to evaluate to <code>null</code> because the <code>frequency</code> property is not available. When an expression evaluates to <code>null</code> then no property will be added to the output samples.</td>
+</tr>
+<tr>
+<td align="left"><code>current &gt; 7 or voltage &gt; 245 ? 1 : null</code></td>
+<td align="left"><code>1</code></td>
+<td align="left">Uses comparison and logic operators to evaluate to <code>1</code> because <code>current</code> is greater than <code>7</code>.</td>
+</tr>
+<tr>
+<td align="left"><code>voltage * currrent * (hasLatest('battery') ? 1.0 - latest('battery')['soc'] : 1)</code></td>
+<td align="left"><code>364.952</code></td>
+<td align="left">Assuming a <code>battery</code> datum with a <code>soc</code> property value of <code>0.8</code> then the expression resolves to <code>7.6 * 241.0 * (1.0 - 0.8)</code>.</td>
+</tr>
+</tbody>
+</table>
 </article>
 </div>
 </div>

@@ -25,7 +25,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#operational-mode">
+<a class="md-skip" href="#operational-mode-datum-filter">
           Skip to content
         </a>
 </div>
@@ -236,16 +236,21 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../datum/">
+        Datum
+      </a>
+</li>
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_1_4" type="checkbox"/>
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_1_5" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
 <a href="../">Datum Filters</a>
-<label for="__nav_1_4">
+<label for="__nav_1_5">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_1_4_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_1_4">
+<nav aria-expanded="true" aria-labelledby="__nav_1_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_1_5">
 <span class="md-nav__icon md-icon"></span>
           Datum Filters
         </label>
@@ -272,9 +277,59 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Operational Mode
+          <span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
         Operational Mode
       </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#settings">
+    Settings
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#expression-settings">
+    Expression settings
+  </a>
+<nav aria-label="Expression settings" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#expire-setting">
+    Expire setting
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#property-setting">
+    Property setting
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#expressions">
+    Expressions
+  </a>
+<nav aria-label="Expressions" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#expression-examples">
+    Expression examples
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../parameter-expression/">
@@ -314,16 +369,21 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../solarflux/">
+        SolarFlux
+      </a>
+</li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_1_5" type="checkbox"/>
+<input class="md-nav__toggle md-toggle" id="__nav_1_7" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
 <a href="../../sysadmin/">System Administration</a>
-<label for="__nav_1_5">
+<label for="__nav_1_7">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_1_5_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_1_5">
+<nav aria-expanded="false" aria-labelledby="__nav_1_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_1_7">
 <span class="md-nav__icon md-icon"></span>
           System Administration
         </label>
@@ -589,14 +649,267 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#settings">
+    Settings
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#expression-settings">
+    Expression settings
+  </a>
+<nav aria-label="Expression settings" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#expire-setting">
+    Expire setting
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#property-setting">
+    Property setting
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#expressions">
+    Expressions
+  </a>
+<nav aria-label="Expressions" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#expression-examples">
+    Expression examples
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="operational-mode"><span class="enumerate-headings-plugin enumerate-heading-plugin">22.</span> Operational Mode<a class="headerlink" href="#operational-mode" title="Permanent link">¶</a></h1>
-<p>TODO</p>
+<h1 id="operational-mode-datum-filter"><span class="enumerate-headings-plugin enumerate-heading-plugin">23.</span> Operational Mode Datum Filter<a class="headerlink" href="#operational-mode-datum-filter" title="Permanent link">¶</a></h1>
+<p>The <a href="https://github.com/SolarNetwork/solarnetwork-node/blob/develop/net.solarnetwork.node.datum.filter.standard/README-OpMode.md">Operational Mode Datum Filter</a> provides a way to evaluate <a href="../../expressions/">expressions</a> to toggle
+<a href="../../op-modes/">operational modes</a>. When an expression evaluates to <code>true</code> the associated operational mode
+is activated. When an expression evaluates to <code>false</code> the associated operational mode is
+deactivated.</p>
+<p>This filter is provided by the <a href="https://github.com/SolarNetwork/solarnetwork-node/blob/develop/net.solarnetwork.node.datum.filter.standard/">Standard Datum Filters</a> plugin.</p>
+<h2 id="settings"><span class="enumerate-headings-plugin enumerate-heading-plugin">23.1</span> Settings<a class="headerlink" href="#settings" title="Permanent link">¶</a></h2>
+<figure>
+<p><img alt="Operational Mode filter component settings" loading="lazy" src="../../../images/users/datum-filters/opmode-filter-settings%402x.png" width="616"/></p>
+</figure>
+<p>Each filter configuration contains the following overall settings:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Setting</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Service Name</td>
+<td align="left">A unique ID for the filter, to be referenced by other components.</td>
+</tr>
+<tr>
+<td align="left">Service Group</td>
+<td align="left">An optional service group name to assign.</td>
+</tr>
+<tr>
+<td align="left">Source ID</td>
+<td align="left">The source ID(s) to filter.</td>
+</tr>
+<tr>
+<td align="left">Required Mode</td>
+<td align="left">If configured, an <a href="../../op-modes/">operational mode</a> that must be active for this filter to be applied.</td>
+</tr>
+<tr>
+<td align="left">Required Tag</td>
+<td align="left">Only apply the filter on datum with the given tag. A tag may be prefixed with <code>!</code> to invert the logic so that the filter only applies to datum <strong>without</strong> the given tag. Multiple tags can be defined using a <code>,</code> delimiter, in which case <strong>at least one</strong> of the configured tags must match to apply the filter.</td>
+</tr>
+<tr>
+<td align="left">Expressions</td>
+<td align="left">A list of expression configurations that are evaluated to toggle operational modes.</td>
+</tr>
+</tbody>
+</table>
+<p>Use the <kbd>+</kbd> and <kbd>-</kbd> buttons to add/remove expression configurations.</p>
+<h2 id="expression-settings"><span class="enumerate-headings-plugin enumerate-heading-plugin">23.2</span> Expression settings<a class="headerlink" href="#expression-settings" title="Permanent link">¶</a></h2>
+<p>Each expression configuration contains the following settings:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Setting</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Mode</td>
+<td align="left">The operational mode to toggle.</td>
+</tr>
+<tr>
+<td align="left">Expire Seconds</td>
+<td align="left">If configured and greater than <code>0</code>, the number of seconds after activating the operational mode to automatically deactivate it. If not configured or <code>0</code> then the operational mode will be deactivated when the expression evaluates to <code>false</code>. See <a href="#expire-setting">below</a> for more information.</td>
+</tr>
+<tr>
+<td align="left">Property</td>
+<td align="left">If configured, the datum property to store the expression result in. See <a href="#property-setting">below</a> for more information.</td>
+</tr>
+<tr>
+<td align="left">Property Type</td>
+<td align="left">The datum property type to use if <strong>Property</strong> is configured. See <a href="#property-setting">below</a> for more information.</td>
+</tr>
+<tr>
+<td align="left">Expression</td>
+<td align="left">The expression to evaluate. See <a href="#expressions">below</a> for more info.</td>
+</tr>
+<tr>
+<td align="left">Expression Language</td>
+<td align="left">The <a href="../../expressions/">expression language</a> to write <strong>Expression</strong> in.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="expire-setting"><span class="enumerate-headings-plugin enumerate-heading-plugin">23.2.1</span> Expire setting<a class="headerlink" href="#expire-setting" title="Permanent link">¶</a></h3>
+<p>When configured the expression will <strong>never deactivate the operational mode directly</strong>. When
+evaluating the given expression, if it evaluates to <code>true</code> the mode will be activated and configured
+to deactivate after this many seconds. If the operation mode was already active, the expiration will
+be <strong>extended</strong> by this many seconds.</p>
+<p>This configuration can be thought of like a time out as used on motion-detecting lights: each time
+motion is detected the light is turned on (if not already on) and a timer set to turn the light off
+after so many seconds of no motion being detected.</p>
+<p>Note that the operational modes service might actually deactivate the given mode a short time
+<strong>after</strong> the configured expiration.</p>
+<h3 id="property-setting"><span class="enumerate-headings-plugin enumerate-heading-plugin">23.2.2</span> Property setting<a class="headerlink" href="#property-setting" title="Permanent link">¶</a></h3>
+<p>A property does not have to be populated. If you provide a <strong>Property</strong> name to populate, the value
+of the datum property depends on property type configured:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Instantaneous</td>
+<td align="left">The property value will be <code>1</code> or <code>0</code> based on <code>true</code> and <code>false</code> expression results.</td>
+</tr>
+<tr>
+<td align="left">Status</td>
+<td align="left">The property will be the expression result, so <code>true</code> or <code>false</code>.</td>
+</tr>
+<tr>
+<td align="left">Tag</td>
+<td align="left">A tag named as the configured property will be added if the expression is <code>true</code>, or removed if <code>false</code>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="expressions"><span class="enumerate-headings-plugin enumerate-heading-plugin">23.3</span> Expressions<a class="headerlink" href="#expressions" title="Permanent link">¶</a></h2>
+<p>See the <a href="../../expressions/">Expressions</a> section for general expressions reference. The expression
+must evaluate to  a <strong>boolean</strong> (<code>true</code> or <code>false</code>) result. When it evaluates to <code>true</code> the
+configured operational mode will be <strong>activated</strong>. When it evaluates to <code>false</code> the operational mode
+will be <strong>deactivated</strong> (unless an <a href="#expire-setting">expire setting</a> has been configured).</p>
+<p>The root object is a <a href="https://github.com/SolarNetwork/solarnetwork-common/blob/develop/net.solarnetwork.common/src/net/solarnetwork/domain/DatumSamplesExpressionRoot.java">datum samples expression object</a> that lets you
+treat all datum properties, and filter parameters, as expression variables directly, along with
+the following properties:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>datum</code></td>
+<td align="left"><code>GeneralNodeDatum</code></td>
+<td align="left">A <a href="https://github.com/SolarNetwork/solarnetwork-node/blob/develop/net.solarnetwork.node/src/net/solarnetwork/node/domain/GeneralNodeDatum.java"><code>GeneralNodeDatum</code></a> object, populated with data from all property and virtual meter configurations.</td>
+</tr>
+<tr>
+<td align="left"><code>props</code></td>
+<td align="left"><code>Map&lt;String,Object&gt;</code></td>
+<td align="left">Simple Map based access to the properties in <code>datum</code>, and transform parameters, to simplify expressions.</td>
+</tr>
+</tbody>
+</table>
+<p>The following methods are available:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Function</th>
+<th align="left">Arguments</th>
+<th align="left">Result</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>has(name)</code></td>
+<td align="left"><code>String</code></td>
+<td align="left"><code>boolean</code></td>
+<td align="left">Returns <code>true</code> if a property named <code>name</code> is defined.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="expression-examples"><span class="enumerate-headings-plugin enumerate-heading-plugin">23.3.1</span> Expression examples<a class="headerlink" href="#expression-examples" title="Permanent link">¶</a></h3>
+<p>Assuming a datum sample with properties like the following:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>current</code></td>
+<td align="left"><code>7.6</code></td>
+</tr>
+<tr>
+<td align="left"><code>voltage</code></td>
+<td align="left"><code>240.1</code></td>
+</tr>
+<tr>
+<td align="left"><code>status</code></td>
+<td align="left"><code>Error</code></td>
+</tr>
+</tbody>
+</table>
+<p>Then here are some example expressions and the results they would produce:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Expression</th>
+<th align="left">Result</th>
+<th align="left">Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>voltage * current &gt; 1800</code></td>
+<td align="left"><code>true</code></td>
+<td align="left">Since <code>voltage * current</code> is <strong>1824.76</strong>, the expression is <code>true</code>.</td>
+</tr>
+<tr>
+<td align="left"><code>status != 'Error'</code></td>
+<td align="left"><code>false</code></td>
+<td align="left">Since <code>status</code> is <code>Error</code> the expression is <code>false</code>.</td>
+</tr>
+</tbody>
+</table>
 </article>
 </div>
 </div>

@@ -25,7 +25,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#downsample">
+<a class="md-skip" href="#downsample-datum-filter">
           Skip to content
         </a>
 </div>
@@ -236,16 +236,21 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../datum/">
+        Datum
+      </a>
+</li>
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_1_4" type="checkbox"/>
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_1_5" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
 <a href="../">Datum Filters</a>
-<label for="__nav_1_4">
+<label for="__nav_1_5">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_1_4_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_1_4">
+<nav aria-expanded="true" aria-labelledby="__nav_1_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_1_5">
 <span class="md-nav__icon md-icon"></span>
           Datum Filters
         </label>
@@ -257,9 +262,26 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Downsample
+          <span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
         Downsample
       </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#settings">
+    Settings
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../expression/">
@@ -314,16 +336,21 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../solarflux/">
+        SolarFlux
+      </a>
+</li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_1_5" type="checkbox"/>
+<input class="md-nav__toggle md-toggle" id="__nav_1_7" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
 <a href="../../sysadmin/">System Administration</a>
-<label for="__nav_1_5">
+<label for="__nav_1_7">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_1_5_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_1_5">
+<nav aria-expanded="false" aria-labelledby="__nav_1_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_1_7">
 <span class="md-nav__icon md-icon"></span>
           System Administration
         </label>
@@ -589,14 +616,83 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#settings">
+    Settings
+  </a>
+</li>
+</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="downsample"><span class="enumerate-headings-plugin enumerate-heading-plugin">19.</span> Downsample<a class="headerlink" href="#downsample" title="Permanent link">¶</a></h1>
-<p>TODO</p>
+<h1 id="downsample-datum-filter"><span class="enumerate-headings-plugin enumerate-heading-plugin">20.</span> Downsample Datum Filter<a class="headerlink" href="#downsample-datum-filter" title="Permanent link">¶</a></h1>
+<p>The <a href="https://github.com/SolarNetwork/solarnetwork-node/blob/develop/net.solarnetwork.node.datum.filter.standard/README-Downsample.md">Downsample Datum Filter</a> provides a way to down-sample higher-frequency datum samples into
+lower-frequency (averaged) datum samples. The filter will collect a configurable number of samples
+and then generate a down-sampled sample where an average of each collected instantaneous property is
+included. In addition minimum and maximum values of each averaged property are added.</p>
+<p>This filter is provided by the <a href="https://github.com/SolarNetwork/solarnetwork-node/blob/develop/net.solarnetwork.node.datum.filter.standard/">Standard Datum Filters</a> plugin.</p>
+<h2 id="settings"><span class="enumerate-headings-plugin enumerate-heading-plugin">20.1</span> Settings<a class="headerlink" href="#settings" title="Permanent link">¶</a></h2>
+<figure>
+<p><img alt="Downsample filter component settings" loading="lazy" src="../../../images/users/datum-filters/downsample-filter-settings%402x.png" width="600"/></p>
+</figure>
+<table>
+<thead>
+<tr>
+<th align="left">Setting</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Service Name</td>
+<td align="left">A unique ID for the filter, to be referenced by other components.</td>
+</tr>
+<tr>
+<td align="left">Service Group</td>
+<td align="left">An optional service group name to assign.</td>
+</tr>
+<tr>
+<td align="left">Source ID</td>
+<td align="left">The source ID(s) to filter.</td>
+</tr>
+<tr>
+<td align="left">Required Mode</td>
+<td align="left">If configured, an <a href="../../op-modes/">operational mode</a> that must be active for this filter to be applied.</td>
+</tr>
+<tr>
+<td align="left">Required Tag</td>
+<td align="left">Only apply the filter on datum with the given tag. A tag may be prefixed with <code>!</code> to invert the logic so that the filter only applies to datum <strong>without</strong> the given tag. Multiple tags can be defined using a <code>,</code> delimiter, in which case <strong>at least one</strong> of the configured tags must match to apply the filter.</td>
+</tr>
+<tr>
+<td align="left">Sample Count</td>
+<td align="left">The number of samples to average over.</td>
+</tr>
+<tr>
+<td align="left">Decimal Scale</td>
+<td align="left">A maximum number of digits after the decimal point to round to. Set to<code>0</code> to round to whole numbers.</td>
+</tr>
+<tr>
+<td align="left">Property Excludes</td>
+<td align="left">A list of property names to exclude.</td>
+</tr>
+<tr>
+<td align="left">Min Property Template</td>
+<td align="left">A string format to use for computed minimum property values. Use <code>%s</code> as the placeholder for the original property name, e.g. <code>%s_min</code>.</td>
+</tr>
+<tr>
+<td align="left">Max Property Template</td>
+<td align="left">A string format to use for computed maximum property values. Use <code>%s</code> as the placeholder for the original property name, e.g. <code>%s_max</code>.</td>
+</tr>
+</tbody>
+</table>
 </article>
 </div>
 </div>
