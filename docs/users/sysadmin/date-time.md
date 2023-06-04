@@ -20,7 +20,7 @@ SolarNodeOS uses the `UTC` time zone by default. If you would like to change thi
 `timedatectl set-timezone`
 
 ```sh title="Changing the local time zone"
-$ sudo sudo timedatectl set-timezone Pacific/Auckland
+$ sudo timedatectl set-timezone Pacific/Auckland
 ```
 
 You can list the available time zone names by running `timedatectl list-timezones`.
