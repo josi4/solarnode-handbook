@@ -5,12 +5,12 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://solarnetwork.github.io/solarnode-handbook/users/sysadmin/solarssh/" rel="canonical"/>
-<link href="../solarnode-service/" rel="prev"/>
-<link href="../../networking/" rel="next"/>
+<link href="https://solarnetwork.github.io/solarnode-handbook/users/datum-filters/control-updater/" rel="canonical"/>
+<link href="../chain/" rel="prev"/>
+<link href="../downsample/" rel="next"/>
 <link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.1.7" name="generator"/>
-<title>SolarSSH - SolarNode Handbook</title>
+<title>Control Updater - SolarNode Handbook</title>
 <link href="../../../assets/stylesheets/main.ded33207.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -25,7 +25,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#solarssh">
+<a class="md-skip" href="#control-updater-datum-filter">
           Skip to content
         </a>
 </div>
@@ -49,7 +49,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              SolarSSH
+              Control Updater
             
           </span>
 </div>
@@ -241,82 +241,110 @@
         Datum
       </a>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_1_5" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_1_5" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../datum-filters/">Datum Filters</a>
+<a href="../">Datum Filters</a>
 <label for="__nav_1_5">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_1_5_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="true" aria-labelledby="__nav_1_5_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_1_5">
 <span class="md-nav__icon md-icon"></span>
           Datum Filters
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datum-filters/chain/">
+<a class="md-nav__link" href="../chain/">
         Filter Chain
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../datum-filters/control-updater/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Control Updater
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
         Control Updater
       </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#settings">
+    Settings
+  </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datum-filters/downsample/">
+<a class="md-nav__link" href="#settings-notes">
+    Settings notes
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#expressions">
+    Expressions
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../downsample/">
         Downsample
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datum-filters/expression/">
+<a class="md-nav__link" href="../expression/">
         Expression
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datum-filters/join/">
+<a class="md-nav__link" href="../join/">
         Join
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datum-filters/op-mode/">
+<a class="md-nav__link" href="../op-mode/">
         Operational Mode
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datum-filters/parameter-expression/">
+<a class="md-nav__link" href="../parameter-expression/">
         Parameter Expression
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datum-filters/property/">
+<a class="md-nav__link" href="../property/">
         Property
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datum-filters/split/">
+<a class="md-nav__link" href="../split/">
         Split
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datum-filters/tariff/">
+<a class="md-nav__link" href="../tariff/">
         Tariff
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datum-filters/throttle/">
+<a class="md-nav__link" href="../throttle/">
         Throttle
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datum-filters/unchanged/">
+<a class="md-nav__link" href="../unchanged/">
         Unchanged
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datum-filters/virtual-meter/">
+<a class="md-nav__link" href="../virtual-meter/">
         Virtual Meter
       </a>
 </li>
@@ -328,77 +356,44 @@
         SolarFlux
       </a>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_1_7" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_1_7" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../">System Administration</a>
+<a href="../../sysadmin/">System Administration</a>
 <label for="__nav_1_7">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_1_7_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_1_7_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_1_7">
 <span class="md-nav__icon md-icon"></span>
           System Administration
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../date-time/">
+<a class="md-nav__link" href="../../sysadmin/date-time/">
         Date and Time
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../networking/">
+<a class="md-nav__link" href="../../sysadmin/networking/">
         Networking
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../packages/">
+<a class="md-nav__link" href="../../sysadmin/packages/">
         Package Maintenance
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../solarnode-service/">
+<a class="md-nav__link" href="../../sysadmin/solarnode-service/">
         SolarNode Service
       </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          SolarSSH
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../sysadmin/solarssh/">
         SolarSSH
       </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#show-ssh-public-key">
-    Show SSH public key
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#list-solarssh-sessions">
-    List SolarSSH sessions
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#view-solarssh-session-status">
-    View SolarSSH session status
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#stop-solarssh-session">
-    Stop SolarSSH session
-  </a>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
@@ -642,23 +637,18 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#show-ssh-public-key">
-    Show SSH public key
+<a class="md-nav__link" href="#settings">
+    Settings
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#list-solarssh-sessions">
-    List SolarSSH sessions
+<a class="md-nav__link" href="#settings-notes">
+    Settings notes
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#view-solarssh-session-status">
-    View SolarSSH session status
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#stop-solarssh-session">
-    Stop SolarSSH session
+<a class="md-nav__link" href="#expressions">
+    Expressions
   </a>
 </li>
 </ul>
@@ -668,29 +658,93 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="solarssh"><span class="enumerate-headings-plugin enumerate-heading-plugin">38.</span> SolarSSH<a class="headerlink" href="#solarssh" title="Permanent link">¶</a></h1>
-<p>The <code>sn-solarssh</code> package in SolarNodeOS provides a <code>solarssh</code> command-line tool for managing
-<a href="../../remote-access/#solarssh">SolarSSH</a> connections.</p>
-<h2 id="show-ssh-public-key"><span class="enumerate-headings-plugin enumerate-heading-plugin">38.1</span> Show SSH public key<a class="headerlink" href="#show-ssh-public-key" title="Permanent link">¶</a></h2>
-<p>To view the node's public SSH key, you can execute <code>solarssh showkey</code>.</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>solarssh<span class="w"> </span>showkey
-ssh-ed25519<span class="w"> </span>AAAAC3NzaC1lZDI1NTE5AAAAIG7DWIuC2MVHy/gfD32sCayoVFpGVbZ8VXuQubmKjwyx<span class="w"> </span>SolarNode
-</code></pre></div>
-<h2 id="list-solarssh-sessions"><span class="enumerate-headings-plugin enumerate-heading-plugin">38.2</span> List SolarSSH sessions<a class="headerlink" href="#list-solarssh-sessions" title="Permanent link">¶</a></h2>
-<p>Run <code>solarssh list</code> to view all available SolarSSH sessions.</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>solarssh<span class="w"> </span>list
-b0ae36e0-06ae-4d3d-b34e-9bf2ca8049f1,ssh.solarnetwork.net,8022,43340
-</code></pre></div>
-<h2 id="view-solarssh-session-status"><span class="enumerate-headings-plugin enumerate-heading-plugin">38.3</span> View SolarSSH session status<a class="headerlink" href="#view-solarssh-session-status" title="Permanent link">¶</a></h2>
-<p>Using the output of <code>solarssh list</code> you can view the SSH connection status of a specific SSH
-session with <code>solarssh status</code>, like this:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>solarssh<span class="w"> </span>-c<span class="w"> </span>b0ae36e0-06ae-4d3d-b34e-9bf2ca8049f1,ssh.solarnetwork.net,8022,43340<span class="w"> </span>status
-active
-</code></pre></div>
-<h2 id="stop-solarssh-session"><span class="enumerate-headings-plugin enumerate-heading-plugin">38.4</span> Stop SolarSSH session<a class="headerlink" href="#stop-solarssh-session" title="Permanent link">¶</a></h2>
-<p>You can force a SolarSSH session to end using <code>solarssh stop</code>, like this:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>solarssh<span class="w"> </span>-c<span class="w"> </span>b0ae36e0-06ae-4d3d-b34e-9bf2ca8049f1,ssh.solarnetwork.net,8022,43340<span class="w"> </span>stop
-</code></pre></div>
+<h1 id="control-updater-datum-filter"><span class="enumerate-headings-plugin enumerate-heading-plugin">20.</span> Control Updater Datum Filter<a class="headerlink" href="#control-updater-datum-filter" title="Permanent link">¶</a></h1>
+<p>The <a href="https://github.com/SolarNetwork/solarnetwork-node/blob/develop/net.solarnetwork.node.datum.filter.standard/README-ControlUpdater.md">Control Updater Datum Filter</a> provides a way to update controls with the result of an
+expression, optionally populating the expression result as a datum property.</p>
+<p>This filter is provided by the <a href="https://github.com/SolarNetwork/solarnetwork-node/blob/develop/net.solarnetwork.node.datum.filter.standard/">Standard Datum Filters</a> plugin.</p>
+<h2 id="settings"><span class="enumerate-headings-plugin enumerate-heading-plugin">20.1</span> Settings<a class="headerlink" href="#settings" title="Permanent link">¶</a></h2>
+<figure>
+<p><img alt="Control Updater filter component settings" loading="lazy" src="../../../images/users/datum-filters/controlupdater-filter-settings%402x.png" width="528">
+<caption markdown="">The screen shot shows a filter that would toggle the <code>/power/switch/1</code> control on/off based on the
+<code>frequency</code> property in the <code>/power/1</code> datum stream: on when the frequency is 50 or higher, off
+otherwise.</caption></img></p>
+</figure>
+<p>Each filter configuration contains the following overall settings:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Setting</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Service Name</td>
+<td align="left">A unique ID for the filter, to be referenced by other components.</td>
+</tr>
+<tr>
+<td align="left">Service Group</td>
+<td align="left">An optional service group name to assign.</td>
+</tr>
+<tr>
+<td align="left">Source ID</td>
+<td align="left">The source ID(s) to filter.</td>
+</tr>
+<tr>
+<td align="left">Required Mode</td>
+<td align="left">If configured, an <a href="https://github.com/SolarNetwork/solarnetwork/wiki/SolarNode-Operational-Modes">operational mode</a> that must be active for this filter to be applied.</td>
+</tr>
+<tr>
+<td align="left">Required Tag</td>
+<td align="left">Only apply the filter on datum with the given tag. A tag may be prefixed with <code>!</code> to invert the logic so that the filter only applies to datum <strong>without</strong> the given tag. Multiple tags can be defined using a <code>,</code> delimiter, in which case <strong>at least one</strong> of the configured tags must match to apply the filter.</td>
+</tr>
+<tr>
+<td align="left">Control Configurations</td>
+<td align="left">A list of control expression configurations.</td>
+</tr>
+</tbody>
+</table>
+<p>Each control configuration contains the following settings:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Setting</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Control ID</td>
+<td align="left">The ID of the control to update with the expression result.</td>
+</tr>
+<tr>
+<td align="left">Property</td>
+<td align="left">The optional datum property to store the expression result in.</td>
+</tr>
+<tr>
+<td align="left">Property Type</td>
+<td align="left">The datum property type to use.</td>
+</tr>
+<tr>
+<td align="left">Expression</td>
+<td align="left">The expression to evaluate. See <a href="#expressions">below</a> for more info.</td>
+</tr>
+<tr>
+<td align="left">Expression Language</td>
+<td align="left">The <a href="https://github.com/SolarNetwork/solarnetwork/wiki/Expression-Languages">expression language</a> to write <strong>Expression</strong> in.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="settings-notes"><span class="enumerate-headings-plugin enumerate-heading-plugin">20.2</span> Settings notes<a class="headerlink" href="#settings-notes" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Source ID</strong> — This is a case-insensitive <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html#sum">regular expression</a> pattern to match against
+   datum source ID values. If omitted then datum for <em>all</em> source ID values will be filtered,
+   otherwise only datum with <em>matching</em> source ID values will be filtered.</li>
+</ul>
+<h2 id="expressions"><span class="enumerate-headings-plugin enumerate-heading-plugin">20.3</span> Expressions<a class="headerlink" href="#expressions" title="Permanent link">¶</a></h2>
+<p>See the <a href="https://github.com/SolarNetwork/solarnetwork/wiki/SolarNode-Expressions">SolarNode Expressions</a> guide for general expressions reference. The root object
+is a <a href="https://github.com/SolarNetwork/solarnetwork-common/blob/develop/net.solarnetwork.common/src/net/solarnetwork/domain/DatumExpressionRoot.java"><code>DatumExpressionRoot</code></a> that lets you treat all datum properties, and
+filter parameters, as expression variables directly.</p>
 </article>
 </div>
 </div>
