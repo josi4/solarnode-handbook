@@ -20,8 +20,6 @@ streams: `/meter/1/power` and `/meter/1/energy`. Properties with names containin
 `voltage`, or `power` (case-insensitive) will be copied to `/meter/1/power`. Properties with names
 containing `hour` (case-insensitive) will be copied to `/meter/1/energy`.
 
-## Settings
-
 Each filter configuration contains the following overall settings:
 
 | Setting            | Description |
