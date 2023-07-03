@@ -54,8 +54,8 @@ Each property source mapping configuration contains the following settings:
 	If multiple property name expressions match the same property name, that property will
 	be copied to **all** the datum streams of the associated source IDs.
 
-[regex]: https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html#sum
 [opmodes]: ../op-modes.md
 [placeholders]: ../placeholders.md
+[regex]: https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html
 [sdf]: https://github.com/SolarNetwork/solarnetwork-node/blob/develop/net.solarnetwork.node.datum.filter.standard/
 [src]: https://github.com/SolarNetwork/solarnetwork-node/blob/develop/net.solarnetwork.node.datum.filter.standard/README-Split.md
