@@ -25,7 +25,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#tariff-datum-filter">
+<a class="md-skip" href="#time-based-tariff-datum-filter">
           Skip to content
         </a>
 </div>
@@ -302,13 +302,63 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Tariff
+          <span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
         Tariff
       </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#settings">
+    Settings
+  </a>
+<nav aria-label="Settings" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#settings-notes">
+    Settings notes
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#metadata-service">
+    Metadata Service
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tariff-schedule-format">
+    Tariff schedule format
+  </a>
+<nav aria-label="Tariff schedule format" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-schedule">
+    Example schedule
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../throttle/">
         Throttle
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../unchanged-property/">
+        Unchanged Property
       </a>
 </li>
 <li class="md-nav__item">
@@ -604,14 +654,286 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#settings">
+    Settings
+  </a>
+<nav aria-label="Settings" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#settings-notes">
+    Settings notes
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#metadata-service">
+    Metadata Service
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tariff-schedule-format">
+    Tariff schedule format
+  </a>
+<nav aria-label="Tariff schedule format" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-schedule">
+    Example schedule
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="tariff-datum-filter"><span class="enumerate-headings-plugin enumerate-heading-plugin">28.</span> Tariff Datum Filter<a class="headerlink" href="#tariff-datum-filter" title="Permanent link">¶</a></h1>
-<p>TODO</p>
+<h1 id="time-based-tariff-datum-filter"><span class="enumerate-headings-plugin enumerate-heading-plugin">28.</span> Time-based Tariff Datum Filter<a class="headerlink" href="#time-based-tariff-datum-filter" title="Permanent link">¶</a></h1>
+<p>The <a href="https://github.com/SolarNetwork/solarnetwork-node/blob/develop/net.solarnetwork.node.datum.filter.filter/README.md">Tariff Datum Filter</a> provides a way to inject time-based tariff rates based on a flexible
+tariff schedule defined with various time constraints.</p>
+<p>This filter is provided by the <a href="https://github.com/SolarNetwork/solarnetwork-node/blob/develop/net.solarnetwork.node.datum.filter.tariff/">Tariff Filter</a> plugin.</p>
+<h2 id="settings"><span class="enumerate-headings-plugin enumerate-heading-plugin">28.1</span> Settings<a class="headerlink" href="#settings" title="Permanent link">¶</a></h2>
+<figure>
+<p><img alt="Tariff filter component settings" loading="lazy" src="../../../images/users/datum-filters/tariff-filter-settings%402x.png" width="742"/></p>
+</figure>
+<p>Each filter configuration contains the following overall settings:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Setting</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Service Name</td>
+<td align="left">A unique ID for the filter, to be referenced by other components.</td>
+</tr>
+<tr>
+<td align="left">Service Group</td>
+<td align="left">An optional service group name to assign.</td>
+</tr>
+<tr>
+<td align="left">Source ID</td>
+<td align="left">A regular expression <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html">pattern</a> to match the input source ID(s) to filter.</td>
+</tr>
+<tr>
+<td align="left">Required Mode</td>
+<td align="left">If configured, an <a href="../../op-modes/">operational mode</a> that must be active for this filter to be applied.</td>
+</tr>
+<tr>
+<td align="left">Required Tag</td>
+<td align="left">Only apply the filter on datum with the given tag. A tag may be prefixed with <code>!</code> to invert the logic so that the filter only applies to datum <strong>without</strong> the given tag. Multiple tags can be defined using a <code>,</code> delimiter, in which case <strong>at least one</strong> of the configured tags must match to apply the filter.</td>
+</tr>
+<tr>
+<td align="left">Metadata Service</td>
+<td align="left">The <strong>Service Name</strong> of the Metadata Service to obtain the tariff schedule from. See <a href="#metadata-service">below</a> for more information.</td>
+</tr>
+<tr>
+<td align="left">Metadata Path</td>
+<td align="left">The metadata path that will resolve the tariff schedule from the configured Metadata Service.</td>
+</tr>
+<tr>
+<td align="left">Language</td>
+<td align="left">An IETF BCP 47 language tag to parse the tariff data with. If not configured then the default system language will be assumed.</td>
+</tr>
+<tr>
+<td align="left">First Match</td>
+<td align="left">If enabled, then apply only the <strong>first</strong> tariff that matches a given datum date. If disabled, then apply <strong>all</strong> tariffs that match.</td>
+</tr>
+<tr>
+<td align="left">Schedule Cache</td>
+<td align="left">The amount of seconds to cache the tariff schedule obtained from the configured Metadata Service.</td>
+</tr>
+<tr>
+<td align="left">Tariff Evaluator</td>
+<td align="left">The <strong>Service Name</strong> of a <em>Time-based Tariff Evaluator</em> service to evaluate each tariff to determine if it should apply to a given datum.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="settings-notes"><span class="enumerate-headings-plugin enumerate-heading-plugin">28.1.1</span> Settings notes<a class="headerlink" href="#settings-notes" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>Source ID</strong> — This is a case-insensitive <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html">regular expression</a> to match against
+   datum source ID values. If omitted then datum for <em>all</em> source ID values will be filtered,
+   otherwise only datum with <em>matching</em> source ID values will be filtered.</li>
+<li><strong>Tariff Evaluator</strong> — If not configured a default algorithm is used that matches all non-empty
+    constraints in an inclusive manner, except for the time-of-day constraint which uses an
+    exclusive upper bound.</li>
+</ul>
+<h2 id="metadata-service"><span class="enumerate-headings-plugin enumerate-heading-plugin">28.2</span> Metadata Service<a class="headerlink" href="#metadata-service" title="Permanent link">¶</a></h2>
+<p>SolarNode provides a <a href="../../user-metadata-service/">User Metadata Service</a> component that this filter
+can use for the Metadata Service setting. This allows you to configure the tariff schedule as user
+metadata in SolarNetwork and then SolarNode will download the schedule and use it as needed.</p>
+<figure>
+<p><img alt="User Metadata Service settings" loading="lazy" src="../../../images/users/user-metadata-settings%402x.png" width="697"/></p>
+</figure>
+<p>You must configure a SolarNetwork security token to use the User Metadata Service. We recommend that
+you create a <strong>Data</strong> security token in SolarNetwork with a limited security policy that includes an
+<strong>API Path</strong> of just <code>/users/meta</code> and a <strong>User Metadata Path</strong> of something granular like
+<code>/pm/tariffs/**</code>. This will give SolarNode access to just the tariff metadata under the
+<code>/pm/tariffs</code> metadata path.</p>
+<figure>
+<p><img alt="Tariff metadata security token" loading="lazy" src="../../../images/users/datum-filters/tariff-metadata-security-token%402x.png" width="697"/></p>
+</figure>
+<p>The <a href="https://go.solarnetwork.net/dev/api/">SolarNetwork API Explorer</a> can be used to add the necessary tariff schedule
+metadata to your account. For example:</p>
+<figure>
+<p><img alt="API Explorer add tariff metadata" loading="lazy" src="../../../images/users/datum-filters/tariff-api-explorer-add-user-metdata%402x.png" width="678"/></p>
+</figure>
+<h2 id="tariff-schedule-format"><span class="enumerate-headings-plugin enumerate-heading-plugin">28.3</span> Tariff schedule format<a class="headerlink" href="#tariff-schedule-format" title="Permanent link">¶</a></h2>
+<p>The tariff schedule obtained from the configured Metadata Service uses a simple CSV-based format
+that can be easily exported from a spreadsheet. Each row represents a rule that includes:</p>
+<ul>
+<li>a set of time constraints that must be satisfied for the rule to be applied</li>
+<li>a list of tariff rates to be added to datum when the constraints are satisfied</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Include a header row</p>
+<p>A header row is <strong>required</strong> because the tariff rate names are defined there.
+The first 4 column names are ignored.</p>
+</div>
+<p>The schedule consists of 4 time constraint columns followed by one or more tariff rate columns. Each
+constraint is represented as a range, in the form <code>start - end</code>. Whitespace is allowed around the
+<code>-</code> character. If the <code>start</code> and <code>end</code> are the same, the range may be shortened to just <code>start</code>. A
+range can be left empty to represent <strong>all values</strong>. The time constraint columns are:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Column</th>
+<th align="left">Constraint</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">1</td>
+<td align="left">Month range</td>
+<td align="left">An inclusive month range. Months can be specified as numbers (1-12) or abbreviations (Jan-Dec) or full names (January - December). When using text names case does not matter and they will be parsed using the <strong>Lanauage</strong> setting.</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">Day range</td>
+<td align="left">An inclusive day-of-month range. Days are specified as numbers (1-31).</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">Weekday range</td>
+<td align="left">An inclusive day-of-week range. Weekdays can be specified as numbers (1-7) with Monday being <code>1</code> and Sunday being <code>7</code>, or abbreviations (Mon-Sun) or full names (Monday - Sunday). When using text names case does not matter and they will be parsed using the <strong>Lanauage</strong> setting.</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left">Time range</td>
+<td align="left">An <strong>inclusive - exclusive</strong> time-of-day range. The time can be specified as whole hour numbers (0-24) or <code>HH:MM</code> style (<code>00:00</code> - <code>24:00</code>).</td>
+</tr>
+</tbody>
+</table>
+<p>Starting on column 5 of the tariff schedule are arbitrary rate values to add to datum when the
+corresponding constraints are satisfied. The name of the datum property is derived from the <strong>header
+row</strong> of the column, adapted according to the following rules:</p>
+<ol>
+<li>change to lower case</li>
+<li>replacing any runs of non-alphanumeric or underscore with a single underscore</li>
+<li>removing any leading/trailing underscores</li>
+</ol>
+<p>Here are some examples of the header name to the equivalent property name:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Rate Header Name</th>
+<th align="left">Datum Property Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">TOU</td>
+<td align="left"><code>tou</code></td>
+</tr>
+<tr>
+<td align="left">Foo Bar</td>
+<td align="left"><code>foo_bar</code></td>
+</tr>
+<tr>
+<td align="left">This Isn't A Great Name!</td>
+<td align="left"><code>this_isn_t_a_great_name</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="example-schedule"><span class="enumerate-headings-plugin enumerate-heading-plugin">28.3.1</span> Example schedule<a class="headerlink" href="#example-schedule" title="Permanent link">¶</a></h3>
+<p>Here's an example schedule with 4 rules and a single <strong>TOU</strong> rate (the <code>*</code> stands for <strong>all values</strong>):</p>
+<table>
+<thead>
+<tr>
+<th align="left">Rule</th>
+<th align="left">Month</th>
+<th align="left">Day</th>
+<th align="left">Weekday</th>
+<th align="left">Time</th>
+<th align="right">TOU</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>1</strong></td>
+<td align="left">Jan-Dec</td>
+<td align="left">*</td>
+<td align="left">Mon-Fri</td>
+<td align="left">0-8</td>
+<td align="right">10.48</td>
+</tr>
+<tr>
+<td align="left"><strong>2</strong></td>
+<td align="left">Jan-Dec</td>
+<td align="left">*</td>
+<td align="left">Mon-Fri</td>
+<td align="left">8-24</td>
+<td align="right">11.00</td>
+</tr>
+<tr>
+<td align="left"><strong>3</strong></td>
+<td align="left">Jan-Dec</td>
+<td align="left">*</td>
+<td align="left">Sat-Sun</td>
+<td align="left">0-8</td>
+<td align="right">9.19</td>
+</tr>
+<tr>
+<td align="left"><strong>4</strong></td>
+<td align="left">Jan-Dec</td>
+<td align="left">*</td>
+<td align="left">Sat-Sun</td>
+<td align="left">8-24</td>
+<td align="right">11.21</td>
+</tr>
+</tbody>
+</table>
+<p>In CSV format the schedule would look like this:</p>
+<div class="highlight"><pre><span></span><code>Month,Day,Weekday,Time,TOU
+Jan-Dec,,Mon-Fri,0-8,10.48
+Jan-Dec,,Mon-Fri,8-24,11.00
+Jan-Dec,,Sat-Sun,0-8,9.19
+Jan-Dec,,Sat-Sun,8-24,11.21
+</code></pre></div>
+<p>When encoding into SolarNetwork metadata JSON, that same schedule would look like this when saved
+at the <code>/pm/tariffs/schedule</code> path:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"pm"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"tariffs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"schedule"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Month,Day,Weekday,Time,TOU\nJan-Dec,,Mon-Fri,0-8,10.48\nJan-Dec,,Mon-Fri,8-24,11.00\nJan-Dec,,Sat-Sun,0-8,9.19\nJan-Dec,,Sat-Sun,8-24,11.21"</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 </article>
 </div>
 </div>

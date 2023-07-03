@@ -316,11 +316,6 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#settings_1">
-    Settings
-  </a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#settings-notes">
     Settings notes
   </a>
@@ -341,6 +336,11 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../throttle/">
         Throttle
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../unchanged-property/">
+        Unchanged Property
       </a>
 </li>
 <li class="md-nav__item">
@@ -647,11 +647,6 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#settings_1">
-    Settings
-  </a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#settings-notes">
     Settings notes
   </a>
@@ -680,7 +675,6 @@ stream</a> into multiple new derived datum streams.</p>
 streams: <code>/meter/1/power</code> and <code>/meter/1/energy</code>. Properties with names containing <code>current</code>,
 <code>voltage</code>, or <code>power</code> (case-insensitive) will be copied to <code>/meter/1/power</code>. Properties with names
 containing <code>hour</code> (case-insensitive) will be copied to <code>/meter/1/energy</code>.</p>
-<h2 id="settings_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">27.2</span> Settings<a class="headerlink" href="#settings_1" title="Permanent link">¶</a></h2>
 <p>Each filter configuration contains the following overall settings:</p>
 <table>
 <thead>
@@ -700,7 +694,7 @@ containing <code>hour</code> (case-insensitive) will be copied to <code>/meter/1
 </tr>
 <tr>
 <td align="left">Source ID</td>
-<td align="left">A <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html#sum">regular expression</a> to match the input source ID(s) to filter.</td>
+<td align="left">A <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html">regular expression</a> to match the input source ID(s) to filter.</td>
 </tr>
 <tr>
 <td align="left">Required Mode</td>
@@ -716,17 +710,17 @@ containing <code>hour</code> (case-insensitive) will be copied to <code>/meter/1
 </tr>
 <tr>
 <td align="left">Property Source Mappings</td>
-<td align="left">A list of property name <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html#sum">regular expression</a> with associated source IDs to copy matching properties to.</td>
+<td align="left">A list of property name <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html">regular expression</a> with associated source IDs to copy matching properties to.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="settings-notes"><span class="enumerate-headings-plugin enumerate-heading-plugin">27.3</span> Settings notes<a class="headerlink" href="#settings-notes" title="Permanent link">¶</a></h2>
+<h2 id="settings-notes"><span class="enumerate-headings-plugin enumerate-heading-plugin">27.2</span> Settings notes<a class="headerlink" href="#settings-notes" title="Permanent link">¶</a></h2>
 <ul>
-<li><strong>Source ID</strong> — This is a case-insensitive <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html#sum">regular expression</a> to match against
+<li><strong>Source ID</strong> — This is a case-insensitive <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html">regular expression</a> to match against
    datum source ID values. If omitted then datum for <em>all</em> source ID values will be filtered,
    otherwise only datum with <em>matching</em> source ID values will be filtered.</li>
 </ul>
-<h2 id="property-source-mappings-settings"><span class="enumerate-headings-plugin enumerate-heading-plugin">27.4</span> Property Source Mappings settings<a class="headerlink" href="#property-source-mappings-settings" title="Permanent link">¶</a></h2>
+<h2 id="property-source-mappings-settings"><span class="enumerate-headings-plugin enumerate-heading-plugin">27.3</span> Property Source Mappings settings<a class="headerlink" href="#property-source-mappings-settings" title="Permanent link">¶</a></h2>
 <p>Use the <kbd>+</kbd> and <kbd>-</kbd> buttons to add/remove Property Source Mapping configurations.</p>
 <p>Each property source mapping configuration contains the following settings:</p>
 <table>
@@ -739,7 +733,7 @@ containing <code>hour</code> (case-insensitive) will be copied to <code>/meter/1
 <tbody>
 <tr>
 <td align="left">Property</td>
-<td align="left">A property name case-sensitive <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html#sum">regular expression</a> to match on the input datum stream. You can enable case-insensitive matching by including a <code>(?i)</code> prefix.</td>
+<td align="left">A property name case-sensitive <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html">regular expression</a> to match on the input datum stream. You can enable case-insensitive matching by including a <code>(?i)</code> prefix.</td>
 </tr>
 <tr>
 <td align="left">Source ID</td>
