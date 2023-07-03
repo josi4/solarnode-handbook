@@ -6,7 +6,8 @@ Datum Filters, in the order defined.  This filter can be used like any other Dat
 multiple filters to be applied in a defined order.
 
 <figure markdown>
-  ![Datum Filter Chain diagram](../../images/users/datum-filters/datum-filter-chain.svg){width=480}
+  ![Datum Filter Chain diagram](../../images/users/datum-filters/datum-filter-chain.svg#only-light){width=480}
+  ![Datum Filter Chain diagram](../../images/users/datum-filters/datum-filter-chain.dark.svg#only-dark){width=480}
   <caption>A Filter Chain acts like an ordered group of Datum Filters</caption>
 </figure>
 

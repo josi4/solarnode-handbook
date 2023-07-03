@@ -30,7 +30,8 @@ are processed in the order they are added to the queue. Datum Filters are applie
 each filter's result passed to the next available filter until all filters have been applied.
 
 <figure markdown>
-  ![Datum queue processing with filters](../../images/users/datum-filters/datum-queue-filters.svg){width=762 loading=lazy}
+  ![Datum queue processing with filters](../../images/users/datum-filters/datum-queue-filters.svg#only-light){width=762 loading=lazy}
+  ![Datum queue processing with filters](../../images/users/datum-filters/datum-queue-filters.dark.svg#only-dark){width=762 loading=lazy}
   <caption>Conceptual diagram of the Datum Queue, processing datum along with filters manipulating them</caption>
 </figure>
 
