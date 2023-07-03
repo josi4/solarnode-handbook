@@ -688,6 +688,10 @@ Chain to apply multiple filters in those services.</p>
 <td align="left">If configured, an <a href="../../op-modes/">operational mode</a> that must be active for this filter to be applied.</td>
 </tr>
 <tr>
+<td align="left">Required Tag</td>
+<td align="left">Only apply the filter on datum with the given tag. A tag may be prefixed with <code>!</code> to invert the logic so that the filter only applies to datum <strong>without</strong> the given tag. Multiple tags can be defined using a <code>,</code> delimiter, in which case <strong>at least one</strong> of the configured tags must match to apply the filter.</td>
+</tr>
+<tr>
 <td align="left">Datum Filters</td>
 <td align="left">The list of <strong>Service Name</strong> values of <a href="../../setup-app/settings/datum-filters/#user-datum-filters">User Datum Filter</a> components to apply to datum.</td>
 </tr>
