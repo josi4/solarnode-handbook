@@ -37,7 +37,7 @@ Each filter configuration contains the following overall settings:
    datum source ID values. If omitted then datum for _all_ source ID values will be filtered,
    otherwise only datum with _matching_ source ID values will be filtered.
  * **Default Unchanged Max Seconds** — Use this setting to ensure a property is included
-   occasionally, even if the property value have not changed. Having at least one value per
+   occasionally, even if the property value has not changed. Having at least one value per
    hour in a datum stream is recommended. This time period is always relative to the last
    unfiltered property within a given datum stream seen by the filter.
 
