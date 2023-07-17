@@ -664,7 +664,7 @@ individual unchanging <em>properties</em> within a datum stream.</p>
 </div>
 <h2 id="settings"><span class="enumerate-headings-plugin enumerate-heading-plugin">31.1</span> Settings<a class="headerlink" href="#settings" title="Permanent link">¶</a></h2>
 <figure>
-<p><img alt="Unchanged Datum filter component settings" loading="lazy" src="../../../images/users/datum-filters/unchanged-filter-settings%402x.png" width="700"/></p>
+<p><img alt="Unchanged Datum filter component settings" loading="lazy" src="../../../images/users/datum-filters/unchanged-filter-settings%402x.png" width="697"/></p>
 </figure>
 <p>Each filter configuration contains the following overall settings:</p>
 <table>
@@ -698,6 +698,10 @@ individual unchanging <em>properties</em> within a datum stream.</p>
 <tr>
 <td align="left">Unchanged Max Seconds</td>
 <td align="left">When greater than <code>0</code> then the maximum number of seconds to refrain from publishing an unchanged datum within a single datum stream.</td>
+</tr>
+<tr>
+<td align="left">Property Pattern</td>
+<td align="left">A property name <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html">pattern</a> that limits the properties monitored for changes. Only property names that match this expression will be considered when determining if a datum differs from the previous datum within the datum stream.</td>
 </tr>
 </tbody>
 </table>
