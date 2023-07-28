@@ -19,11 +19,7 @@ Each filter configuration contains the following overall settings:
 
 | Setting            | Description |
 |:-------------------|:------------|
-| Service Name       | A unique ID for the filter, to be referenced by other components. |
-| Service Group      | An optional service group name to assign. |
-| Source ID          | A case-insensitive [pattern][regex] to match the input source ID(s) to filter. If omitted then datum for _all_ source ID values will be filtered, otherwise only datum with _matching_ source ID values will be filtered. |
-| Required Mode      | If configured, an [operational mode][opmodes] that must be active for this filter to be applied. |
-| Required Tag       | Only apply the filter on datum with the given tag. A tag may be prefixed with `!` to invert the logic so that the filter only applies to datum **without** the given tag. Multiple tags can be defined using a `,` delimiter, in which case **at least one** of the configured tags must match to apply the filter. |
+--8<-- "snippets/users/datum-filters/base-filter-settings.md"
 | Metadata Service   | The **Service Name** of the Metadata Service to obtain the tariff schedule from. See [below](#metadata-service) for more information. |
 | Metadata Path      | The metadata path that will resolve the tariff schedule from the configured Metadata Service. |
 | Language           | An IETF BCP 47 language tag to parse the tariff data with. If not configured then the default system language will be assumed.
@@ -140,8 +136,7 @@ at the `/pm/tariffs/schedule` path:
 }
 ```
 
-[regex]: https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html
-[opmodes]: ../op-modes.md
+--8<-- "snippets/users/datum-filters/base-filter-settings-links.md"
 [placeholders]: ../placeholders.md
 [api-explorer]: https://go.solarnetwork.net/dev/api/
 [tariff]: https://github.com/SolarNetwork/solarnetwork-node/blob/develop/net.solarnetwork.node.datum.filter.tariff/

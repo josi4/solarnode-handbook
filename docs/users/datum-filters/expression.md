@@ -18,11 +18,7 @@ Each filter configuration contains the following overall settings:
 
 | Setting            | Description                                                       |
 |:-------------------|:------------------------------------------------------------------|
-| Service Name       | A unique ID for the filter, to be referenced by other components. |
-| Service Group      | An optional service group name to assign. |
-| Source ID          | A case-insensitive [pattern][regex] to match the input source ID(s) to filter. If omitted then datum for _all_ source ID values will be filtered, otherwise only datum with _matching_ source ID values will be filtered. |
-| Required Mode      | If configured, an [operational mode](../op-modes.md) that must be active for this filter to be applied. |
-| Required Tag       | Only apply the filter on datum with the given tag. A tag may be prefixed with `!` to invert the logic so that the filter only applies to datum **without** the given tag. Multiple tags can be defined using a `,` delimiter, in which case **at least one** of the configured tags must match to apply the filter. |
+--8<-- "snippets/users/datum-filters/base-filter-settings.md"
 | Expressions        |  A list of expression configurations that are evaluated to derive datum property values from other property values. |
 
 Use the <kbd>+</kbd> and <kbd>-</kbd> buttons to add/remove expression configurations.
@@ -77,10 +73,10 @@ Then here are some example expressions and the results they would produce:
 | `current > 7 or voltage > 245 ? 1 : null` | `1` | Uses comparison and logic operators to evaluate to `1` because `current` is greater than `7`. |
 | `voltage * currrent * (hasLatest('battery') ? 1.0 - latest('battery')['soc'] : 1)` | `364.952` | Assuming a `battery` datum with a `soc` property value of `0.8` then the expression resolves to `7.6 * 241.0 * (1.0 - 0.8)`. |
 
+--8<-- "snippets/users/datum-filters/base-filter-settings-links.md"
 [expr]: ../expressions.md
 [DatumExpressionRoot]: https://github.com/SolarNetwork/solarnetwork-common/blob/develop/net.solarnetwork.common/src/net/solarnetwork/domain/DatumExpressionRoot.java
 [Datum]: https://github.com/SolarNetwork/solarnetwork-common/blob/develop/net.solarnetwork.common/src/net/solarnetwork/domain/datum/Datum.java
 [node-expr]: https://github.com/SolarNetwork/solarnetwork/wiki/SolarNode-Expressions
-[regex]: https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html
 [sdf]: https://github.com/SolarNetwork/solarnetwork-node/blob/develop/net.solarnetwork.node.datum.filter.standard/
 [src]: https://github.com/SolarNetwork/solarnetwork-node/blob/develop/net.solarnetwork.node.datum.filter.standard/README-Expression.md

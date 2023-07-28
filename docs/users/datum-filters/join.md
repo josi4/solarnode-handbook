@@ -18,11 +18,7 @@ Each filter configuration contains the following overall settings:
 
 | Setting             | Description                                                       |
 |:--------------------|:------------------------------------------------------------------|
-| Service Name        | A unique ID for the filter, to be referenced by other components. |
-| Service Group       | An optional service group name to assign. |
-| Source ID          | A case-insensitive [pattern][regex] to match the input source ID(s) to filter. If omitted then datum for _all_ source ID values will be filtered, otherwise only datum with _matching_ source ID values will be filtered. |
-| Required Mode       | If configured, an [operational mode][opmodes] that must be active for this filter to be applied. |
-| Required Tag        | Only apply the filter on datum with the given tag. A tag may be prefixed with `!` to invert the logic so that the filter only applies to datum **without** the given tag. Multiple tags can be defined using a `,` delimiter, in which case **at least one** of the configured tags must match to apply the filter. |
+--8<-- "snippets/users/datum-filters/base-filter-settings.md"
 | Output Source ID    | The source ID of the merged datum stream. [Placeholders][placeholders] are allowed. |
 | Coalesce Threshold  | When `2` or more then wait until datum from this many _different_ source IDs have been encountered before generating an output datum. Once a coalesced datum has been generated the tracking of input sources resets and another datum will only be generated after the threshold is met again. If `1` or less, then generate output datum for all input datum. |
 | Swallow Input       | If enabled, then filter out input datum after merging. Otherwise leave the input datum as-is. |
@@ -119,8 +115,7 @@ multiple mappings can be used at once:
 </thead>
 </table>
 
-[opmodes]: ../op-modes.md
+--8<-- "snippets/users/datum-filters/base-filter-settings-links.md"
 [placeholders]: ../placeholders.md
-[regex]: https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html
 [sdf]: https://github.com/SolarNetwork/solarnetwork-node/blob/develop/net.solarnetwork.node.datum.filter.standard/
 [src]: https://github.com/SolarNetwork/solarnetwork-node/blob/develop/net.solarnetwork.node.datum.filter.standard/README-Join.md
