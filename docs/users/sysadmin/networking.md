@@ -47,7 +47,20 @@ Address=192.168.3.10/24
 Gateway=192.168.3.1
 ```
 
-Use **Name**, **DNS**, **Address**, and **Gateway** values specific to your network.
+Use **Name**, **DNS**, **Address**, and **Gateway** values specific to your network. The same static
+configuration for a single address can also be specified in a slightly more condensed form, moving
+everything into the `[Network]` section:
+
+```ini title="Ethernet network with condensed single static address configuration"
+[Match]
+Name=eth0
+
+[Network]
+Address=192.168.3.10/24
+Gateway=192.168.3.1
+DNS=1.1.1.1
+```
+
 
 ## WiFi network configuration
 
