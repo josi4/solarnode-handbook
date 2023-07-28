@@ -24,15 +24,8 @@ Each filter configuration contains the following overall settings:
 | Setting            | Description |
 |:-------------------|:------------|
 --8<-- "snippets/users/datum-filters/base-filter-settings.md"
-| Default Unchanged Max Seconds | When greater than `0` then the maximum number of seconds to discard unchanged properties within a single datum stream (source ID). |
+| Default Unchanged Max Seconds | When greater than `0` then the maximum number of seconds to discard unchanged properties within a single datum stream (source ID). Use this setting to ensure a property is included occasionally, even if the property value has not changed. Having at least one value per hour in a datum stream is recommended. This time period is always relative to the last unfiltered property within a given datum stream seen by the filter. |
 | Property Configurations | A list of [property settings](#property-settings). |
-
-## Settings notes
-
- * **Default Unchanged Max Seconds** — Use this setting to ensure a property is included
-   occasionally, even if the property value has not changed. Having at least one value per
-   hour in a datum stream is recommended. This time period is always relative to the last
-   unfiltered property within a given datum stream seen by the filter.
 
 ## Property Settings
 

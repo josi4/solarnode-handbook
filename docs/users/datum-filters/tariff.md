@@ -25,13 +25,7 @@ Each filter configuration contains the following overall settings:
 | Language           | An IETF BCP 47 language tag to parse the tariff data with. If not configured then the default system language will be assumed.
 | First Match        | If enabled, then apply only the **first** tariff that matches a given datum date. If disabled, then apply **all** tariffs that match. |
 | Schedule Cache     | The amount of seconds to cache the tariff schedule obtained from the configured Metadata Service.
-| Tariff Evaluator   | The **Service Name** of a _Time-based Tariff Evaluator_ service to evaluate each tariff to determine if it should apply to a given datum. |
-
-### Settings notes
-
- * **Tariff Evaluator** — If not configured a default algorithm is used that matches all non-empty
-	constraints in an inclusive manner, except for the time-of-day constraint which uses an
-	exclusive upper bound.
+| Tariff Evaluator   | The **Service Name** of a _Time-based Tariff Evaluator_ service to evaluate each tariff to determine if it should apply to a given datum. If not configured a default algorithm is used that matches all non-empty constraints in an inclusive manner, except for the time-of-day constraint which uses an exclusive upper bound. |
 
 ## Metadata Service
 

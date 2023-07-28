@@ -28,14 +28,7 @@ Each filter configuration contains the following overall settings:
 | Setting            | Description |
 |:-------------------|:------------|
 --8<-- "snippets/users/datum-filters/base-filter-settings.md"
-| Limit Seconds      | A throttle limit, in seconds, to apply to matching datum. |
-
-## Settings notes
-
- * **Limit Seconds** — The throttle limit is applied to datum by source ID. Before each datum is
-	uploaded to SolarNetwork, the filter will check how long has elapsed since a datum with the same
-	source ID was uploaded. If the elapsed time is less than the configured limit, the datum will
-	not be uploaded.
+| Limit Seconds      | A throttle limit, in seconds, to apply to matching datum. The throttle limit is applied to datum by source ID. Before each datum is uploaded to SolarNetwork, the filter will check how long has elapsed since a datum with the same source ID was uploaded. If the elapsed time is less than the configured limit, the datum will not be uploaded. |
 
 --8<-- "snippets/users/datum-filters/base-filter-settings-links.md"
 [placeholders]: ../placeholders.md

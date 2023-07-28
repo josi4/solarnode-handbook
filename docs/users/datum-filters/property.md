@@ -32,8 +32,8 @@ Each filter configuration contains the following overall settings:
 | Setting            | Description                                                       |
 |:-------------------|:------------------------------------------------------------------|
 --8<-- "snippets/users/datum-filters/base-filter-settings.md"
-| Property Includes  | A list of property names to include, removing all others.         |
-| Property Excludes  | A list of property names to exclude.                              |
+| Property Includes  | A list of property names to include, removing all others.  This is a list of case-insensitive [patterns][regex] to match against datum **property names**. If any inclusion patterns are configured then **only** properties matching one of these patterns will be included in datum. Any property name that does not match one of these patterns will be removed. |
+| Property Excludes  | A list of property names to exclude. This is a list of case-insensitive [patterns][regex] to match against datum **property names**. If any exclusion expressions are configured then **any** property that matches one of these expressions will be removed. Exclusion epxressions are processed **after** inclusion expressions when both are configured.|
 
 Use the <kbd>+</kbd> and <kbd>-</kbd> buttons to add/remove property include/exclude patterns.
 
@@ -42,21 +42,7 @@ Each property inclusion setting contains the following settings:
 | Setting            | Description                                                       |
 |:-------------------|:------------------------------------------------------------------|
 | Name               | The property name pattern to include.                             |
-| Limit Seconds      | A throttle limit, in seconds, to apply to included properties.    |
-
-## Settings notes
-
-* **Property Includes** — This is a list of case-insensitive regular expressions to match against
-	datum **property names**. If any inclusion patterns are configured then **only** properties
-	matching one of these patterns will be included in datum. Any property name that does not match
-	one of these patterns will be removed.
-* **Limit Seconds** — The minimum number of seconds to limit properties that match the configured
-	property inclusion pattern. If properties are produced faster than this rate, they will be
-	filtered out. Leave empty (or `0`) for no throttling.
-* **Property Excludes** — This is a list of case-insensitive regular expressions to match against
-	datum **property names**. If any exclusion expressions are configured then **any** property that
-	matches one of these expressions will be removed. Exclusion epxressions are processed **after**
-	inclusion expressions when both are configured.
+| Limit Seconds      | A throttle limit, in seconds, to apply to included properties. The minimum number of seconds to limit properties that match the configured property inclusion pattern. If properties are produced faster than this rate, they will be filtered out. Leave empty (or `0`) for no throttling. |
 
 --8<-- "snippets/users/datum-filters/base-filter-settings-links.md"
 [placeholders]: ../placeholders.md

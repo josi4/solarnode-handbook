@@ -34,13 +34,6 @@ Each control configuration contains the following settings:
 | Expression          | The expression to evaluate. See [below](#expressions) for more info. |
 | Expression Language | The [expression language][expr] to write **Expression** in. |
 
-
-## Settings notes
-
- * **Source ID** — This is a case-insensitive [regular expression][regex] pattern to match against
-   datum source ID values. If omitted then datum for _all_ source ID values will be filtered,
-   otherwise only datum with _matching_ source ID values will be filtered.
-
 ## Expressions
 
 See the [Expressions][expr] guide for general expressions reference. The root object
