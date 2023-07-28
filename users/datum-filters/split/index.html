@@ -316,11 +316,6 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#settings-notes">
-    Settings notes
-  </a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#property-source-mappings-settings">
     Property Source Mappings settings
   </a>
@@ -647,11 +642,6 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#settings-notes">
-    Settings notes
-  </a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#property-source-mappings-settings">
     Property Source Mappings settings
   </a>
@@ -694,11 +684,11 @@ containing <code>hour</code> (case-insensitive) will be copied to <code>/meter/1
 </tr>
 <tr>
 <td align="left">Source ID</td>
-<td align="left">A <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html">regular expression</a> to match the input source ID(s) to filter.</td>
+<td align="left">A case-insensitive <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html">pattern</a> to match the input source ID(s) to filter. If omitted then datum for <em>all</em> source ID values will be filtered, otherwise only datum with <em>matching</em> source ID values will be filtered.</td>
 </tr>
 <tr>
 <td align="left">Required Mode</td>
-<td align="left">If configured, an <a href="https://github.com/SolarNetwork/solarnetwork/wiki/SolarNode-Operational-Modes">operational mode</a> that must be active for this filter to be applied.</td>
+<td align="left">If configured, an <a href="../../op-modes/">operational mode</a> that must be active for this filter to be applied.</td>
 </tr>
 <tr>
 <td align="left">Required Tag</td>
@@ -714,13 +704,7 @@ containing <code>hour</code> (case-insensitive) will be copied to <code>/meter/1
 </tr>
 </tbody>
 </table>
-<h2 id="settings-notes"><span class="enumerate-headings-plugin enumerate-heading-plugin">27.2</span> Settings notes<a class="headerlink" href="#settings-notes" title="Permanent link">¶</a></h2>
-<ul>
-<li><strong>Source ID</strong> — This is a case-insensitive <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html">regular expression</a> to match against
-   datum source ID values. If omitted then datum for <em>all</em> source ID values will be filtered,
-   otherwise only datum with <em>matching</em> source ID values will be filtered.</li>
-</ul>
-<h2 id="property-source-mappings-settings"><span class="enumerate-headings-plugin enumerate-heading-plugin">27.3</span> Property Source Mappings settings<a class="headerlink" href="#property-source-mappings-settings" title="Permanent link">¶</a></h2>
+<h2 id="property-source-mappings-settings"><span class="enumerate-headings-plugin enumerate-heading-plugin">27.2</span> Property Source Mappings settings<a class="headerlink" href="#property-source-mappings-settings" title="Permanent link">¶</a></h2>
 <p>Use the <kbd>+</kbd> and <kbd>-</kbd> buttons to add/remove Property Source Mapping configurations.</p>
 <p>Each property source mapping configuration contains the following settings:</p>
 <table>

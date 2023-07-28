@@ -335,11 +335,6 @@
     Settings
   </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#settings-notes">
-    Settings notes
-  </a>
-</li>
 </ul>
 </nav>
 </li>
@@ -641,11 +636,6 @@
     Settings
   </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#settings-notes">
-    Settings notes
-  </a>
-</li>
 </ul>
 </nav>
 </div>
@@ -685,11 +675,11 @@ individual unchanging <em>properties</em> within a datum stream.</p>
 </tr>
 <tr>
 <td align="left">Source ID</td>
-<td align="left">A <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html">regular expression</a> to match the input source ID(s) to filter.</td>
+<td align="left">A case-insensitive <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html">pattern</a> to match the input source ID(s) to filter. If omitted then datum for <em>all</em> source ID values will be filtered, otherwise only datum with <em>matching</em> source ID values will be filtered.</td>
 </tr>
 <tr>
 <td align="left">Required Mode</td>
-<td align="left">If configured, an <a href="https://github.com/SolarNetwork/solarnetwork/wiki/SolarNode-Operational-Modes">operational mode</a> that must be active for this filter to be applied.</td>
+<td align="left">If configured, an <a href="../../op-modes/">operational mode</a> that must be active for this filter to be applied.</td>
 </tr>
 <tr>
 <td align="left">Required Tag</td>
@@ -697,7 +687,7 @@ individual unchanging <em>properties</em> within a datum stream.</p>
 </tr>
 <tr>
 <td align="left">Unchanged Max Seconds</td>
-<td align="left">When greater than <code>0</code> then the maximum number of seconds to refrain from publishing an unchanged datum within a single datum stream.</td>
+<td align="left">When greater than <code>0</code> then the maximum number of seconds to refrain from publishing an unchanged datum within a single datum stream. Use this setting to ensure a datum is included occasionally, even if the datum properties have not changed. Having at least one value per hour in a datum stream is recommended. This time period is always relative to the last unfiltered property within a given datum stream seen by the filter.</td>
 </tr>
 <tr>
 <td align="left">Property Pattern</td>
@@ -705,16 +695,6 @@ individual unchanging <em>properties</em> within a datum stream.</p>
 </tr>
 </tbody>
 </table>
-<h2 id="settings-notes"><span class="enumerate-headings-plugin enumerate-heading-plugin">31.2</span> Settings notes<a class="headerlink" href="#settings-notes" title="Permanent link">¶</a></h2>
-<ul>
-<li><strong>Source ID</strong> — This is a case-insensitive <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html">regular expression</a> to match against
-   datum source ID values. If omitted then datum for <em>all</em> source ID values will be filtered,
-   otherwise only datum with <em>matching</em> source ID values will be filtered.</li>
-<li><strong>Unchanged Max Seconds</strong> — Use this setting to ensure a datum is included
-   occasionally, even if the datum properties have not changed. Having at least one value per
-   hour in a datum stream is recommended. This time period is always relative to the last
-   unfiltered property within a given datum stream seen by the filter.</li>
-</ul>
 </article>
 </div>
 </div>
