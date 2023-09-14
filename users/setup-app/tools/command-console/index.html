@@ -217,9 +217,26 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Command Console
+          <span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
         Command Console
       </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#modbus-commands">
+    Modbus Commands
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -614,6 +631,17 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#modbus-commands">
+    Modbus Commands
+  </a>
+</li>
+</ul>
 </nav>
 </div>
 </div>
@@ -621,6 +649,30 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="command-console"><span class="enumerate-headings-plugin enumerate-heading-plugin">14.</span> Command Console<a class="headerlink" href="#command-console" title="Permanent link">¶</a></h1>
+<p>SolarNode includes a Command Console page where troubleshooting commands from supporting plugins are
+displayed. The page shows a list of available command topics and lets you toggle the inclusion of
+each topic's commands at the bottom of the page.</p>
+<p><img alt="SolarNode Command Console screen" src="../../../../images/users/setup/setup-command-console%402x.png" width="889"/></p>
+<h2 id="modbus-commands"><span class="enumerate-headings-plugin enumerate-heading-plugin">14.1</span> Modbus Commands<a class="headerlink" href="#modbus-commands" title="Permanent link">¶</a></h2>
+<p>The <a href="https://github.com/SolarNetwork/solarnetwork-node/tree/develop/net.solarnetwork.node.io.modbus.nifty">Modbus TCP Connection</a> and <a href="https://github.com/SolarNetwork/solarnetwork-node/tree/develop/net.solarnetwork.node.io.modbus.nifty.jsc">Modbus Serial Connection</a>
+components support publishing <a href="https://github.com/epsilonrt/mbpoll">mbpoll</a> commands under a <strong>modbus</strong> command topic. The <code>mbpoll</code>
+utility is included in SolarNodeOS; if not already installed you can install it by logging in to the
+<a href="../../../sysadmin/">SolarNodeOS shell</a> and running the following command:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>mbpoll
+</code></pre></div>
+<p>Modbus command logging must be enabled on each Modbus Connection component by toggling the
+<strong>CLI Publishing</strong> setting on.</p>
+<p><img alt="SolarNode Modbus Connection CLI Publishing setting" src="../../../../images/users/setup/setup-modbus-connection-cli-publishing%402x.png" width="660"/></p>
+<p>Once CLI Publishing has been enabled, every Modbus request made on that connection will generate an equivalent
+<code>mbpoll</code> command, and those commands will be shown on the Command Console.</p>
+<p><img alt="SolarNode Command Console Modbus commands" src="../../../../images/users/setup/setup-command-console-modbus%402x.png" width="741"/></p>
+<p>You can copy any logged command and paste that into a SolarNodeOS shell to execute the Modbus
+request and see the results.</p>
+<div class="highlight"><pre><span></span><code>mbpoll<span class="w"> </span>-g<span class="w"> </span>-0<span class="w"> </span>-1<span class="w"> </span>-m<span class="w"> </span>rtu<span class="w"> </span>-b<span class="w"> </span><span class="m">4800</span><span class="w"> </span>-s<span class="w"> </span><span class="m">1</span><span class="w"> </span>-P<span class="w"> </span>none<span class="w"> </span>-a<span class="w"> </span><span class="m">1</span><span class="w"> </span>-o<span class="w"> </span><span class="m">5</span><span class="w"> </span>-t<span class="w"> </span><span class="m">4</span>:hex<span class="w"> </span>-r<span class="w"> </span><span class="m">0</span><span class="w"> </span>-c<span class="w"> </span><span class="m">2</span><span class="w"> </span>/dev/tty.usbserial-FTYS9FWO
+--<span class="w"> </span>Polling<span class="w"> </span>slave<span class="w"> </span><span class="m">1</span>...
+<span class="o">[</span><span class="m">0000</span><span class="o">]</span>:<span class="w">     </span>0x00FC
+<span class="o">[</span><span class="m">0001</span><span class="o">]</span>:<span class="w">     </span>0x0A1F
+</code></pre></div>
 </article>
 </div>
 </div>
