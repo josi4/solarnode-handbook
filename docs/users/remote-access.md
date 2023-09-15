@@ -155,9 +155,9 @@ solarssh 123
 SolarNode using PuTTY, you must:
 
  1. Configure a SSH connection proxy to `ssh.solarnetwork.net:9022` using a username like
-    `NODEID:TOKENID` and the corresponding token secret as the password.
+    `NODE_ID:TOKEN_ID` and the corresponding token secret as the password.
  2. Optionally configure a tunnel to `localhost:8080` to access the SolarNode Setup App
- 3. Configure the session to connect to `solarnode` on port `22`
+ 3. Configure the session to connect to `solarnode-NODE_ID` on port `22`
 
 ### PuTTY SSH proxy connection configuration
 
@@ -168,7 +168,7 @@ Open the **Connection > Proxy** configuration category in PuTTY, and configure t
 | **Proxy type** | _SSH to proxy and use port forwarding_ |
 | **Proxy hostname** | `ssh.solarnetwork.net` |
 | **Port** | `9022` |
-| **Username** | The desired node ID, followed by a `:`, followed by a user security token ID, that is: `NODEID:TOKENID` |
+| **Username** | The desired node ID, followed by a `:`, followed by a user security token ID, that is: `NODE_ID:TOKEN_ID` |
 | **Password** | The user security token secret. |
 
 <figure markdown>
@@ -205,7 +205,7 @@ the settings you have configured, making it easy to load them in the future.
 
 | Setting | Value |
 |:--------|:------|
-| **Host Name** | Does not actually matter, but a name like `solarnode-NODEID` is helpful, where `NODEID` is the ID of the node you are connecting to. |
+| **Host Name** | Does not actually matter, but a name like `solarnode-NODE_ID` is helpful, where `NODE_ID` is the ID of the node you are connecting to. |
 | **Port** | `22` |
 
 <figure markdown>
