@@ -142,13 +142,108 @@ function solarssh () {
 }
 ```
 
-Just replace `SN_TOKEN_HERE` with a user security token. After integrating this into your shell's configuration (e.g. `~/.bashrc` or `~/.zshrc`) then you
-could connect to node `123` like:
+Just replace `SN_TOKEN_HERE` with a user security token. After integrating this into your shell's
+configuration (e.g. `~/.bashrc` or `~/.zshrc`) then you could connect to node `123` like:
 
 ```sh
 solarssh 123
 ```
 
+## PuTTY
+
+[PuTTY][putty] is a popular tool for Windows that supports SolarSSH connections. To connect to a
+SolarNode using PuTTY, you must:
+
+ 1. Configure a SSH connection proxy to `ssh.solarnetwork.net:9022` using a username like
+    `NODEID:TOKENID` and the corresponding token secret as the password.
+ 2. Optionally configure a tunnel to `localhost:8080` to access the SolarNode Setup App
+ 3. Configure the session to connect to `solarnode` on port `22`
+
+### PuTTY SSH proxy connection configuration
+
+Open the **Connection > Proxy** configuration category in PuTTY, and configure the following settings:
+
+| Setting | Value |
+|:--------|:------|
+| **Proxy type** | _SSH to proxy and use port forwarding_ |
+| **Proxy hostname** | `ssh.solarnetwork.net` |
+| **Port** | `9022` |
+| **Username** | The desired node ID, followed by a `:`, followed by a user security token ID, that is: `NODEID:TOKENID` |
+| **Password** | The user security token secret. |
+
+<figure markdown>
+  ![PuTTY SolarSSH connection proxy configuration](../images/users/solarssh/solarssh-putty-conf-proxy@2x.png){width=451 loading=lazy}
+  <figcaption markdown>Confiruing PuTTY connection proxy settings</figcaption>
+</figure>
+
+### PuTTY SSH tunnel configuration
+
+To access the SolarNode Setup App, you can configure PuTTY to foward a port on your local machine to
+`localhost:8080` on the node. Once the SSH connection is established, you can open a browser to
+`http://localhost:PORT` to access the SolarNode Setup App. You can use any available local port, for
+example if you used port `8888` then you would open a browser to `http://localhost:8888` to access
+the SolarNode Setup App.
+
+Open the **Connection > SSH > Tunnels** configuration category in PuTTY, and configure the following settings:
+
+| Setting | Value |
+|:--------|:------|
+| **Source port** | A free port on your machine, for example `8888`. |
+| **Destination** | `localhost:8080` |
+| **Add** | You must click the **Add** button to add this tunnel. You can then add other tunnels as needed. |
+
+<figure markdown>
+  ![PuTTY SolarSSH connection proxy configuration](../images/users/solarssh/solarssh-putty-conf-tunnels@2x.png){width=451 loading=lazy}
+  <figcaption markdown>Confiruing PuTTY connection SSH tunnel settings</figcaption>
+</figure>
+
+### PuTTY session configuration
+
+Finally under the **Session** configuration category in PuTTY, configure the Host Name and Port to
+connect to SolarNode. You can also provide a session name and click the **Save** button to save all
+the settings you have configured, making it easy to load them in the future.
+
+| Setting | Value |
+|:--------|:------|
+| **Host Name** | Does not actually matter, but a name like `solarnode-NODEID` is helpful, where `NODEID` is the ID of the node you are connecting to. |
+| **Port** | `22` |
+
+<figure markdown>
+  ![PuTTY SolarSSH session configuration](../images/users/solarssh/solarssh-putty-conf-session@2x.png){width=451 loading=lazy}
+  <figcaption markdown>Confiruing PuTTY session settings</figcaption>
+</figure>
+
+### PuTTY open connection
+
+On the **Session** configuration category, click the **Open** button to establish the SolarSSH
+connection. You might be prompted to confirm the identity of the `ssh.solarnetwork.net` server
+first. Click the **Accept** button if this is the case.
+
+<figure markdown>
+  ![PuTTY SolarSSH host verification alert](../images/users/solarssh/solarssh-putty-trust-alert@2x.png){width=510 loading=lazy}
+  <figcaption markdown>PuTTY host verification alert</figcaption>
+</figure>
+
+PuTTY will connect to SolarSSH and after a short while prompt you for the SolarNodeOS user you would
+like to connect to SolarNode with. Typically you would use the `solar` account, so you would type
+`solar` followed by ++enter++. You will then be prompted for that account's password, so type that
+in and type ++enter++ again. You will then be presented with the SolarNodeOS shell prompt.
+
+<figure markdown>
+  ![PuTTY SolarSSH node login](../images/users/solarssh/solarssh-putty-node-login@2x.png){width=659 loading=lazy}
+  <figcaption markdown>PuTTY node login</figcaption>
+</figure>
+
+Assuming you configured a SSH tunnel on port `8888` to `localhost:8080`, you can now open
+<http://localhost:8888> to access the SolarNode Setup App.
+
+<figure markdown>
+  ![PuTTY SolarSSH access to Setup App](../images/users/solarssh/solarssh-putty-setup-app@2x.png){width=783 loading=lazy}
+  <figcaption markdown>Once connected to SolarSSH, access the SolarNode Setup App in your browser.</figcaption>
+</figure>
+
+
+[putty]: https://www.putty.org/
 [ssh]: https://en.wikipedia.org/wiki/Secure_Shell
 [sec-tokens]: https://data.solarnetwork.net/solaruser/u/sec/auth-tokens
 [ssh-clients]: https://en.wikipedia.org/wiki/Comparison_of_SSH_clients
