@@ -915,9 +915,9 @@ configuration (e.g. <code>~/.bashrc</code> or <code>~/.zshrc</code>) then you co
 SolarNode using PuTTY, you must:</p>
 <ol>
 <li>Configure a SSH connection proxy to <code>ssh.solarnetwork.net:9022</code> using a username like
-    <code>NODEID:TOKENID</code> and the corresponding token secret as the password.</li>
+    <code>NODE_ID:TOKEN_ID</code> and the corresponding token secret as the password.</li>
 <li>Optionally configure a tunnel to <code>localhost:8080</code> to access the SolarNode Setup App</li>
-<li>Configure the session to connect to <code>solarnode</code> on port <code>22</code></li>
+<li>Configure the session to connect to <code>solarnode-NODE_ID</code> on port <code>22</code></li>
 </ol>
 <h3 id="putty-ssh-proxy-connection-configuration"><span class="enumerate-headings-plugin enumerate-heading-plugin">42.3.1</span> PuTTY SSH proxy connection configuration<a class="headerlink" href="#putty-ssh-proxy-connection-configuration" title="Permanent link">¶</a></h3>
 <p>Open the <strong>Connection &gt; Proxy</strong> configuration category in PuTTY, and configure the following settings:</p>
@@ -943,7 +943,7 @@ SolarNode using PuTTY, you must:</p>
 </tr>
 <tr>
 <td align="left"><strong>Username</strong></td>
-<td align="left">The desired node ID, followed by a <code>:</code>, followed by a user security token ID, that is: <code>NODEID:TOKENID</code></td>
+<td align="left">The desired node ID, followed by a <code>:</code>, followed by a user security token ID, that is: <code>NODE_ID:TOKEN_ID</code></td>
 </tr>
 <tr>
 <td align="left"><strong>Password</strong></td>
@@ -1008,7 +1008,7 @@ the settings you have configured, making it easy to load them in the future.</p>
 <tbody>
 <tr>
 <td align="left"><strong>Host Name</strong></td>
-<td align="left">Does not actually matter, but a name like <code>solarnode-NODEID</code> is helpful, where <code>NODEID</code> is the ID of the node you are connecting to.</td>
+<td align="left">Does not actually matter, but a name like <code>solarnode-NODE_ID</code> is helpful, where <code>NODE_ID</code> is the ID of the node you are connecting to.</td>
 </tr>
 <tr>
 <td align="left"><strong>Port</strong></td>
