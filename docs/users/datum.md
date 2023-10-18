@@ -82,7 +82,7 @@ The datum samples are actually further organized into three _classifications_:
 |:---------------|:----|:------------|
 | **instantaneous** | `i` | a single reading, observation, or measurement that does not accumulate over time |
 | **accumulating**  | `a` | a reading that accumulates over time, like a meter or odometer |
-| **status**        | `s` | non-numeric data, like staus codes or error messages |
+| **status**        | `s` | non-numeric data, like status codes or error messages |
 
 These classifications help SolarNetwork understand how to aggregate the datum samples over time.
 When SolarNode uploads a datum to SolarNetwork, the sample will include the classification of each property.
