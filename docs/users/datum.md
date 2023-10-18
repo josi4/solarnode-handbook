@@ -8,7 +8,7 @@ source_ at a specific _time_.
 
 	the **temperature** and **humidity** collected from **my weather station** at **1 Jan 2023 11:00 UTC**
 
-In this example datum description, we have all the comopnents of a datum:
+In this example datum description, we have all the components of a datum:
 
 | Datum component | Description |
 |:----------------|:------------|
