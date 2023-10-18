@@ -9,7 +9,7 @@ contribution is too small:
 
  * questions
  * spelling corrections
- * grammer suggestions
+ * grammar suggestions
  * translations
  * clarifications
  * additional details
